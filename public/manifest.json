@@ -6,9 +6,5 @@
   "description": "ClassTrack is an extension...",
   "action": {
     "default_popup": "index.html"
-  },
-  "permissions": [
-    "storage"
-  ],
-  "host_permissions": ["*://*/*"]
+  }
 }
