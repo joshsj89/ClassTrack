@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "short_name": "ClassTrack",
+  "name": "ClassTrack",
+  "version": "1.0",
+  "description": "ClassTrack is an extension...",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": ["*://*/*"]
+}
