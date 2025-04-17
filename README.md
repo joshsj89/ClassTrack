@@ -1,6 +1,24 @@
-# Getting Started with Create React App
+# ClassTrack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ClassTrack is an extension...
+
+## Prerequisites
+- Node.js and npm installed on your machine.
+- A modern web browser (Chrome, Firefox, etc.) for testing the extension.
+
+## Running the Extension
+
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Install the dependencies using `npm install`.
+4. Build the project using `npm run build`.
+5. Open Chrome and navigate to `chrome://extensions/`.
+6. Enable "Developer mode" in the top right corner.
+7. Click on "Load unpacked" and select the `build` directory of the cloned repository.
+8. The extension should now be loaded and ready to use.
+9. Open the extension by clicking on its icon in the Chrome toolbar.
+10. Follow the on-screen instructions to set up the extension.
+11. Use the extension to track your classes and manage your schedule.
 
 ## Available Scripts
 
@@ -14,11 +32,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -26,6 +39,8 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+The build folder is where the production-ready version of the extension will be located. You can load this folder into Chrome as an unpacked extension.
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
