@@ -24,7 +24,7 @@ function App() {
                         alt="Canvas"
                     />
                     <LogoButton
-                        text="Link to Google"
+                        text="Link to Google Account"
                         onClick={() => console.log("Google Linked")}
                         logoSrc="images/google-logo.png"
                         alt="Google"
@@ -56,16 +56,17 @@ function App() {
                 {/* Row 3 */}
                 <div className={`${styles["row"]} ${styles["row-3"]}`}>
                     <div className={styles["toggle-container"]}>
-                        {["Due Dates", "Exams", "Quizzes", "Projects", "Office Hours"].map(label => (
+                        {["Lecture/Lab", "Extracurricular", "Work", "Personal", "Tasks"].map(label => (
                             <Toggle
                                 key={label}
                                 label={label}
+                                backgroundColor='#4CAF50'
                                 onChange={(checked) => console.log(`${label} toggled: ${checked}`)}
                             />
                         ))}
                     </div>
                     <div className={styles["toggle-container"]}>
-                        {["Reminders", "Email Alerts", "Calendar Sync", "Auto-Parse", "Dark Mode"].map(label => (
+                        {["Lectures", "Labs", "Assignments", "Midterms", "Finals"].map(label => (
                             <Toggle
                                 key={label}
                                 label={label}
@@ -78,7 +79,7 @@ function App() {
                 {/* Row 4 */}
                 <div className={`${styles["row"]} ${styles["row-4"]}`}>
                     <div className={styles["toggle-container"]}>
-                        {["Toggle 1", "Toggle 2", "Toggle 3", "Toggle 4", "Toggle 5"].map(label => (
+                        {["Dark Mode", "Scheduled Dark Mode", "Toggle 3", "Toggle 4", "Toggle 5"].map(label => (
                             <Toggle
                                 key={label}
                                 label={label}
@@ -87,7 +88,7 @@ function App() {
                         ))}
                     </div>
                     <div className={styles["toggle-container"]}>
-                        {["Toggle 6", "Toggle 7", "Toggle 8", "Toggle 9", "Toggle 10"].map(label => (
+                        {["Organize Drive", "Create Files", "Include Lecure Name", "Include Assignment", "Link to Calendar"].map(label => (
                             <Toggle
                                 key={label}
                                 label={label}
