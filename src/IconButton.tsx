@@ -11,7 +11,14 @@ function IconButton({ text, onClick, iconSrc, alt, backgroundColor, textColor }:
             }}
         >
             {text}<br />
-            <img src={iconSrc} alt={alt} className={styles["tall-icon"]} />
+            <img 
+                src={iconSrc}
+                alt={alt}
+                className={styles["tall-icon"]} 
+                style={{ 
+                    filter: textColor === "white" ? "invert(100%)" : "none",
+                }}
+            />
         </button>
     );
 }
