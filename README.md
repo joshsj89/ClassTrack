@@ -44,6 +44,12 @@ The build folder is where the production-ready version of the extension will be 
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run watch`
+
+Runs the app in watch mode.\
+This command is useful for development and testing purposes. It will automatically rebuild the app whenever you make changes to the source code.
+This allows you to use the VS Code debugger to debug the extension in Chrome.
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
@@ -59,3 +65,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## External Documentation
+- [Chrome Extension Documentation](https://developer.chrome.com/docs/extensions/mv3/getstarted/)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Google Calendar API Documentation](https://developers.google.com/workspace/calendar/api/v3/reference)
+- [Google Drive API Documentation](https://developers.google.com/workspace/drive/api/reference/rest/v3)

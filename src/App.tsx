@@ -10,8 +10,9 @@ function App() {
     const { darkMode, toggleDarkMode } = useDarkMode();
     const [startTime, setStartTime] = useState<string>('00:00'); // 7:00 PM
     const [endTime, setEndTime] = useState<string>('00:00'); // 7:00 AM
-    const year = new Date().getFullYear();
+    const [isGoogleLinked, setIsGoogleLinked] = useState<boolean>(false);
 
+    const year = new Date().getFullYear();
 
     // Toggle dark mode based on the time
     const checkScheduledDarkMode = () => {
@@ -43,6 +44,80 @@ function App() {
         return () => clearInterval(intervalId);
     }, [startTime, endTime]);
 
+    // Link Google Account
+    const linkGoogleAccount = async () => {
+        try {
+            const token: string = await new Promise<string>((resolve, reject) => {
+                chrome.identity.getAuthToken({ interactive: true }, (token) => { // Request an auth token
+                    if (chrome.runtime.lastError || !token) { // Check for errors
+                        reject(chrome.runtime.lastError);
+                        return;
+                    }
+
+                    resolve(token as string); // Resolve the promise with the token
+                });
+            });
+
+            console.log("Google access token:", token);
+
+            // Fetch calendar events using the token
+            await fetchCalendarEvents(token);
+            await createDriveFolder(token, "ClassTrack Drive Test"); // Create a folder in Google Drive
+        } catch (error) {
+            console.error("Error linking Google account:", error);
+        }
+    }
+
+    // Handle Google Link button click
+    const handleGoogleLink = () => {
+        if (isGoogleLinked) return;
+
+        linkGoogleAccount().then(() => {
+            setIsGoogleLinked(true);
+            console.log("Google account linked successfully.");
+        }).catch((error) => {
+            console.error("Error linking Google account:", error);
+        });
+    }
+
+    // Fetch calendar events from Google Calendar API
+    const fetchCalendarEvents = async (token: string) => {
+        const response = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error fetching calendar events: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Calendar events:", data); // Log the calendar events
+    }
+
+    const createDriveFolder = async (token: string, folderName: string) => {
+        const response = await fetch('https://www.googleapis.com/drive/v3/files', {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: folderName,
+                mimeType: 'application/vnd.google-apps.folder',
+            }),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error creating folder: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Folder created:", data);
+    }
+
     return (
         <div className={`${styles["App"]} ${darkMode ? styles["dark"] : ""}`}>
             {/* Title Bar */}
@@ -56,15 +131,20 @@ function App() {
                 <div className={`${styles["row"]} ${styles["row-1"]}`}>
                     <LogoButton
                         text="Connect to Canvas"
-                        onClick={() => console.log("Canvas Connected")}
+                        onClick={(() => console.log("Canvas Connected"))}
                         logoSrc="images/canvas-logo.png"
                         alt="Canvas"
+                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                        textColor={darkMode ? "white" : "black"}
                     />
                     <LogoButton
-                        text="Link to Google Account"
-                        onClick={() => console.log("Google Linked")}
+                        text={isGoogleLinked ? "Google Linked" : "Link to Google Account"}
+                        onClick={handleGoogleLink}
                         logoSrc="images/google-logo.png"
                         alt="Google"
+                        disabled={isGoogleLinked}
+                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                        textColor={darkMode ? "white" : "black"}
                     />
                 </div>
 
@@ -75,18 +155,24 @@ function App() {
                         onClick={() => console.log("Upload clicked")}
                         iconSrc="images/upload-icon.png"
                         alt="Upload"
+                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                        textColor={darkMode ? "white" : "black"}
                     />
                     <IconButton
                         text="Paste Text"
                         onClick={() => console.log("Paste Text clicked")}
                         iconSrc="images/paste-icon.png"
                         alt="Paste"
+                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                        textColor={darkMode ? "white" : "black"}
                     />
                     <IconButton
                         text="Sync"
                         onClick={() => console.log("Sync clicked")}
                         iconSrc="images/sync-icon.png"
                         alt="Sync"
+                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                        textColor={darkMode ? "white" : "black"}
                     />
                 </div>
 
@@ -116,19 +202,23 @@ function App() {
                 {/* Row 4 (updated) */}
                 <div className={`${styles["row"]} ${styles["row-4"]}`}>
                     <div className={styles["toggle-container"]}>
-                        {["Dark Mode", "Scheduled Dark Mode"].map(label => (
-                            <Toggle
-                                key={label}
-                                label={label}
-                                onChange={(checked) => {
-                                    if (label === "Dark Mode") {
-                                        toggleDarkMode(checked);
-                                    }
-                                    console.log(`${label} toggled: ${checked}`);
-                                    console.log("Dark Mode state:", darkMode);
-                                }}
-                            />
-                        ))}
+                        <Toggle
+                            key="Dark Mode"
+                            label="Dark Mode"
+                            onChange={(checked) => {
+                                toggleDarkMode(checked);
+                                
+                                console.log(`Dark Mode toggled: ${checked}`);
+                            }}
+                        />
+                        <Toggle
+                            key="Scheduled Dark Mode"
+                            label="Scheduled Dark Mode"
+                            onChange={(checked) => {
+                                console.log(`Scheduled Dark Mode toggled: ${checked}`);
+                                checkScheduledDarkMode(); // Check the scheduled dark mode state
+                            }}
+                        />
                         <div>
                             <label>Start Time: </label>
                             <input
