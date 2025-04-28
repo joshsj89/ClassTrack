@@ -44,6 +44,12 @@ The build folder is where the production-ready version of the extension will be 
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run watch`
+
+Runs the app in watch mode.\
+This command is useful for development and testing purposes. It will automatically rebuild the app whenever you make changes to the source code.
+This allows you to use the VS Code debugger to debug the extension in Chrome.
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**

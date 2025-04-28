@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "watch": "nodemon --watch src --exec \"npm run build\"",
+    "watch": "chokidar \"src/**/*\" \"public/**/*\" -c \"npm run build\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -43,6 +43,8 @@
     ]
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.317",
+    "chokidar-cli": "^3.0.0",
     "nodemon": "^3.1.9"
   }
 }
