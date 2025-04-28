@@ -62,6 +62,7 @@ function App() {
 
             // Fetch calendar events using the token
             await fetchCalendarEvents(token);
+            await createDriveFolder(token, "ClassTrack Drive Test"); // Create a folder in Google Drive
         } catch (error) {
             console.error("Error linking Google account:", error);
         }
@@ -94,6 +95,27 @@ function App() {
 
         const data = await response.json();
         console.log("Calendar events:", data); // Log the calendar events
+    }
+
+    const createDriveFolder = async (token: string, folderName: string) => {
+        const response = await fetch('https://www.googleapis.com/drive/v3/files', {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: folderName,
+                mimeType: 'application/vnd.google-apps.folder',
+            }),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error creating folder: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Folder created:", data);
     }
 
     return (

@@ -65,3 +65,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## External Documentation
+- [Chrome Extension Documentation](https://developer.chrome.com/docs/extensions/mv3/getstarted/)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Google Calendar API Documentation](https://developers.google.com/workspace/calendar/api/v3/reference)
+- [Google Drive API Documentation](https://developers.google.com/workspace/drive/api/reference/rest/v3)
