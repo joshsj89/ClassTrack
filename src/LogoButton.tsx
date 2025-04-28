@@ -7,7 +7,7 @@ function LogoButton({ text, onClick, logoSrc, alt, disabled, backgroundColor, te
             onClick={onClick}
             disabled={disabled}
             style={{
-                backgroundColor: backgroundColor || "white",
+                backgroundColor: !disabled ? backgroundColor || "white" : "lightgray",
                 color: textColor || "black",
             }}
         >

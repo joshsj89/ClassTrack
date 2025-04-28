@@ -10,8 +10,9 @@ function App() {
     const { darkMode, toggleDarkMode } = useDarkMode();
     const [startTime, setStartTime] = useState<string>('00:00'); // 7:00 PM
     const [endTime, setEndTime] = useState<string>('00:00'); // 7:00 AM
-    const year = new Date().getFullYear();
+    const [isGoogleLinked, setIsGoogleLinked] = useState<boolean>(false);
 
+    const year = new Date().getFullYear();
 
     // Toggle dark mode based on the time
     const checkScheduledDarkMode = () => {
@@ -43,6 +44,58 @@ function App() {
         return () => clearInterval(intervalId);
     }, [startTime, endTime]);
 
+    // Link Google Account
+    const linkGoogleAccount = async () => {
+        try {
+            const token: string = await new Promise<string>((resolve, reject) => {
+                chrome.identity.getAuthToken({ interactive: true }, (token) => { // Request an auth token
+                    if (chrome.runtime.lastError || !token) { // Check for errors
+                        reject(chrome.runtime.lastError);
+                        return;
+                    }
+
+                    resolve(token as string); // Resolve the promise with the token
+                });
+            });
+
+            console.log("Google access token:", token);
+
+            // Fetch calendar events using the token
+            await fetchCalendarEvents(token);
+        } catch (error) {
+            console.error("Error linking Google account:", error);
+        }
+    }
+
+    // Handle Google Link button click
+    const handleGoogleLink = () => {
+        if (isGoogleLinked) return;
+
+        linkGoogleAccount().then(() => {
+            setIsGoogleLinked(true);
+            console.log("Google account linked successfully.");
+        }).catch((error) => {
+            console.error("Error linking Google account:", error);
+        });
+    }
+
+    // Fetch calendar events from Google Calendar API
+    const fetchCalendarEvents = async (token: string) => {
+        const response = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error fetching calendar events: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Calendar events:", data); // Log the calendar events
+    }
+
     return (
         <div className={`${styles["App"]} ${darkMode ? styles["dark"] : ""}`}>
             {/* Title Bar */}
@@ -56,17 +109,18 @@ function App() {
                 <div className={`${styles["row"]} ${styles["row-1"]}`}>
                     <LogoButton
                         text="Connect to Canvas"
-                        onClick={() => console.log("Canvas Connected")}
+                        onClick={(() => console.log("Canvas Connected"))}
                         logoSrc="images/canvas-logo.png"
                         alt="Canvas"
                         backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
                         textColor={darkMode ? "white" : "black"}
                     />
                     <LogoButton
-                        text="Link to Google Account"
-                        onClick={() => console.log("Google Linked")}
+                        text={isGoogleLinked ? "Google Linked" : "Link to Google Account"}
+                        onClick={handleGoogleLink}
                         logoSrc="images/google-logo.png"
                         alt="Google"
+                        disabled={isGoogleLinked}
                         backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
                         textColor={darkMode ? "white" : "black"}
                     />
