@@ -4,6 +4,7 @@
   "name": "ClassTrack",
   "version": "1.0",
   "description": "ClassTrack is an extension...",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqLYEoPhLBN/x3CS2hNxBWoT9MAJNApY1ShCYpCtDZOpdbSy30fp/jL2wMxUHOAQkd+Labt8Cf2qokOep9JuzYs22T3k+WQsTII8yhvgl3AfdJzEi6tcIcOlV17gGv+JdBpxfF1MscoqDmU+S89XGLwBRo0tsklHlG/qy5jccJX/C2tAoyAxVJnUvqVyvkPtFMWM7kBHBXeLXkVBpzyXa1Sgbxhg2spqmVPVhRFCI3iebJLEJJI8KtZNAlAd7GHUWaEAG+dPkG797eQZz0Xt/+epmKd05EFj8cMZYQs7WYNjzNtkh5/jSbyddQPVYkEt2V/u59tRsf9MiwASiQAJBawIDAQAB",
   "action": {
     "default_popup": "index.html"
   },
