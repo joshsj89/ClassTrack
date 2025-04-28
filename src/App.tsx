@@ -69,15 +69,17 @@ function App() {
     }
 
     // Handle Google Link button click
-    const handleGoogleLink = () => {
+    const handleGoogleLink = async () => {
         if (isGoogleLinked) return;
 
-        linkGoogleAccount().then(() => {
+        try {
+            await linkGoogleAccount()
             setIsGoogleLinked(true);
             console.log("Google account linked successfully.");
-        }).catch((error) => {
+        } catch (error) {
             console.error("Error linking Google account:", error);
-        });
+            setIsGoogleLinked(false); // Reset the state if there's an error
+        }
     }
 
     // Fetch calendar events from Google Calendar API
