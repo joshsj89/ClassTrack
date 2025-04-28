@@ -59,12 +59,16 @@ function App() {
                         onClick={() => console.log("Canvas Connected")}
                         logoSrc="images/canvas-logo.png"
                         alt="Canvas"
+                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                        textColor={darkMode ? "white" : "black"}
                     />
                     <LogoButton
                         text="Link to Google Account"
                         onClick={() => console.log("Google Linked")}
                         logoSrc="images/google-logo.png"
                         alt="Google"
+                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                        textColor={darkMode ? "white" : "black"}
                     />
                 </div>
 
@@ -75,18 +79,24 @@ function App() {
                         onClick={() => console.log("Upload clicked")}
                         iconSrc="images/upload-icon.png"
                         alt="Upload"
+                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                        textColor={darkMode ? "white" : "black"}
                     />
                     <IconButton
                         text="Paste Text"
                         onClick={() => console.log("Paste Text clicked")}
                         iconSrc="images/paste-icon.png"
                         alt="Paste"
+                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                        textColor={darkMode ? "white" : "black"}
                     />
                     <IconButton
                         text="Sync"
                         onClick={() => console.log("Sync clicked")}
                         iconSrc="images/sync-icon.png"
                         alt="Sync"
+                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                        textColor={darkMode ? "white" : "black"}
                     />
                 </div>
 
@@ -116,19 +126,23 @@ function App() {
                 {/* Row 4 (updated) */}
                 <div className={`${styles["row"]} ${styles["row-4"]}`}>
                     <div className={styles["toggle-container"]}>
-                        {["Dark Mode", "Scheduled Dark Mode"].map(label => (
-                            <Toggle
-                                key={label}
-                                label={label}
-                                onChange={(checked) => {
-                                    if (label === "Dark Mode") {
-                                        toggleDarkMode(checked);
-                                    }
-                                    console.log(`${label} toggled: ${checked}`);
-                                    console.log("Dark Mode state:", darkMode);
-                                }}
-                            />
-                        ))}
+                        <Toggle
+                            key="Dark Mode"
+                            label="Dark Mode"
+                            onChange={(checked) => {
+                                toggleDarkMode(checked);
+                                
+                                console.log(`Dark Mode toggled: ${checked}`);
+                            }}
+                        />
+                        <Toggle
+                            key="Scheduled Dark Mode"
+                            label="Scheduled Dark Mode"
+                            onChange={(checked) => {
+                                console.log(`Scheduled Dark Mode toggled: ${checked}`);
+                                checkScheduledDarkMode(); // Check the scheduled dark mode state
+                            }}
+                        />
                         <div>
                             <label>Start Time: </label>
                             <input
