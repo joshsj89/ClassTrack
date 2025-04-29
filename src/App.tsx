@@ -75,7 +75,7 @@ function App() {
     }, [isDarkModeScheduled]);
 
     // Link Google Account
-    const linkGoogleAccount = async () => {
+    const linkGoogleAccount = async (): Promise<boolean> => {
         try {
             const token: string = await new Promise<string>((resolve, reject) => {
                 chrome.identity.getAuthToken({ interactive: true }, (token) => { // Request an auth token
@@ -93,8 +93,12 @@ function App() {
             // Fetch calendar events using the token
             await fetchCalendarEvents(token);
             await createDriveFolder(token, "ClassTrack Drive Test"); // Create a folder in Google Drive
+
+            return true; // Return true if the account is linked successfully
         } catch (error) {
             console.error("Error linking Google account:", error);
+
+            return false; // Return false if there's an error
         }
     }
 
@@ -103,8 +107,8 @@ function App() {
         if (isGoogleLinked) return;
 
         try {
-            await linkGoogleAccount()
-            setIsGoogleLinked(true);
+            const isConnected = await linkGoogleAccount()
+            setIsGoogleLinked(isConnected);
             console.log("Google account linked successfully.");
         } catch (error) {
             console.error("Error linking Google account:", error);
