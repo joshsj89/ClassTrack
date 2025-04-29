@@ -7,42 +7,72 @@ import { DarkModeProvider } from './darkModeContext';
 import { useState, useEffect } from 'react';
 
 function App() {
+    const [startTime, setStartTime] = useState<string>('20:00'); // 8:00 PM
+    const [endTime, setEndTime] = useState<string>('08:00'); // 8:00 AM
+
+    const [isCustomizable1, setisCustomizable1] = useState<boolean>(false);
+    const [isCustomizable2, setisCustomizable2] = useState<boolean>(false);
+    const [isCustomizable3, setisCustomizable3] = useState<boolean>(false);
+    const [isCustomizable4, setisCustomizable4] = useState<boolean>(false);
+    const [isCustomizable5, setisCustomizable5] = useState<boolean>(false);
+
+    const [isLectures, setIsLectures] = useState<boolean>(false);
+    const [isLabs, setIsLabs] = useState<boolean>(false);
+    const [isAssignments, setIsAssignments] = useState<boolean>(false);
+    const [isMidterms, setIsMidterms] = useState<boolean>(false);
+    const [isFinals, setIsFinals] = useState<boolean>(false);
+
     const { darkMode, toggleDarkMode } = useDarkMode();
-    const [startTime, setStartTime] = useState<string>('00:00'); // 7:00 PM
-    const [endTime, setEndTime] = useState<string>('00:00'); // 7:00 AM
+    const [isDarkModeScheduled, setIsDarkModeScheduled] = useState<boolean>(false);
+
+    const [organizeDrive, setOrganizeDrive] = useState<boolean>(false);
+    const [createFiles, setCreateFiles] = useState<boolean>(false);
+    const [includeLectureName, setIncludeLectureName] = useState<boolean>(false);
+    const [includeAssignment, setIncludeAssignment] = useState<boolean>(false);
+    const [linkToCalendar, setLinkToCalendar] = useState<boolean>(false);
+
     const [isGoogleLinked, setIsGoogleLinked] = useState<boolean>(false);
 
     const year = new Date().getFullYear();
 
     // Toggle dark mode based on the time
     const checkScheduledDarkMode = () => {
+        if (!isDarkModeScheduled) return; // If scheduled dark mode is not enabled, do nothing
+        
         const currentTime = new Date();
-        const currentHours = currentTime.getHours();
-        const currentMinutes = currentTime.getMinutes();
         
         const [startHours, startMinutes] = startTime.split(':').map(num => parseInt(num));
         const [endHours, endMinutes] = endTime.split(':').map(num => parseInt(num));
         
-        const startDate = new Date(currentTime);
+        const startDate = new Date();
         startDate.setHours(startHours, startMinutes, 0, 0);
-        const endDate = new Date(currentTime);
+        const endDate = new Date();
         endDate.setHours(endHours, endMinutes, 0, 0);
 
+        // If end time is less than start time, it means the end time is on the next day
         if (endDate < startDate) {
-            endDate.setDate(endDate.getDate() + 1); // Adjust end time to the next day
+            endDate.setDate(endDate.getDate() + 1);
         }
 
+        // Check if the current time is within the scheduled dark mode time
         if (currentTime >= startDate && currentTime <= endDate) {
             toggleDarkMode(true);
         } else {
             toggleDarkMode(false);
         }
-    };
+    }
 
     useEffect(() => {
         const intervalId = setInterval(checkScheduledDarkMode, 60000); // Check every minute
         return () => clearInterval(intervalId);
     }, [startTime, endTime]);
+
+    // 
+    useEffect(() => {
+        if (isDarkModeScheduled) {
+            checkScheduledDarkMode(); // Check the scheduled dark mode state immediately
+        }
+    }, [isDarkModeScheduled]);
 
     // Link Google Account
     const linkGoogleAccount = async () => {
@@ -181,23 +211,73 @@ function App() {
                 {/* Row 3 */}
                 <div className={`${styles["row"]} ${styles["row-3"]}`}>
                     <div className={styles["toggle-container"]}>
-                        {["Lecture/Lab", "Extracurricular", "Work", "Personal", "Tasks"].map(label => (
-                            <Toggle
-                                key={label}
-                                label={label}
-                                backgroundColor='#4CAF50'
-                                onChange={(checked) => console.log(`${label} toggled: ${checked}`)}
-                            />
-                        ))}
+                        <Toggle
+                            key="Customizable 1"
+                            label="Customizable 1"
+                            checked={isCustomizable1}
+                            backgroundColor='#4CAF50'
+                            onChange={(checked) => setisCustomizable1(checked)}
+                        />
+                        <Toggle
+                            key="Customizable 2"
+                            label="Customizable 2"
+                            checked={isCustomizable2}
+                            backgroundColor='#4CAF50'
+                            onChange={(checked) => setisCustomizable2(checked)}
+                        />
+                        <Toggle
+                            key="Customizable 3"
+                            label="Customizable 3"
+                            checked={isCustomizable3}
+                            backgroundColor='#4CAF50'
+                            onChange={(checked) => setisCustomizable3(checked)}
+                        />
+                        <Toggle
+                            key="Customizable 4"
+                            label="Customizable 4"
+                            checked={isCustomizable4}
+                            backgroundColor='#4CAF50'
+                            onChange={(checked) => setisCustomizable4(checked)}
+                        />
+                        <Toggle
+                            key="Customizable 5"
+                            label="Customizable 5"
+                            checked={isCustomizable5}
+                            backgroundColor='#4CAF50'
+                            onChange={(checked) => setisCustomizable5(checked)}
+                        />
                     </div>
                     <div className={styles["toggle-container"]}>
-                        {["Lectures", "Labs", "Assignments", "Midterms", "Finals"].map(label => (
-                            <Toggle
-                                key={label}
-                                label={label}
-                                onChange={(checked) => console.log(`${label} toggled: ${checked}`)}
-                            />
-                        ))}
+                        <Toggle
+                            key="Lectures"
+                            label="Lectures"
+                            checked={isLectures}
+                            onChange={(checked) => setIsLectures(checked)}
+                        />
+                        <Toggle
+                            key="Labs"
+                            label="Labs"
+                            checked={isLabs}
+                            onChange={(checked) => setIsLabs(checked)}
+                        />
+                        <Toggle
+                            key="Assignments"
+                            label="Assignments"
+                            checked={isAssignments}
+                            onChange={(checked) => setIsAssignments(checked)}
+                        />
+                        <Toggle
+                            key="Midterms"
+                            label="Midterms"
+                            checked={isMidterms}
+                            onChange={(checked) => setIsMidterms(checked)}
+                        />
+                        <Toggle
+                            key="Finals"
+                            label="Finals"
+                            checked={isFinals}
+                            onChange={(checked) => setIsFinals(checked)}
+                        />
                     </div>
                 </div>
 
@@ -207,18 +287,22 @@ function App() {
                         <Toggle
                             key="Dark Mode"
                             label="Dark Mode"
-                            onChange={(checked) => {
-                                toggleDarkMode(checked);
-                                
-                                console.log(`Dark Mode toggled: ${checked}`);
-                            }}
+                            checked={darkMode}
+                            onChange={(checked) => toggleDarkMode(checked)}
                         />
                         <Toggle
                             key="Scheduled Dark Mode"
                             label="Scheduled Dark Mode"
+                            checked={isDarkModeScheduled}
                             onChange={(checked) => {
                                 console.log(`Scheduled Dark Mode toggled: ${checked}`);
-                                checkScheduledDarkMode(); // Check the scheduled dark mode state
+                                setIsDarkModeScheduled(checked);
+
+                                if (checked) {
+                                    checkScheduledDarkMode(); // Check the scheduled dark mode state immediately
+                                } else {
+                                    toggleDarkMode(false); // Turn off dark mode if scheduled is disabled
+                                }
                             }}
                         />
                         <div>
@@ -239,13 +323,36 @@ function App() {
                         </div>
                     </div>
                     <div className={styles["toggle-container"]}>
-                        {["Organize Drive", "Create Files", "Include Lecture Name", "Include Assignment", "Link to Calendar"].map(label => (
-                            <Toggle
-                                key={label}
-                                label={label}
-                                onChange={(checked) => console.log(`${label} toggled: ${checked}`)}
-                            />
-                        ))}
+                        <Toggle
+                            key="Organize Drive"
+                            label="Organize Drive"
+                            checked={organizeDrive}
+                            onChange={(checked) => setOrganizeDrive(checked)}
+                        />
+                        <Toggle
+                            key="Create Files"
+                            label="Create Files"
+                            checked={createFiles}
+                            onChange={(checked) => setCreateFiles(checked)}
+                        />
+                        <Toggle
+                            key="Include Lecture Name"
+                            label="Include Lecture Name"
+                            checked={includeLectureName}
+                            onChange={(checked) => setIncludeLectureName(checked)}
+                        />
+                        <Toggle
+                            key="Include Assignment"
+                            label="Include Assignment"
+                            checked={includeAssignment}
+                            onChange={(checked) => setIncludeAssignment(checked)}
+                        />
+                        <Toggle
+                            key="Link to Calendar"
+                            label="Link to Calendar"
+                            checked={linkToCalendar}
+                            onChange={(checked) => setLinkToCalendar(checked)}
+                        />
                     </div>
                 </div>
             </div>
