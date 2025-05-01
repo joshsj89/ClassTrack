@@ -65,14 +65,14 @@ function App() {
     useEffect(() => {
         const intervalId = setInterval(checkScheduledDarkMode, 60000); // Check every minute
         return () => clearInterval(intervalId);
-    }, [startTime, endTime]);
+    }, [startTime, endTime, isDarkModeScheduled]);
 
     // 
     useEffect(() => {
         if (isDarkModeScheduled) {
             checkScheduledDarkMode(); // Check the scheduled dark mode state immediately
         }
-    }, [isDarkModeScheduled]);
+    }, [startTime, endTime, isDarkModeScheduled]);
 
     // Link Google Account
     const linkGoogleAccount = async (): Promise<boolean> => {
