@@ -1,0 +1,31 @@
+.color-picker-container {
+  position: relative;
+  display: inline-block;
+  z-index: 9999; 
+}
+
+.color-swatch {
+  width: 30px;
+  height: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 4px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+.color-options {
+  display: grid;
+  position: absolute;
+  left: 50px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  background: #fff;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+}
+

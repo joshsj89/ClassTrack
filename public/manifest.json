@@ -10,7 +10,8 @@
   },
   "permissions": [
     "identity",
-    "identity.email"
+    "identity.email",
+    "storage"
   ],
   "oauth2": {
     "client_id": "208152901625-a893f83hu1no2gr1vk1v3kl5rfdpn7o8.apps.googleusercontent.com",
@@ -20,5 +21,8 @@
       "https://www.googleapis.com/auth/drive",
       "https://www.googleapis.com/auth/drive.file"
     ]
+  },
+  "background": {
+    "service_worker": "background.js"
   }
 }

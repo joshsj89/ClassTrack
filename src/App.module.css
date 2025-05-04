@@ -105,7 +105,7 @@
     display: flex;
     gap: 10px;
     flex: 1; /* grow to fill space */
-    overflow: hidden;
+    overflow: visible;
 }
 
 .toggle-container {
@@ -189,3 +189,5 @@
     background-color: #444; 
     border-color: #555; 
 }
+
+  

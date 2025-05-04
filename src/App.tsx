@@ -5,33 +5,123 @@ import Toggle from './Toggle';
 import { useDarkMode } from './darkModeContext'; 
 import { DarkModeProvider } from './darkModeContext';
 import { useState, useEffect } from 'react';
+import ColorPicker from './ColorPicker';
+
 
 function App() {
-    const [startTime, setStartTime] = useState<string>('20:00'); // 8:00 PM
-    const [endTime, setEndTime] = useState<string>('08:00'); // 8:00 AM
 
-    const [isCustomizable1, setisCustomizable1] = useState<boolean>(false);
-    const [isCustomizable2, setisCustomizable2] = useState<boolean>(false);
-    const [isCustomizable3, setisCustomizable3] = useState<boolean>(false);
-    const [isCustomizable4, setisCustomizable4] = useState<boolean>(false);
-    const [isCustomizable5, setisCustomizable5] = useState<boolean>(false);
+    
+
+    console.log(chrome);
+    // Initialize state with a default value
+
+    const [startTime, setStartTime] = useState<string>('20:00');
+    const [endTime, setEndTime] = useState<string>('08:00');
+    
+
+    const [selectedColor, setSelectedColor] = useState<string[]>(['#7986CB', '#7986CB', '#7986CB']);
 
     const [isLectures, setIsLectures] = useState<boolean>(false);
     const [isLabs, setIsLabs] = useState<boolean>(false);
     const [isAssignments, setIsAssignments] = useState<boolean>(false);
     const [isMidterms, setIsMidterms] = useState<boolean>(false);
     const [isFinals, setIsFinals] = useState<boolean>(false);
-
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const [isGoogleLinked, setIsGoogleLinked] = useState<boolean>(false);
     const [isDarkModeScheduled, setIsDarkModeScheduled] = useState<boolean>(false);
-
+    const [darkMode, toggleDarkMode] = useState<boolean>(false);
     const [organizeDrive, setOrganizeDrive] = useState<boolean>(false);
     const [createFiles, setCreateFiles] = useState<boolean>(false);
     const [includeLectureName, setIncludeLectureName] = useState<boolean>(false);
     const [includeAssignment, setIncludeAssignment] = useState<boolean>(false);
     const [linkToCalendar, setLinkToCalendar] = useState<boolean>(false);
 
-    const [isGoogleLinked, setIsGoogleLinked] = useState<boolean>(false);
+    const [isInitialized, setIsInitialized] = useState(false);
+
+    // Define chrome.storage.sync functions
+    const getStoredState = (key: string, defaultValue: any) => {
+        return new Promise<any>((resolve) => {
+            chrome.storage.sync.get([key], (result) => {
+                const storedValue = result[key];
+                resolve(storedValue === undefined ? defaultValue : storedValue);
+                console.log(`${key} retrieved with value ${storedValue !== undefined ? storedValue : defaultValue}`);
+            });
+        });
+    };
+
+      // Save state to chrome.storage.sync whenever it changes
+      useEffect(() => {
+        if (!isInitialized) return;
+        chrome.storage.sync.set({
+            startTime,
+            endTime,
+            selectedColor,
+            isLectures,
+            isLabs,
+            isAssignments,
+            isMidterms,
+            isFinals,
+            isDarkModeScheduled,
+            darkMode,
+            organizeDrive,
+            createFiles,
+            includeLectureName,
+            includeAssignment,
+            linkToCalendar
+        }, () => {
+            console.log("All settings saved to chrome.storage.sync");
+    }); 
+    },[
+        startTime, endTime, selectedColor,
+        isLectures, isLabs, isAssignments, isMidterms, isFinals, darkMode, isDarkModeScheduled,
+        organizeDrive, createFiles, includeLectureName, includeAssignment, linkToCalendar
+    ]);
+    
+    // Use useEffect to asynchronously load stored values
+    useEffect(() => {
+        const loadStoredState = async () => {
+            console.log("Loading stored state...");
+            const storedStartTime = await getStoredState('startTime', '20:00');
+            const storedEndTime = await getStoredState('endTime', '08:00');
+            const storedSelectedColor = await getStoredState('selectedColor', ['#7986CB', '#7986CB', '#7986CB']);
+            const storedIsLectures = await getStoredState('isLectures', false);
+            const storedIsLabs = await getStoredState('isLabs', false);
+            const storedIsAssignments = await getStoredState('isAssignments', false);
+            const storedIsMidterms = await getStoredState('isMidterms', false);
+            const storedIsFinals = await getStoredState('isFinals', false);
+            const storedIsDarkModeScheduled = await getStoredState('isDarkModeScheduled', false);
+            const storedDarkMode = await getStoredState('darkMode', false);
+            const storedOrganizeDrive = await getStoredState('organizeDrive', false);
+            const storedCreateFiles = await getStoredState('createFiles', false);
+            const storedIncludeLectureName = await getStoredState('includeLectureName', false);
+            const storedIncludeAssignment = await getStoredState('includeAssignment', false);
+            const storedLinkToCalendar = await getStoredState('linkToCalendar', false);
+            
+
+            // Set state with the stored values
+            console.log("Setting state with loaded values...");
+            setStartTime(storedStartTime);
+            setEndTime(storedEndTime);
+            setSelectedColor(storedSelectedColor);
+            setIsLectures(storedIsLectures);
+            setIsLabs(storedIsLabs);
+            setIsAssignments(storedIsAssignments);
+            setIsMidterms(storedIsMidterms);
+            setIsFinals(storedIsFinals);
+            setIsDarkModeScheduled(storedIsDarkModeScheduled);
+            toggleDarkMode(storedDarkMode);
+            setOrganizeDrive(storedOrganizeDrive);
+            setCreateFiles(storedCreateFiles);
+            setIncludeLectureName(storedIncludeLectureName);
+            setIncludeAssignment(storedIncludeAssignment);
+            setLinkToCalendar(storedLinkToCalendar);
+
+            setIsInitialized(true);
+        };
+
+        loadStoredState(); // Call the function to load data
+    }, []);
+
+  
 
     const year = new Date().getFullYear();
 
@@ -211,46 +301,52 @@ function App() {
                         textColor={darkMode ? "white" : "black"}
                     />
                 </div>
-
                 {/* Row 3 */}
                 <div className={`${styles["row"]} ${styles["row-3"]}`}>
                     <div className={styles["toggle-container"]}>
-                        <Toggle
-                            key="Customizable 1"
-                            label="Customizable 1"
-                            checked={isCustomizable1}
-                            backgroundColor='#4CAF50'
-                            onChange={(checked) => setisCustomizable1(checked)}
-                        />
-                        <Toggle
-                            key="Customizable 2"
-                            label="Customizable 2"
-                            checked={isCustomizable2}
-                            backgroundColor='#4CAF50'
-                            onChange={(checked) => setisCustomizable2(checked)}
-                        />
-                        <Toggle
-                            key="Customizable 3"
-                            label="Customizable 3"
-                            checked={isCustomizable3}
-                            backgroundColor='#4CAF50'
-                            onChange={(checked) => setisCustomizable3(checked)}
-                        />
-                        <Toggle
-                            key="Customizable 4"
-                            label="Customizable 4"
-                            checked={isCustomizable4}
-                            backgroundColor='#4CAF50'
-                            onChange={(checked) => setisCustomizable4(checked)}
-                        />
-                        <Toggle
-                            key="Customizable 5"
-                            label="Customizable 5"
-                            checked={isCustomizable5}
-                            backgroundColor='#4CAF50'
-                            onChange={(checked) => setisCustomizable5(checked)}
-                        />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <ColorPicker
+                                    key="eventColorPicker"
+                                    selectedColor={selectedColor[0]} // Pass the first color
+                                    onColorChange={(newColor: string) => {
+                                        const updatedColors = [...selectedColor];
+                                        updatedColors[0] = newColor;
+                                        setSelectedColor(updatedColors);
+                                        console.log(`Event Color Updated: ${newColor}`);
+                                    }}
+                                />
+                                <p style={{ margin: 0 }}>Events</p>
+                            </div>
+
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <ColorPicker
+                                    key="taskColorPicker"
+                                    selectedColor={selectedColor[1]} // Pass the second color
+                                    onColorChange={(newColor: string) => {
+                                        const updatedColors = [...selectedColor];
+                                        updatedColors[1] = newColor;
+                                        setSelectedColor(updatedColors);
+                                    }}
+                                />
+                                <p style={{ margin: 0 }}>Tasks</p>
+                            </div>
+
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <ColorPicker
+                                    key="examColorPicker"
+                                    selectedColor={selectedColor[2]} // Pass the third color
+                                    onColorChange={(newColor: string) => {
+                                        const updatedColors = [...selectedColor];
+                                        updatedColors[2] = newColor;
+                                        setSelectedColor(updatedColors);
+                                    }}
+                                />
+                                <p style={{ margin: 0 }}>Exams</p>
+                            </div>
+                        </div>
                     </div>
+
                     <div className={styles["toggle-container"]}>
                         <Toggle
                             key="Lectures"
@@ -284,6 +380,7 @@ function App() {
                         />
                     </div>
                 </div>
+
 
                 {/* Row 4 (updated) */}
                 <div className={`${styles["row"]} ${styles["row-4"]}`}>
@@ -368,6 +465,7 @@ function App() {
         </div>
     );
 }
+
 
 const AppWrapper = () => {
     return (
