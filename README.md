@@ -79,3 +79,18 @@ In the `scripts` directory, you can find the following scripts:
 
 ### `tsv_to_json.js`
 This script converts a TSV file to JSON format. It reads the TSV files from the folder `json/tsv_files`, parses it, and writes the output to respective JSON files in `json/courses`. Run the script with the command: `node scripts/tsv_to_json.js`.
+
+## CourseAvail Endpoints
+
+The CourseAvail API endpoints are used to fetch course data and confirm course schedules. Below are the available endpoints:
+
+### 1. Get Available Quarters
+**GET** `https://www.scu.edu/apps/ws/courseavail/autocomplete/quarters/`  
+Returns a list of all available quarters.
+
+### 2. Search Courses by Quarter
+**POST** `https://www.scu.edu/apps/ws/courseavail/search/{quarter}/`  
+Fetches all available courses for a specific quarter.
+
+#### Parameters:
+- `subject`: The search text used to filter courses (e.g., "CSEN", "MATH", etc.).
