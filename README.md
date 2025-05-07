@@ -93,4 +93,16 @@ Returns a list of all available quarters.
 Fetches all available courses for a specific quarter.
 
 #### Parameters:
-- `subject`: The search text used to filter courses (e.g., "CSEN", "MATH", etc.).
+- `q`: The search text used to filter courses (e.g., "CSEN_174", "ECEN_50", etc.,).
+- `maxRes`: The maximum number of results to return.
+- `subject`: The search text used to filter courses by subject (e.g., "CSEN", "MATH", etc.).
+- `school`: The search text used to filter courses by school (e.g., "AS", "BUS", "EGR", etc.).
+- `instr`: The search text used to filter courses by instructor (e.g., "Smith", "Johnson", etc.).
+
+### 3. Get Available Departments
+**GET** `https://www.scu.edu/apps/ws/courseavail/autocomplete/{quarter}/departments/`
+Returns a list of all available departments for a specific quarter.
+
+### 4. Get Available Pathways
+**GET** `https://www.scu.edu/apps/ws/courseavail/autocomplete/{quarter}/pathways/`
+Returns a list of all available pathways for a specific quarter.
