@@ -20,11 +20,11 @@ if (!fs.existsSync(outputDirectoryPath)) {
     console.log(`Created directory: ${outputDirectoryPath}`);
 }
 
-const tsvFiles = fs.readdirSync(directoryPath).filter(file => file.endsWith('.tsv'));
+const tsvFiles = fs.readdirSync(directoryPath).filter(file => file.endsWith('.tsv')); // Filter for TSV files in the directory
 
 tsvFiles.forEach(file => {
     const filePath = path.join(directoryPath, file);
-    const outputFilePath = path.join(outputDirectoryPath, file.replace('.tsv', '.json'));
+    const outputFilePath = path.join(outputDirectoryPath, file.replace('.tsv', '.json')); // Change the file extension to .json
 
     // Read the TSV file
     const data = fs.readFileSync(filePath, 'utf8');

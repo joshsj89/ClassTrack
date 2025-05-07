@@ -71,3 +71,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
 - [Google Calendar API Documentation](https://developers.google.com/workspace/calendar/api/v3/reference)
 - [Google Drive API Documentation](https://developers.google.com/workspace/drive/api/reference/rest/v3)
+
+## Scripts
+
+In the `scripts` directory, you can find the following scripts:
+- `tsv_to_json.js`: A script to convert TSV files to JSON format.
+
+### `tsv_to_json.js`
+This script converts a TSV file to JSON format. It reads the TSV files from the folder `json/tsv_files`, parses it, and writes the output to respective JSON files in `json/courses`. Run the script with the command: `node scripts/tsv_to_json.js`.
