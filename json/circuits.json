@@ -1,0 +1,116 @@
+{
+    "CourseTitle": "Circuits",
+    "InstructorName": "Dr. Cary Y. Yang",
+    "InstructorEmail": "cyang@scu.edu",
+    "GradingInformation": [
+        {
+            "Category": "Homework",
+            "Value": 10
+        },
+        {
+            "Category": "Class Participation",
+            "Value": 10
+        },
+        {
+            "Category": "Midterm Exams",
+            "Value": 30
+        },
+        {
+            "Category": "Final Exam",
+            "Value": 50
+        }
+    ],
+    "Schedule": [
+        {
+            "Weekday": "Tue",
+            "Start Time": "4/2",
+            "End Time": "4/23",
+            "Type": "Class"
+        },
+        {
+            "Weekday": "Tue",
+            "Start Time": "5/14",
+            "End Time": "6/13",
+            "Type": "Class"
+        }
+    ],
+    "CourseSchedule": [
+        {
+            "Week": 1,
+            "Reading": "Chs. 1-2",
+            "Topics": "Introduction; definitions of circuit variables and elements; Kirchhoff’s current and voltage laws"
+        },
+        {
+            "Week": 2,
+            "Reading": "Ch. 3",
+            "Topics": "Simple resistive circuits"
+        },
+        {
+            "Week": 3,
+            "Reading": "Sects. 4.1- 4.13",
+            "Topics": "Node-voltage and mesh-current methods; source transformations"
+        },
+        {
+            "Week": 4,
+            "Reading": "Sects. 4.14- 4.20",
+            "Topics": "Exam #1 ***4/23*** Thévenin and Norton equivalent circuits"
+        },
+        {
+            "Week": 5,
+            "Reading": "Sects. 4.21- 4.23, Sects. 6.1-6.3",
+            "Topics": "Maximum power transfer; superposition; Capacitance and self-inductance"
+        },
+        {
+            "Week": 6,
+            "Reading": "Ch. 7",
+            "Topics": "First-order RC and RL circuit analysis"
+        },
+        {
+            "Week": 7,
+            "Reading": "Sects. 9.1-9.9",
+            "Topics": "Exam #2 ***5/17*** Sinusoidal steady-state analysis; phasors"
+        },
+        {
+            "Week": 8,
+            "Reading": "Ch. 5",
+            "Topics": "Phasor circuit analysis; operational amplifier"
+        },
+        {
+            "Week": 9,
+            "Reading": "Ch. 10",
+            "Topics": "Op amp circuits; ac power calculations"
+        },
+        {
+            "Week": 10,
+            "Reading": "Sects. 6.4-6.5, 9.10-9.11",
+            "Topics": "Mutual inductance; transformer circuits Review"
+        },
+        {
+            "Week": 11,
+            "Reading": "",
+            "Topics": "Final Exam ***6/13, 13:30-16:30***"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "EventName": "First Class",
+            "Date": "4/2",
+            "Weekday": "Tue"
+        },
+        {
+            "EventName": "Exam #1",
+            "Date": "4/23",
+            "Weekday": "Tue"
+        },
+        {
+            "EventName": "Exam #2",
+            "Date": "5/17",
+            "Weekday": "Tue"
+        },
+        {
+            "EventName": "Final Exam",
+            "Date": "6/13",
+            "Weekday": "Thu"
+        }
+    ]
+}
