@@ -1,0 +1,214 @@
+{
+    "terms": [
+        {
+            "name": "Fall 2025 Semester JST",
+            "id": "AP_25_FS_JST",
+            "startDate": "2025-09-02",
+            "endDate": "2025-12-12",
+            "session": "",
+            "level": "Graduate",
+            "type": "Semester",
+            "gradeDueDate": "2025-12-24"
+        },
+        {
+            "name": "Winter 2026 Quarter",
+            "id": "AP_26_WQ",
+            "startDate": "2026-01-05",
+            "endDate": "2026-03-20",
+            "session": "1",
+            "level": "Graduate",
+            "type": "Quarter",
+            "gradeDueDate": "2026-04-01"
+        },
+        {
+            "name": "Summer 2025 Quarter Session 2",
+            "id": "AP_25_SuQ_S2",
+            "startDate": "2025-06-19",
+            "endDate": "2025-07-25",
+            "session": "2",
+            "level": "Undergraduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-08-06"
+        },
+        {
+            "name": "Summer 2025 Quarter Session 3",
+            "id": "AP_25_SuQ_S3",
+            "startDate": "2025-07-28",
+            "endDate": "2025-09-03",
+            "session": "3",
+            "level": "Undergraduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-09-15"
+        },
+        {
+            "name": "Summer 2025 Quarter",
+            "id": "AP_25_SuQ",
+            "startDate": "2025-06-16",
+            "endDate": "2025-09-03",
+            "session": "1",
+            "level": "Graduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-09-15"
+        },
+        {
+            "name": "Summer 2025 Quarter Session 4",
+            "id": "AP_25_SuQ_S4",
+            "startDate": "2025-06-16",
+            "endDate": "2025-07-04",
+            "session": "4",
+            "level": "Undergraduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-07-16"
+        },
+        {
+            "name": "Summer 2025 Quarter Session 5",
+            "id": "AP_25_SuQ_S5",
+            "startDate": "2025-07-07",
+            "endDate": "2025-07-25",
+            "session": "5",
+            "level": "Undergraduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-08-06"
+        },
+        {
+            "name": "Summer 2025 Quarter Session 6",
+            "id": "AP_25_SuQ_S6",
+            "startDate": "2025-07-28",
+            "endDate": "2025-08-15",
+            "session": "6",
+            "level": "Undergraduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-08-27"
+        },
+        {
+            "name": "Summer 2025 Quarter",
+            "id": "AP_25_SuQ",
+            "startDate": "2025-06-16",
+            "endDate": "2025-09-03",
+            "session": "1",
+            "level": "Undergraduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-09-15"
+        },
+        {
+            "name": "Summer 2025 Quarter Session 3",
+            "id": "AP_25_SuQ_S3",
+            "startDate": "2025-07-28",
+            "endDate": "2025-09-03",
+            "session": "3",
+            "level": "Graduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-09-15"
+        },
+        {
+            "name": "Summer 2025 Quarter Session 2",
+            "id": "AP_25_SuQ_S2",
+            "startDate": "2025-06-19",
+            "endDate": "2025-07-25",
+            "session": "2",
+            "level": "Graduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-08-06"
+        },
+        {
+            "name": "Spring 2025 Semester JST",
+            "id": "AP_25_SS_JST",
+            "startDate": "2025-01-30",
+            "endDate": "2025-05-23",
+            "session": "",
+            "level": "Graduate",
+            "type": "Semester",
+            "gradeDueDate": "2025-06-04"
+        },
+        {
+            "name": "Fall 2025 Quarter",
+            "id": "AP_25_FQ",
+            "startDate": "2025-09-22",
+            "endDate": "2025-12-12",
+            "session": "1",
+            "level": "Graduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-12-24"
+        },
+        {
+            "name": "Spring 2025 Quarter",
+            "id": "AP_25_SQ",
+            "startDate": "2025-03-31",
+            "endDate": "2025-06-12",
+            "session": "1",
+            "level": "Undergraduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-06-24"
+        },
+        {
+            "name": "Spring 2025 Quarter Session 3",
+            "id": "AP_25_SQ_S3",
+            "startDate": "2025-05-05",
+            "endDate": "2025-06-12",
+            "session": "3",
+            "level": "Graduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-06-24"
+        },
+        {
+            "name": "Summer 2025 Semester JST",
+            "id": "AP_25_SuS_JST",
+            "startDate": "2025-06-09",
+            "endDate": "2025-07-18",
+            "session": "",
+            "level": "Graduate",
+            "type": "Semester",
+            "gradeDueDate": "2025-07-30"
+        },
+        {
+            "name": "Spring 2025 Semester",
+            "id": "AP_25_SS",
+            "startDate": "2025-01-13",
+            "endDate": "2025-05-23",
+            "session": "",
+            "level": "Professional",
+            "type": "Semester",
+            "gradeDueDate": "2025-06-04"
+        },
+        {
+            "name": "Spring 2025 Quarter",
+            "id": "AP_25_SQ",
+            "startDate": "2025-03-31",
+            "endDate": "2025-06-12",
+            "session": "1",
+            "level": "Graduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-06-24"
+        },
+        {
+            "name": "Summer 2025 Semester",
+            "id": "AP_25_SuS",
+            "startDate": "2025-05-27",
+            "endDate": "2025-07-19",
+            "session": "",
+            "level": "Professional",
+            "type": "Semester",
+            "gradeDueDate": "2025-07-31"
+        },
+        {
+            "name": "Fall 2025 Quarter",
+            "id": "AP_25_FQ",
+            "startDate": "2025-09-22",
+            "endDate": "2025-12-12",
+            "session": "1",
+            "level": "Undergraduate",
+            "type": "Quarter",
+            "gradeDueDate": "2025-12-24"
+        },
+        {
+            "name": "Spring 2025 Quarter",
+            "id": "AP_25_SQ",
+            "startDate": "2025-03-31",
+            "endDate": "2025-06-12",
+            "session": "1",
+            "level": "Continuing Education",
+            "type": "Quarter",
+            "gradeDueDate": "2025-06-24"
+        }
+    ]
+}
