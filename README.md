@@ -88,6 +88,9 @@ The CourseAvail API endpoints are used to fetch course data and confirm course s
 **GET** `https://www.scu.edu/apps/ws/courseavail/autocomplete/quarters/`  
 Returns a list of all available quarters.
 
+**GET** `https://www.scu.edu/apps/courseavail/export/?file=course.json`
+Returns a JSON file containing all available quarters.
+
 ### 2. Search Courses by Quarter
 **POST** `https://www.scu.edu/apps/ws/courseavail/search/{quarter}/`  
 Fetches all available courses for a specific quarter.
@@ -106,3 +109,10 @@ Returns a list of all available departments for a specific quarter.
 ### 4. Get Available Pathways
 **GET** `https://www.scu.edu/apps/ws/courseavail/autocomplete/{quarter}/pathways/`
 Returns a list of all available pathways for a specific quarter.
+
+### 5. Get All SCU Courses
+**GET** `https://www.scu.edu/apps/courseavail/export/?file=course.json`
+Returns a JSON file containing all SCU courses.
+
+**GET** `https://www.scu.edu/apps/courseavail/export/?file=course_section.json`
+Returns a JSON file containing all SCU course sections with their quarters.
