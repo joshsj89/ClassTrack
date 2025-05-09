@@ -48,9 +48,10 @@ function App() {
         });
     };
 
-      // Save state to chrome.storage.sync whenever it changes
-      useEffect(() => {
+    // Save state to chrome.storage.sync whenever it changes
+    useEffect(() => {
         if (!isInitialized) return;
+
         chrome.storage.sync.set({
             startTime,
             endTime,
@@ -66,14 +67,26 @@ function App() {
             createFiles,
             includeLectureName,
             includeAssignment,
-            linkToCalendar
+            linkToCalendar,
         }, () => {
             console.log("All settings saved to chrome.storage.sync");
-    }); 
-    },[
-        startTime, endTime, selectedColor,
-        isLectures, isLabs, isAssignments, isMidterms, isFinals, darkMode, isDarkModeScheduled,
-        organizeDrive, createFiles, includeLectureName, includeAssignment, linkToCalendar
+        }); 
+    }, [
+        startTime, 
+        endTime, 
+        selectedColor,
+        isLectures, 
+        isLabs, 
+        isAssignments, 
+        isMidterms, 
+        isFinals, 
+        darkMode, 
+        isDarkModeScheduled,
+        organizeDrive, 
+        createFiles, 
+        includeLectureName, 
+        includeAssignment, 
+        linkToCalendar,
     ]);
     
     // Use useEffect to asynchronously load stored values
