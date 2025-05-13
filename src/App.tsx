@@ -195,7 +195,6 @@ function App() {
             });
 
             await chrome.storage.local.set({ googleToken: token });
-            console.log("Google access token:", token);
 
             // Fetch calendar events using the token
             // await fetchCalendarEvents(token);
@@ -352,8 +351,6 @@ function App() {
 
     const addClassToCalendar = async (course: WorkdayCourseFormat) => {
         const token = await chrome.storage.local.get('googleToken');
-
-        console.log("Google token:", token["googleToken"]); // Log the token for debugging
 
         if (!token) {
             throw new Error("Google token not found");
