@@ -11,6 +11,7 @@ import { Term, TermMappings } from '../types/term';
 import termMappingsJson from './json/term_mappings.json'; // Import the JSON file directly
 import { convertMDYToDate, convertMDYToYYYYMMDD, convertDayToDayAbbrev } from './helper/date';
 import { calendar_v3 } from 'googleapis';
+import { EventColor, EventColorHex } from './helper/color';
 
 type Event = calendar_v3.Schema$Event;
 
@@ -22,7 +23,7 @@ function App() {
     const [endTime, setEndTime] = useState<string>('08:00');
     
 
-    const [selectedColor, setSelectedColor] = useState<string[]>(['#7986CB', '#7986CB', '#7986CB']);
+    const [selectedColor, setSelectedColor] = useState<EventColor[]>([EventColor.Peacock, EventColor.PaleGreen, EventColor.Mauve, EventColor.PaleRed]);
 
     const [isLectures, setIsLectures] = useState<boolean>(false);
     const [isLabs, setIsLabs] = useState<boolean>(false);
@@ -285,8 +286,8 @@ function App() {
             if (courseData) {
                 console.log("Course data found:", courseData); // Log the course data
 
-                if (linkToCalendar) {
-                    await addClassToCalendar(courseData); // Add the course to Google Calendar
+                if (linkToCalendar && isLectures) {
+                    await addClassToCalendar(courseData); // Add the course lectures to Google Calendar
                 }
             } else {
                 console.error("Course data not found.");
@@ -375,8 +376,9 @@ function App() {
             location: course["Locations"],
             // course["Meeting Patterns"] = "T Th | 3:50 PM - 5:30 PM" -> Repeat every week on T and Th until course["End Date"]
             recurrence: [
-                `RRULE:FREQ=WEEKLY;BYDAY=${course["Meeting Patterns"].split(" | ")[0].trim().split(" ").map((dayString) => convertDayToDayAbbrev(dayString)).toString()};UNTIL=${convertMDYToYYYYMMDD(course["End Date"])}`,
+                `RRULE:FREQ=WEEKLY;BYDAY=${course["Meeting Patterns"].split(" | ")[0].trim().split(" ").map((dayString) => convertDayToDayAbbrev(dayString)).toString()};UNTIL=${convertMDYToYYYYMMDD(course["End Date"])}T235959Z`,
             ],
+            colorId: selectedColor[0], // Use the selected color for the event
         };
 
         const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events`, {
@@ -473,45 +475,42 @@ function App() {
                 <div className={`${styles["row"]} ${styles["row-3"]}`}>
                     <div className={styles["toggle-container"]}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <ColorPicker
-                                    key="eventColorPicker"
-                                    selectedColor={selectedColor[0]} // Pass the first color
-                                    onColorChange={(newColor: string) => {
-                                        const updatedColors = [...selectedColor];
-                                        updatedColors[0] = newColor;
-                                        setSelectedColor(updatedColors);
-                                        console.log(`Event Color Updated: ${newColor}`);
-                                    }}
-                                />
-                                <p style={{ margin: 0 }}>Events</p>
-                            </div>
-
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <ColorPicker
-                                    key="taskColorPicker"
-                                    selectedColor={selectedColor[1]} // Pass the second color
-                                    onColorChange={(newColor: string) => {
-                                        const updatedColors = [...selectedColor];
-                                        updatedColors[1] = newColor;
-                                        setSelectedColor(updatedColors);
-                                    }}
-                                />
-                                <p style={{ margin: 0 }}>Tasks</p>
-                            </div>
-
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <ColorPicker
-                                    key="examColorPicker"
-                                    selectedColor={selectedColor[2]} // Pass the third color
-                                    onColorChange={(newColor: string) => {
-                                        const updatedColors = [...selectedColor];
-                                        updatedColors[2] = newColor;
-                                        setSelectedColor(updatedColors);
-                                    }}
-                                />
-                                <p style={{ margin: 0 }}>Exams</p>
-                            </div>
+                            <ColorPicker
+                                label='Lectures'
+                                selectedColor={selectedColor[0]}
+                                onColorChange={(newColor: EventColor) => {
+                                    const updatedColors = [...selectedColor];
+                                    updatedColors[0] = newColor;
+                                    setSelectedColor(updatedColors);
+                                }}
+                            />
+                            <ColorPicker
+                                label='Events'
+                                selectedColor={selectedColor[1]}
+                                onColorChange={(newColor: EventColor) => {
+                                    const updatedColors = [...selectedColor];
+                                    updatedColors[1] = newColor;
+                                    setSelectedColor(updatedColors);
+                                }}
+                            />
+                            <ColorPicker
+                                label='Tasks'
+                                selectedColor={selectedColor[2]}
+                                onColorChange={(newColor: EventColor) => {
+                                    const updatedColors = [...selectedColor];
+                                    updatedColors[2] = newColor;
+                                    setSelectedColor(updatedColors);
+                                }}
+                            />
+                            <ColorPicker
+                                label='Exams'
+                                selectedColor={selectedColor[3]}
+                                onColorChange={(newColor: EventColor) => {
+                                    const updatedColors = [...selectedColor];
+                                    updatedColors[3] = newColor;
+                                    setSelectedColor(updatedColors);
+                                }}
+                            />
                         </div>
                     </div>
 
