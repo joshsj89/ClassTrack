@@ -6,6 +6,9 @@ import { useDarkMode } from './darkModeContext';
 import { DarkModeProvider } from './darkModeContext';
 import { useState, useEffect } from 'react';
 import ColorPicker from './ColorPicker';
+import { Course, WorkdayCourseFormat, CourseAvailCourseFormat } from '../types/course';
+import { Term, TermMappings } from '../types/term';
+import termMappingsJson from './json/term_mappings.json'; // Import the JSON file directly
 
 
 function App() {
@@ -257,6 +260,92 @@ function App() {
         console.log("Folder created:", data);
     }
 
+    // Upload syllabus and extract data from back end
+    const uploadSyllabus = async (file: File) => {
+        const formData = new FormData();
+        formData.append('file', file); // Append the file to the form data
+
+        try {
+            const response = await fetch('https://starfish-calm-burro.ngrok-free.app/parsefile', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error uploading syllabus: ${response.statusText}`);
+            }
+
+            const data: Course = await response.json();
+            console.log("Syllabus data:", data); // Log the extracted data
+
+            const courseData = await checkCourse(data); // Check the course data
+
+            if (courseData) {
+                console.log("Course data found:", courseData); // Log the course data
+            } else {
+                console.error("Course data not found.");
+            }
+        } catch (error) {
+            console.error("Error uploading syllabus:", error);
+        }
+    }
+
+    const checkCourse = async (course: Course): Promise<WorkdayCourseFormat | null> => {
+        const term = `${course["Quarter/Semester"]} ${course["Year"]}`;
+        const term2 = `${course["Quarter/Semester"].toLowerCase()}${course["Year"]}`;
+
+        // const termMappingsResponse = await fetch('../json/term_mappings.json');
+        // const termMappings: TermMappings = await termMappingsResponse.json();
+        const termMappings: TermMappings = termMappingsJson as TermMappings; // Use the imported JSON directly
+        const termMapping: Term = termMappings[term];
+
+        if (!termMapping) {
+            console.error(`No term mapping found for ${term}`);
+            return null;
+        }
+
+        // const allCoursesResponse = await fetch(`./json/courses_${term2}.json`);
+        // const allCourses: Array<WorkdayCourseFormat> = await allCoursesResponse.json();
+        const allCoursesJson = await import(`./json/courses/courses_${term2}.json`, {
+            assert: { type: 'json' },
+        });
+        const allCourses: Array<WorkdayCourseFormat> = allCoursesJson.default as Array<WorkdayCourseFormat>; // Use the imported JSON directly
+
+        let courseFound = false;
+        let courseData: WorkdayCourseFormat | null = null;
+
+        for (const courseItem of allCourses) {
+            if (course["CourseCode"] === courseItem["Course Section"].split(" - ")[0].split("-")[0]) {
+                
+                for (const scheduleEvent of course["Schedule"]) {
+                    if (scheduleEvent["Type"] !== "Class") continue; // Skip if the type is not "Class"
+
+                    const weekday = scheduleEvent["Weekday"];
+
+                    const meetingPatterns = courseItem["Meeting Patterns"].split(" | ");
+
+                    if (meetingPatterns.length === 0) continue; // Skip if there are no meeting patterns
+
+                    if (weekday !== meetingPatterns[0].trim()) continue; // Skip if the weekday doesn't match
+
+                    // Get start time (H:MM am/pm) (e.g., 3:50 pm)
+                    const startTime = scheduleEvent["Start Time"].toUpperCase();
+                    
+                    if (startTime !== meetingPatterns[1].split(" - ")[0].trim()) continue; // Skip if the start time doesn't match
+
+                    // Get end time (H:MM am/pm) (e.g., 3:50 pm)
+                    const endTime = scheduleEvent["End Time"].toUpperCase();
+                    if (endTime !== meetingPatterns[1].split(" - ")[1].trim()) continue; // Skip if the end time doesn't match
+
+                    courseFound = true;
+                    return courseItem;
+                }
+            }
+        }
+
+        return courseFound ? courseData : null;
+    }
+
     return (
         <div className={`${styles["App"]} ${darkMode ? styles["dark"] : ""}`}>
             {/* Title Bar */}
@@ -291,7 +380,18 @@ function App() {
                 <div className={`${styles["row"]} ${styles["row-2"]}`}>
                     <IconButton
                         text="Upload"
-                        onClick={() => console.log("Upload clicked")}
+                        onClick={() => {
+                            const input = document.createElement('input');
+                            input.type = 'file';
+                            input.accept = '.pdf, .docx, .txt'; // Accept PDF, DOCX, and TXT files
+                            input.onchange = (event) => {
+                                const file = (event.target as HTMLInputElement).files?.[0];
+                                if (file) {
+                                    uploadSyllabus(file); // Call the upload function with the selected file
+                                }
+                            };
+                            input.click(); // Trigger the file input click
+                        }}
                         iconSrc="images/upload-icon.png"
                         alt="Upload"
                         backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
