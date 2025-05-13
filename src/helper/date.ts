@@ -37,7 +37,7 @@ export function convertDayToDayAbbrev(day: string): string {
         'T': 'TU',
         'W': 'WE',
         'Th': 'TH',
-        'Friday': 'FR',
+        'F': 'FR',
         'S': 'SA'
     };
 
