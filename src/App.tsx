@@ -429,11 +429,10 @@ function App() {
             },
             description: course["All Instructors"],
             location: course["Locations"],
-            // course["Meeting Patterns"] = "T Th | 3:50 PM - 5:30 PM" -> Repeat every week on T and Th until course["End Date"]
             recurrence: [
                 `RRULE:FREQ=WEEKLY;BYDAY=${course["Meeting Patterns"].split(" | ")[0].trim().split(" ").map((dayString) => convertDayToDayAbbrev(dayString)).toString()};UNTIL=${convertMDYToYYYYMMDD(course["End Date"])}T235959Z`,
             ],
-            colorId: selectedColor[0], // Use the selected color for the event
+            colorId: selectedColor[0],
         };
 
         const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events`, {
