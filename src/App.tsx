@@ -9,12 +9,12 @@ import ColorPicker from './ColorPicker';
 import { Course, WorkdayCourseFormat, CourseAvailCourseFormat } from '../types/course';
 import { Term, TermMappings } from '../types/term';
 import termMappingsJson from './json/term_mappings.json'; // Import the JSON file directly
+import { convertMDYToDate, convertMDYToYYYYMMDD, convertDayToDayAbbrev } from './helper/date';
+import { calendar_v3 } from 'googleapis';
 
+type Event = calendar_v3.Schema$Event;
 
 function App() {
-
-    
-
     console.log(chrome);
     // Initialize state with a default value
 
@@ -194,11 +194,12 @@ function App() {
                 });
             });
 
+            await chrome.storage.local.set({ googleToken: token });
             console.log("Google access token:", token);
 
             // Fetch calendar events using the token
-            await fetchCalendarEvents(token);
-            await createDriveFolder(token, "ClassTrack Drive Test"); // Create a folder in Google Drive
+            // await fetchCalendarEvents(token);
+            // await createDriveFolder(token, "ClassTrack Drive Test"); // Create a folder in Google Drive
 
             return true; // Return true if the account is linked successfully
         } catch (error) {
@@ -282,6 +283,10 @@ function App() {
 
             if (courseData) {
                 console.log("Course data found:", courseData); // Log the course data
+
+                if (linkToCalendar) {
+                    await addClassToCalendar(courseData); // Add the course to Google Calendar
+                }
             } else {
                 console.error("Course data not found.");
             }
@@ -330,10 +335,9 @@ function App() {
 
                     // Get start time (H:MM am/pm) (e.g., 3:50 pm)
                     const startTime = scheduleEvent["Start Time"].toUpperCase();
-                    
                     if (startTime !== meetingPatterns[1].split(" - ")[0].trim()) continue; // Skip if the start time doesn't match
 
-                    // Get end time (H:MM am/pm) (e.g., 3:50 pm)
+                    // Get end time (H:MM am/pm) (e.g., 5:30 pm)
                     const endTime = scheduleEvent["End Time"].toUpperCase();
                     if (endTime !== meetingPatterns[1].split(" - ")[1].trim()) continue; // Skip if the end time doesn't match
 
@@ -344,6 +348,57 @@ function App() {
         }
 
         return courseFound ? courseData : null;
+    }
+
+    const addClassToCalendar = async (course: WorkdayCourseFormat) => {
+        const token = await chrome.storage.local.get('googleToken');
+
+        console.log("Google token:", token["googleToken"]); // Log the token for debugging
+
+        if (!token) {
+            throw new Error("Google token not found");
+        }
+
+        const calendarId = 'primary'; // Use the primary calendar
+
+        const event: Event = {
+            summary: course["Course Section"],
+            start: {
+                dateTime: convertMDYToDate(course["Start Date"], course["Meeting Patterns"])["startTime"].toISOString(),
+                timeZone: 'America/Los_Angeles',
+            },
+            end: {
+                dateTime: convertMDYToDate(course["Start Date"], course["Meeting Patterns"])["endTime"].toISOString(),
+                timeZone: 'America/Los_Angeles',
+            },
+            description: course["All Instructors"],
+            location: course["Locations"],
+            // course["Meeting Patterns"] = "T Th | 3:50 PM - 5:30 PM" -> Repeat every week on T and Th until course["End Date"]
+            recurrence: [
+                `RRULE:FREQ=WEEKLY;BYDAY=${course["Meeting Patterns"].split(" | ")[0].trim().split(" ").map((dayString) => convertDayToDayAbbrev(dayString)).toString()};UNTIL=${convertMDYToYYYYMMDD(course["End Date"])}`,
+            ],
+        };
+
+        const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events`, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token["googleToken"]}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(event),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error adding event to calendar: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Event added to calendar:", data); // Log the added event
+        return data; // Return the added event data
+    }
+
+    const addCalendarEvents = async (course: WorkdayCourseFormat) => {
+
     }
 
     return (
