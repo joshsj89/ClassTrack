@@ -180,20 +180,22 @@ function App() {
         }
     }, [startTime, endTime, isDarkModeScheduled]);
 
+    const getGoogleToken = async () : Promise<string> => {
+        return new Promise<string>((resolve, reject) => {
+            chrome.identity.getAuthToken({ interactive: true }, (token) => {
+                if (chrome.runtime.lastError || !token) { // Check for errors
+                    reject(new Error("Failed to retrieve Google token: " + chrome.runtime.lastError));
+                } else {
+                    resolve(token as string);
+                }
+            });
+        })
+    }
+
     // Link Google Account
     const linkGoogleAccount = async (): Promise<boolean> => {
         try {
-            const token: string = await new Promise<string>((resolve, reject) => {
-                chrome.identity.getAuthToken({ interactive: true }, (token) => { // Request an auth token
-                    if (chrome.runtime.lastError || !token) { // Check for errors
-                        reject(chrome.runtime.lastError);
-                        return;
-                    }
-
-                    resolve(token as string); // Resolve the promise with the token
-                });
-            });
-
+            const token = await getGoogleToken();
             await chrome.storage.local.set({ googleToken: token });
 
             // Fetch calendar events using the token
@@ -350,7 +352,8 @@ function App() {
     }
 
     const addClassToCalendar = async (course: WorkdayCourseFormat) => {
-        const token = await chrome.storage.local.get('googleToken');
+        // const token = await chrome.storage.local.get('googleToken');
+        const token = await getGoogleToken();
 
         if (!token) {
             throw new Error("Google token not found");
@@ -379,7 +382,7 @@ function App() {
         const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events`, {
             method: 'POST',
             headers: {
-                Authorization: `Bearer ${token["googleToken"]}`,
+                Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(event),
