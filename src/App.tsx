@@ -193,11 +193,30 @@ function App() {
         })
     }
 
+    const getCalendarId = async () : Promise<string> => {
+        return new Promise<string>((resolve, reject) => {
+            chrome.storage.sync.get(['courseCalendarId'], (result) => {
+                if (chrome.runtime.lastError || !result.courseCalendarId) { // Check for errors
+                    reject(new Error("Failed to retrieve calendar ID: " + chrome.runtime.lastError));
+                } else {
+                    resolve(result.courseCalendarId);
+                }
+            });
+        });
+    }
+
     // Link Google Account
     const linkGoogleAccount = async (): Promise<boolean> => {
         try {
             const token = await getGoogleToken();
-            await chrome.storage.local.set({ googleToken: token });
+
+            if (!token) {
+                throw new Error("Google token not found");
+            }
+
+            if ((await chrome.storage.sync.get('courseCalendarId')).courseCalendarId === undefined) {
+                await createCourseCalendar(); // Create a course calendar
+            }
 
             // Fetch calendar events using the token
             // await fetchCalendarEvents(token);
@@ -241,6 +260,38 @@ function App() {
         const data = await response.json();
         console.log("Calendar events:", data); // Log the calendar events
     }
+
+    const createCourseCalendar = async () => {
+        const token = await getGoogleToken();
+
+        if (!token) {
+            throw new Error("Google token not found");
+        }
+
+        const response = await fetch('https://www.googleapis.com/calendar/v3/calendars', {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                summary: "ClassTrack",
+                timeZone: "America/Los_Angeles",
+            }),
+        });
+    
+        if (!response.ok) {
+            throw new Error(`Error creating calendar: ${response.statusText}`);
+        }
+    
+        const data = await response.json();
+
+        chrome.storage.sync.set({ courseCalendarId: data.id }, () => {
+            console.log("Course calendar ID saved to storage:", data.id);
+        });
+        
+        return data.id;
+    };
 
     const createDriveFolder = async (token: string, folderName: string) => {
         const response = await fetch('https://www.googleapis.com/drive/v3/files', {
@@ -360,7 +411,11 @@ function App() {
             throw new Error("Google token not found");
         }
 
-        const calendarId = 'primary'; // Use the primary calendar
+        const calendarId = await getCalendarId();
+
+        if (!calendarId) {
+            throw new Error("Course calendar ID not found");
+        }
 
         const event: Event = {
             summary: course["Course Section"],
