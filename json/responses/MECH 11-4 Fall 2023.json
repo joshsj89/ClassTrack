@@ -1,0 +1,179 @@
+{
+    "CourseCode": "MECH 11",
+    "CourseSchedule": [
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "0",
+            "StartTime": "",
+            "Topics": "Introduction to Manufacturing Processes",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "1",
+            "StartTime": "",
+            "Topics": "Review of the Structure of Materials",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "2",
+            "StartTime": "",
+            "Topics": "Review of Mechanical Behavior of Materials",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "4",
+            "StartTime": "",
+            "Topics": "Heat Treatment",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "5",
+            "StartTime": "",
+            "Topics": "Ferrous Metals and Alloys",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "6",
+            "StartTime": "",
+            "Topics": "Nonferrous Metals and Alloys",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "10, 11",
+            "StartTime": "",
+            "Topics": "Casting",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "13-15",
+            "StartTime": "",
+            "Topics": "Forming",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "7,19",
+            "StartTime": "",
+            "Topics": "Polymers",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "9",
+            "StartTime": "",
+            "Topics": "Composites",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "8",
+            "StartTime": "",
+            "Topics": "Ceramics",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "28",
+            "StartTime": "",
+            "Topics": "Semiconductor Fabrication",
+            "WeekNumber": "",
+            "Weekday": ""
+        }
+    ],
+    "CourseTitle": "MECH 11: Materials and Manufacturing Processes",
+    "GradingInformation": [
+        {
+            "Category": "Homework",
+            "Value": "20%"
+        },
+        {
+            "Category": "Quizzes",
+            "Value": "20%"
+        },
+        {
+            "Category": "Midterm",
+            "Value": "30%"
+        },
+        {
+            "Category": "Final",
+            "Value": "30%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "12/06/2023",
+            "EventName": "Final Exam",
+            "Weekday": "Wednesday"
+        }
+    ],
+    "InstructorEmail": "eishida@scu.edu",
+    "InstructorName": "Emi Ishida",
+    "InstructorOffice": "",
+    "Quarter/Semester": "Fall",
+    "Schedule": [
+        {
+            "End Time": "2:05 PM",
+            "Location": "OConnor Hall Rm 102",
+            "Start Time": "1:00 PM",
+            "Type": "Class",
+            "Weekday": "M W F"
+        },
+        {
+            "End Time": "",
+            "Location": "by zoom",
+            "Start Time": "6:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "F"
+        },
+        {
+            "End Time": "",
+            "Location": "in-person",
+            "Start Time": "",
+            "Type": "Office Hour",
+            "Weekday": "W F"
+        }
+    ],
+    "Year": "2023"
+}

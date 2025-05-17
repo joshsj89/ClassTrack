@@ -1,0 +1,227 @@
+{
+    "CourseCode": "MECH 115",
+    "CourseSchedule": [
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Chapter 8",
+            "StartTime": null,
+            "Topics": "Thread, power screws, torque, self-locking, efficiency, bolt geom, bolted joint, preload, force bolt/member",
+            "WeekNumber": "1",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Factors safety, bolt and member stiffness, bolt fatigue",
+            "WeekNumber": "2",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Intro to design optimization, Excel",
+            "WeekNumber": "3",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Matlab, fillet welded beam design, I beam design, and other machine design ideas",
+            "WeekNumber": "4",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Chapter 10",
+            "StartTime": null,
+            "Topics": "Helical spring basics, compression spring design, static and fatigue loading",
+            "WeekNumber": "5",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "tension spring design, static and fatigue loading",
+            "WeekNumber": "6",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Chapter 11",
+            "StartTime": null,
+            "Topics": "Intro to bearings, bearing types, bearing load,, bearing selection",
+            "WeekNumber": "7",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Life, and reliability, ball bearing selection",
+            "WeekNumber": "8",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Chapters 13&14",
+            "StartTime": null,
+            "Topics": "Gears intro, gear types, spur gear basics",
+            "WeekNumber": "9",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Forces, spur gear bending stress",
+            "WeekNumber": "10",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Screws, Fasteners, and the Design of Nonpermanent Joints",
+            "WeekNumber": "1",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Design Optimization with Software Solvers",
+            "WeekNumber": "3",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Mechanical Springs",
+            "WeekNumber": "5",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Rolling-Contact Bearings",
+            "WeekNumber": "7",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "General, and Spur Gears",
+            "WeekNumber": "9",
+            "Weekday": null
+        }
+    ],
+    "CourseTitle": "MECH 115: Machine Design II",
+    "GradingInformation": [
+        {
+            "Category": "Problem Sets",
+            "Value": "25%"
+        },
+        {
+            "Category": "Quiz-1",
+            "Value": "20%"
+        },
+        {
+            "Category": "Quiz-2",
+            "Value": "20%"
+        },
+        {
+            "Category": "Mid-term Presentation",
+            "Value": "5%"
+        },
+        {
+            "Category": "Final Presentation",
+            "Value": "10%"
+        },
+        {
+            "Category": "Project Report",
+            "Value": "15%"
+        },
+        {
+            "Category": "Peer Evaluation",
+            "Value": "5%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "05/02/2024",
+            "EventName": "Quiz-1",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "05/09/2024",
+            "EventName": "Mid-term Presentation",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "05/30/2024",
+            "EventName": "Quiz-2",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "06/06/2024",
+            "EventName": "Final Presentation",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "06/10/2024",
+            "EventName": "Project Report Due",
+            "Weekday": "Monday"
+        }
+    ],
+    "InstructorEmail": "jwang22@scu.edu",
+    "InstructorName": "Jun Wang",
+    "InstructorOffice": "SCDI 3311Q",
+    "Quarter/Semester": "Spring",
+    "Schedule": [
+        {
+            "End Time": "10:10 AM",
+            "Location": "Kenna 102",
+            "Start Time": "8:30 AM",
+            "Type": "Class",
+            "Weekday": "T Th"
+        }
+    ],
+    "Year": "2024"
+}

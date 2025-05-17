@@ -1,0 +1,108 @@
+{
+    "CourseCode": "MECH 121",
+    "CourseSchedule": [
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 1",
+            "StartTime": null,
+            "Topics": "Concepts and Definitions of Thermodynamics",
+            "WeekNumber": null,
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 2",
+            "StartTime": null,
+            "Topics": "Energy and the First Law of Thermodynamics",
+            "WeekNumber": null,
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 3",
+            "StartTime": null,
+            "Topics": "Properties of Pure Substances",
+            "WeekNumber": null,
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 4",
+            "StartTime": null,
+            "Topics": "First Law Analysis for a Control Volume",
+            "WeekNumber": null,
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 5 and Ch. 6",
+            "StartTime": null,
+            "Topics": "Entropy and the Second Law of Thermodynamics",
+            "WeekNumber": null,
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 6",
+            "StartTime": null,
+            "Topics": "Second Law Analysis for a Control Volume",
+            "WeekNumber": null,
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 8.1-8.2 and Ch. 9.5-9.6",
+            "StartTime": null,
+            "Topics": "Introduction to Power Cycles: the Rankine Cycle and the Brayton Cycle",
+            "WeekNumber": null,
+            "Weekday": null
+        }
+    ],
+    "CourseTitle": "MECH 121 Thermodynamics",
+    "GradingInformation": [
+        {
+            "Category": "Attendance",
+            "Value": "5%"
+        },
+        {
+            "Category": "Homework",
+            "Value": "10%"
+        },
+        {
+            "Category": "Quizzes",
+            "Value": "40%"
+        },
+        {
+            "Category": "Final Exam",
+            "Value": "45%"
+        }
+    ],
+    "ImportantDates": [],
+    "InstructorEmail": "opak@scu.edu",
+    "InstructorName": "On Shun Pak",
+    "InstructorOffice": "",
+    "Quarter/Semester": "Winter",
+    "Schedule": [
+        {
+            "End Time": "11:35 AM",
+            "Start Time": "10:30 AM",
+            "Type": "Class",
+            "Weekday": "M W F"
+        }
+    ],
+    "Year": "2024"
+}

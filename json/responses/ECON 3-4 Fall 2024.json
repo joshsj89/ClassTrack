@@ -1,0 +1,94 @@
+{
+    "CourseCode": "ECON 3",
+    "CourseSchedule": [
+        {
+            "Date": "10/25",
+            "EndTime": "",
+            "EventName": "Midterm",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "5",
+            "Weekday": "Friday"
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Final exam",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "finals week",
+            "WeekNumber": "",
+            "Weekday": ""
+        }
+    ],
+    "CourseTitle": "Economics 3: International Economics, Development and Growth",
+    "GradingInformation": [
+        {
+            "Category": "Exams",
+            "Value": "40%"
+        },
+        {
+            "Category": "Problem Sets",
+            "Value": "15%"
+        },
+        {
+            "Category": "Discussions",
+            "Value": "15%"
+        },
+        {
+            "Category": "Debates",
+            "Value": "15%"
+        },
+        {
+            "Category": "Weekly Surveys",
+            "Value": "8%"
+        },
+        {
+            "Category": "Class Participation",
+            "Value": "7%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "09/30/24",
+            "EventName": "discuss them with me during the first week of class",
+            "Weekday": ""
+        }
+    ],
+    "InstructorEmail": "gdobrescu@scu.edu",
+    "InstructorName": "Gabi Dobrescu",
+    "InstructorOffice": "",
+    "Quarter/Semester": "Fall",
+    "Schedule": [
+        {
+            "End Time": "10:20 AM",
+            "Location": "Lucas Hall, Rm. #308",
+            "Start Time": "9:15 AM",
+            "Type": "Class",
+            "Weekday": "M W F"
+        },
+        {
+            "End Time": "11:35 AM",
+            "Location": "Lucas Hall, Rm. #308",
+            "Start Time": "10:30 AM",
+            "Type": "Class",
+            "Weekday": "M W F"
+        },
+        {
+            "End Time": "2:00 PM",
+            "Location": "Lucas Hall café",
+            "Start Time": "1:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "M W"
+        },
+        {
+            "End Time": "2:00 PM",
+            "Location": "Zoom",
+            "Start Time": "1:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "T Th"
+        }
+    ],
+    "Year": "2024"
+}

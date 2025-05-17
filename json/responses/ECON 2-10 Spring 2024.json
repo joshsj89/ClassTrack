@@ -1,0 +1,283 @@
+{
+    "CourseCode": "ECON 2",
+    "CourseSchedule": [
+        {
+            "Date": "04/02",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Syllabus and Chapter 1",
+            "StartTime": "",
+            "Topics": "Introduction to Macroeconomics (1/2)  -  Principles of Economics",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/04",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapters 2-4 HW Assignment 1",
+            "StartTime": "",
+            "Topics": "Introduction to Macroeconomics (2/2)  -  Basic Economic Concepts",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/09",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapters 10 and 12",
+            "StartTime": "",
+            "Topics": "Economic Indicators (1/3)  -  GDP",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/11",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapters 10 and 11 HW Assignment 2",
+            "StartTime": "",
+            "Topics": "Economic Indicators (2/3)  -  Inflation and Price Indices",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/16",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter 15",
+            "StartTime": "",
+            "Topics": "Economic Indicators (3/3)  -  Unemployment",
+            "WeekNumber": "3",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/18",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter 20 HW Assignment 3",
+            "StartTime": "",
+            "Topics": "Aggregate Demand and Aggregate Supply Model (1/3)  -  Short Run",
+            "WeekNumber": "3",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/23",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter 20",
+            "StartTime": "",
+            "Topics": "Aggregate Demand and Aggregate Supply Model (2/3)  -  Short Run, cont.",
+            "WeekNumber": "4",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/25",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter 20 HW Assignment 4",
+            "StartTime": "",
+            "Topics": "Aggregate Demand and Aggregate Supply Model (3/3)  -  Long Run",
+            "WeekNumber": "4",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/30",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Exam 1 Study Guide",
+            "StartTime": "",
+            "Topics": "Problem Set and Exam Review",
+            "WeekNumber": "5",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/02",
+            "EndTime": "",
+            "EventName": "Midterm Exam 1",
+            "Reading": "Topics from Weeks 1-4",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "5",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/07",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter 21",
+            "StartTime": "",
+            "Topics": "Fiscal Policy (1/2)",
+            "WeekNumber": "6",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/09",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter 21 HW Assignment 5",
+            "StartTime": "",
+            "Topics": "Fiscal Policy (2/2)",
+            "WeekNumber": "6",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/14",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter 16",
+            "StartTime": "",
+            "Topics": "Money and the Money Market",
+            "WeekNumber": "7",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/16",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter 16 HW Assignment 6",
+            "StartTime": "",
+            "Topics": "Monetary Policy",
+            "WeekNumber": "7",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/21",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Exam 2 Study Guide",
+            "StartTime": "",
+            "Topics": "Problem Set and Exam Review",
+            "WeekNumber": "8",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/23",
+            "EndTime": "",
+            "EventName": "Midterm Exam 2",
+            "Reading": "Topics from Weeks 6-7",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "8",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/28",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter 17",
+            "StartTime": "",
+            "Topics": "Money Growth and Inflation",
+            "WeekNumber": "9",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/30",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Notes, Chapters 18 and 19 HW Assignment 7",
+            "StartTime": "",
+            "Topics": "Open Economy (1/2)  -  Basic Concepts and The Foreign Exchange Market",
+            "WeekNumber": "9",
+            "Weekday": ""
+        },
+        {
+            "Date": "06/04",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Notes, Chapters 18 and 19 HW Assignment 8",
+            "StartTime": "",
+            "Topics": "Open Economy (2/2)  -  Effect of Changes in Polices",
+            "WeekNumber": "10",
+            "Weekday": ""
+        },
+        {
+            "Date": "06/06",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Final Exam Study Guide",
+            "StartTime": "",
+            "Topics": "Problem Set and Exam Review",
+            "WeekNumber": "10",
+            "Weekday": ""
+        },
+        {
+            "Date": "06/13",
+            "EndTime": "8:30 PM",
+            "EventName": "Final Exam",
+            "Reading": "Cumulative",
+            "StartTime": "6:30 PM",
+            "Topics": "",
+            "WeekNumber": "11",
+            "Weekday": ""
+        }
+    ],
+    "CourseTitle": "ECON 2 Principles of Macroeconomics",
+    "GradingInformation": [
+        {
+            "Category": "Midterm Exam 1",
+            "Value": "20%"
+        },
+        {
+            "Category": "Midterm Exam 2",
+            "Value": "20%"
+        },
+        {
+            "Category": "Final Exam",
+            "Value": "30%"
+        },
+        {
+            "Category": "Homework Assignments",
+            "Value": "25%"
+        },
+        {
+            "Category": "Attendance/Participation",
+            "Value": "5%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "05/02/2024",
+            "EventName": "Midterm Exam 1",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "05/23/2024",
+            "EventName": "Midterm Exam 2",
+            "Weekday": "Friday"
+        },
+        {
+            "Date": "06/13/2024",
+            "EventName": "Final Exam",
+            "Weekday": "Thursday"
+        }
+    ],
+    "InstructorEmail": "ZWang24@scu.edu",
+    "InstructorName": "Zoey Wang",
+    "InstructorOffice": "Rm 216Y Lucas Hall",
+    "Quarter/Semester": "Spring",
+    "Schedule": [
+        {
+            "End Time": "5:30 PM",
+            "Location": "Rm 218 Kenna Hall",
+            "Start Time": "3:50 PM",
+            "Type": "Class",
+            "Weekday": "T Th"
+        },
+        {
+            "End Time": "6:00 PM",
+            "Location": "Rm 218 Kenna Hall",
+            "Start Time": "5:30 PM",
+            "Type": "Office Hour",
+            "Weekday": "T Th"
+        },
+        {
+            "End Time": "8:00 PM",
+            "Location": "Zoom",
+            "Start Time": "7:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "M"
+        }
+    ],
+    "Year": "2024"
+}

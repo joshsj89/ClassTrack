@@ -1,0 +1,564 @@
+{
+    "CourseCode": "ELEN 104",
+    "CourseSchedule": [
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 1",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Units, linearity, and coordinate systems",
+            "WeekNumber": "1",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d1-a",
+            "WeekNumber": "1",
+            "Weekday": "T"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d1-b Circuit elements and boundary conditions",
+            "WeekNumber": "1",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 1",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Measurements and data",
+            "WeekNumber": "1",
+            "Weekday": "F"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 1 due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "2",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Quiz 1",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "2",
+            "Weekday": "T"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d2-b Current density and divergence",
+            "WeekNumber": "2",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 2",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Visualizing vectors",
+            "WeekNumber": "2",
+            "Weekday": "F"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d2-a",
+            "WeekNumber": "2",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 1 review due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Charge distributions and vector algebra",
+            "WeekNumber": "2",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 2 due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "3",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Quiz 2",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "3",
+            "Weekday": "T"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d3-b Magnetic flux and Faradays law",
+            "WeekNumber": "3",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 3",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Faradays law",
+            "WeekNumber": "3",
+            "Weekday": "F"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d3-a",
+            "WeekNumber": "3",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 2 review due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Electric fields, currents, and resistance",
+            "WeekNumber": "3",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 3 due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "4",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Quiz 3",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "4",
+            "Weekday": "T"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d4-b Magnetic intensity",
+            "WeekNumber": "4",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 4",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Measuring fields",
+            "WeekNumber": "4",
+            "Weekday": "F"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d4-a",
+            "WeekNumber": "4",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 3 review due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Electric flux density",
+            "WeekNumber": "4",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 4 due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "5",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Quiz 4",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "5",
+            "Weekday": "T"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d5-b Direct sum and integral calculations",
+            "WeekNumber": "5",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d5-a",
+            "WeekNumber": "5",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 4 review due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Superposition and the electric scalar potential",
+            "WeekNumber": "5",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d5-c Fields from symmetric charge distributions",
+            "WeekNumber": "6",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d6-a Magnetic vector potential and Biot-Savart",
+            "WeekNumber": "6",
+            "Weekday": "T"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 5",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Computational electrostatics",
+            "WeekNumber": "6",
+            "Weekday": "F"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 5 due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "7",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Quiz 5",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "7",
+            "Weekday": "T"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d6-c Methods using Amperes law",
+            "WeekNumber": "7",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 6",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "MRI",
+            "WeekNumber": "7",
+            "Weekday": "F"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d6-b Magnetic dipoles and solenoids",
+            "WeekNumber": "7",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 5 review due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "7",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 6 due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "8",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Quiz 6",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "8",
+            "Weekday": "T"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d7-b Inductance and impedance",
+            "WeekNumber": "8",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 7",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Capacitor systems design",
+            "WeekNumber": "8",
+            "Weekday": "F"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d7-a Capacitance",
+            "WeekNumber": "8",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 6 review due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "8",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 7 due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "9",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Quiz 7",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "9",
+            "Weekday": "T"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d8-b Waves in the frequency domain",
+            "WeekNumber": "9",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 8",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Waves",
+            "WeekNumber": "9",
+            "Weekday": "F"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d8-a Waves in the time domain",
+            "WeekNumber": "9",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 7 review due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "9",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 8 due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "10",
+            "Weekday": "M"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Quiz 8",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "10",
+            "Weekday": "T"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "TBD",
+            "WeekNumber": "10",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "d8-c Poyntings theorem and radiation",
+            "WeekNumber": "10",
+            "Weekday": "Th"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Lab 8 review due",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "10",
+            "Weekday": "M"
+        }
+    ],
+    "CourseTitle": "ELEN 104 - Electromagnetics I",
+    "GradingInformation": [
+        {
+            "Category": "Quizzes",
+            "Value": "50%"
+        },
+        {
+            "Category": "Final",
+            "Value": "30%"
+        },
+        {
+            "Category": "Labs",
+            "Value": "20%"
+        }
+    ],
+    "ImportantDates": [],
+    "InstructorEmail": "",
+    "InstructorName": "Kurt Schab",
+    "InstructorOffice": "",
+    "Quarter/Semester": "Fall",
+    "Schedule": [
+        {
+            "End Time": "12:00 PM",
+            "Start Time": "10:20 AM",
+            "Type": "Class",
+            "Weekday": "T Th"
+        }
+    ],
+    "Year": "2023"
+}

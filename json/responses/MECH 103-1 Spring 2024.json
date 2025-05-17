@@ -1,0 +1,41 @@
+{
+    "CourseCode": "MECH 103",
+    "CourseSchedule": [],
+    "CourseTitle": "MECH 103 Mathematical Methods in Mechanical Engineering",
+    "GradingInformation": [
+        {
+            "Category": "Homework",
+            "Value": "15%"
+        },
+        {
+            "Category": "Two Quizzes",
+            "Value": "40%"
+        },
+        {
+            "Category": "Final Exam",
+            "Value": "45%"
+        }
+    ],
+    "ImportantDates": [],
+    "InstructorEmail": "wyang5@scu.edu",
+    "InstructorName": "Weiguang Yang",
+    "InstructorOffice": "SCDI 1101",
+    "Quarter/Semester": "Spring",
+    "Schedule": [
+        {
+            "End Time": "9:05 AM",
+            "Location": "Heafey 125",
+            "Start Time": "8:00 AM",
+            "Type": "Class",
+            "Weekday": "M W F"
+        },
+        {
+            "End Time": "6:00 PM",
+            "Location": "SCDI 1101",
+            "Start Time": "4:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "W"
+        }
+    ],
+    "Year": "2024"
+}

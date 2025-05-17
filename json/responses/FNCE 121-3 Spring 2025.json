@@ -1,0 +1,341 @@
+{
+    "CourseCode": "FNCE 121",
+    "CourseSchedule": [
+        {
+            "Date": "03/31",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "3.3-3.4",
+            "StartTime": "",
+            "Topics": "Overview of Course",
+            "WeekNumber": "1",
+            "Weekday": "M"
+        },
+        {
+            "Date": "04/02",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "4.1-4.3",
+            "StartTime": "",
+            "Topics": "M1. Time Value of Money",
+            "WeekNumber": "1",
+            "Weekday": "W"
+        },
+        {
+            "Date": "04/04",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "4.1-4.3",
+            "StartTime": "",
+            "Topics": "M1. Time Value of Money",
+            "WeekNumber": "1",
+            "Weekday": "F"
+        },
+        {
+            "Date": "04/07",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "4.4-4.5",
+            "StartTime": "",
+            "Topics": "M1. Time Value of Money",
+            "WeekNumber": "2",
+            "Weekday": "M"
+        },
+        {
+            "Date": "04/09",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "5.1, 5.3",
+            "StartTime": "",
+            "Topics": "M1. Time Value of Money",
+            "WeekNumber": "2",
+            "Weekday": "W"
+        },
+        {
+            "Date": "04/11",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "M1. Time Value of Money",
+            "WeekNumber": "2",
+            "Weekday": "F"
+        },
+        {
+            "Date": "04/14",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "6.1-6.3",
+            "StartTime": "",
+            "Topics": "M2. Bonds - Part 1",
+            "WeekNumber": "3",
+            "Weekday": "M"
+        },
+        {
+            "Date": "04/16",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "6.1-6.3",
+            "StartTime": "",
+            "Topics": "M2. Bonds - Part 1",
+            "WeekNumber": "3",
+            "Weekday": "W"
+        },
+        {
+            "Date": "04/18",
+            "EndTime": "",
+            "EventName": "No Class",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "No Class (Good Friday)",
+            "WeekNumber": "3",
+            "Weekday": "F"
+        },
+        {
+            "Date": "04/21",
+            "EndTime": "",
+            "EventName": "Quiz 1",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": null,
+            "WeekNumber": "4",
+            "Weekday": "M"
+        },
+        {
+            "Date": "04/23",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "M2. Bonds - Part 2",
+            "WeekNumber": "4",
+            "Weekday": "W"
+        },
+        {
+            "Date": "04/25",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "7.1-7.3",
+            "StartTime": "",
+            "Topics": "M2. Bonds - Part 2 & M3. Stocks",
+            "WeekNumber": "4",
+            "Weekday": "F"
+        },
+        {
+            "Date": "04/28",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "7.4-7.5",
+            "StartTime": "",
+            "Topics": "M3. Stocks",
+            "WeekNumber": "5",
+            "Weekday": "M"
+        },
+        {
+            "Date": "04/30",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "M3. Stocks",
+            "WeekNumber": "5",
+            "Weekday": "W"
+        },
+        {
+            "Date": "05/02",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "8.1-8.5",
+            "StartTime": "",
+            "Topics": "M4. NPV & Other Investment Criteria",
+            "WeekNumber": "5",
+            "Weekday": "F"
+        },
+        {
+            "Date": "05/05",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "9.1",
+            "StartTime": "",
+            "Topics": "M4. NPV & M5. Cash Flows",
+            "WeekNumber": "6",
+            "Weekday": "M"
+        },
+        {
+            "Date": "05/07",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "9.2-9.3",
+            "StartTime": "",
+            "Topics": "M5. Cash Flows",
+            "WeekNumber": "6",
+            "Weekday": "W"
+        },
+        {
+            "Date": "05/09",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "9.4",
+            "StartTime": "",
+            "Topics": "M5. Cash Flows",
+            "WeekNumber": "6",
+            "Weekday": "F"
+        },
+        {
+            "Date": "05/12",
+            "EndTime": "",
+            "EventName": "Quiz 2",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": null,
+            "WeekNumber": "7",
+            "Weekday": "M"
+        },
+        {
+            "Date": "05/14",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "11",
+            "StartTime": "",
+            "Topics": "M6. Risk and Return - Part 1",
+            "WeekNumber": "7",
+            "Weekday": "W"
+        },
+        {
+            "Date": "05/16",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "M6. Risk and Return - Part 1",
+            "WeekNumber": "7",
+            "Weekday": "F"
+        },
+        {
+            "Date": "05/19",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "12.1-12.3",
+            "StartTime": "",
+            "Topics": "M6. Risk and Return - Part 2",
+            "WeekNumber": "8",
+            "Weekday": "M"
+        },
+        {
+            "Date": "05/21",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "M6. Risk and Return - Part 2",
+            "WeekNumber": "8",
+            "Weekday": "W"
+        },
+        {
+            "Date": "05/23",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "12.4",
+            "StartTime": "",
+            "Topics": "M6. Risk and Return - Part 2",
+            "WeekNumber": "8",
+            "Weekday": "F"
+        },
+        {
+            "Date": "05/26",
+            "EndTime": "",
+            "EventName": "No Class",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "No Class (Memorial Day)",
+            "WeekNumber": "9",
+            "Weekday": "M"
+        },
+        {
+            "Date": "05/28",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "12.4",
+            "StartTime": "",
+            "Topics": "M7. CAPM",
+            "WeekNumber": "9",
+            "Weekday": "W"
+        },
+        {
+            "Date": "05/30",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "13.1-13.3",
+            "StartTime": "",
+            "Topics": "M7. CAPM / M8. WACC",
+            "WeekNumber": "9",
+            "Weekday": "F"
+        },
+        {
+            "Date": "06/02",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "13.4-13.6",
+            "StartTime": "",
+            "Topics": "M8. WACC",
+            "WeekNumber": "10",
+            "Weekday": "M"
+        },
+        {
+            "Date": "06/04",
+            "EndTime": "",
+            "EventName": "Quiz 3",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": null,
+            "WeekNumber": "10",
+            "Weekday": "W"
+        },
+        {
+            "Date": "06/06",
+            "EndTime": "",
+            "EventName": "No Class",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "No Class  -  Office Hours",
+            "WeekNumber": "10",
+            "Weekday": "F"
+        }
+    ],
+    "CourseTitle": "FNCE 121 Financial Management",
+    "GradingInformation": [
+        {
+            "Category": "Homework Assignments",
+            "Value": "20%"
+        },
+        {
+            "Category": "Quizzes",
+            "Value": "60%"
+        },
+        {
+            "Category": "Final exam",
+            "Value": "20%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "06/09/2025",
+            "EventName": "Final Exam",
+            "Weekday": "Monday"
+        }
+    ],
+    "InstructorEmail": "ykim10@scu.edu",
+    "InstructorName": "Yunjeen Kim",
+    "InstructorOffice": "Lucas 316Z",
+    "Quarter/Semester": "Spring",
+    "Schedule": [
+        {
+            "End Time": "2:05 PM",
+            "Location": "SCDI 1302",
+            "Start Time": "1:00 PM",
+            "Type": "Class",
+            "Weekday": "M W F"
+        }
+    ],
+    "Year": "2025"
+}

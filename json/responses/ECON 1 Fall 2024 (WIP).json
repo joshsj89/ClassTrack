@@ -1,0 +1,37 @@
+{
+    "CourseCode": "ECON 1",
+    "CourseSchedule": [],
+    "CourseTitle": "ECON 1 Principles of Microeconomics",
+    "GradingInformation": [
+        {
+            "Category": "Problem Sets",
+            "Value": "10%"
+        },
+        {
+            "Category": "Quizzes",
+            "Value": "20%"
+        },
+        {
+            "Category": "Midterm",
+            "Value": "30%"
+        },
+        {
+            "Category": "Final Exam",
+            "Value": "40%"
+        }
+    ],
+    "ImportantDates": [],
+    "InstructorEmail": "kchiu2@scu.edu",
+    "InstructorName": "Kevin Chiu",
+    "InstructorOffice": "221SS Lucus Hall",
+    "Quarter/Semester": "Fall",
+    "Schedule": [
+        {
+            "End Time": "1:30 PM",
+            "Start Time": "12:30 PM",
+            "Type": "Office Hour",
+            "Weekday": "T Th"
+        }
+    ],
+    "Year": "2024"
+}

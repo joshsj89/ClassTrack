@@ -1,0 +1,287 @@
+{
+    "CourseCode": "BUS 70",
+    "CourseSchedule": [
+        {
+            "Date": "01/07",
+            "EndTime": "",
+            "EventName": "Course Intro/syllabus",
+            "Reading": "Ch1",
+            "StartTime": "",
+            "Topics": "read syllabus, survey, lecture notes",
+            "WeekNumber": "1",
+            "Weekday": "T"
+        },
+        {
+            "Date": "01/09",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 1",
+            "StartTime": "",
+            "Topics": "Foundations of Business !MB Chapter in book!",
+            "WeekNumber": "2",
+            "Weekday": "Th"
+        },
+        {
+            "Date": "01/14",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 11",
+            "StartTime": "",
+            "Topics": "Marketing",
+            "WeekNumber": "3",
+            "Weekday": "T"
+        },
+        {
+            "Date": "01/16",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 12",
+            "StartTime": "",
+            "Topics": "Marketing Strategy Group discussion MB",
+            "WeekNumber": "4",
+            "Weekday": "Th"
+        },
+        {
+            "Date": "01/21",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 13",
+            "StartTime": "",
+            "Topics": "Digital Marketing",
+            "WeekNumber": "5",
+            "Weekday": "T"
+        },
+        {
+            "Date": "01/23",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 14",
+            "StartTime": "",
+            "Topics": "Accounting 1",
+            "WeekNumber": "6",
+            "Weekday": "Th"
+        },
+        {
+            "Date": "01/28",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Accounting, Part 2",
+            "StartTime": "",
+            "Topics": "Accounting HW due",
+            "WeekNumber": "7",
+            "Weekday": "T"
+        },
+        {
+            "Date": "01/30",
+            "EndTime": "",
+            "EventName": "Exam 1",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "8",
+            "Weekday": "Th"
+        },
+        {
+            "Date": "02/04",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 15",
+            "StartTime": "",
+            "Topics": "Money",
+            "WeekNumber": "9",
+            "Weekday": "T"
+        },
+        {
+            "Date": "02/06",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 4",
+            "StartTime": "",
+            "Topics": "Organ. Businesses Rollover 1",
+            "WeekNumber": "10",
+            "Weekday": "Th"
+        },
+        {
+            "Date": "02/11",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 5",
+            "StartTime": "",
+            "Topics": "Small business Rollover 2",
+            "WeekNumber": "11",
+            "Weekday": "T"
+        },
+        {
+            "Date": "02/13",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 6",
+            "StartTime": "",
+            "Topics": "Nature of Mgmt Rollover 3",
+            "WeekNumber": "12",
+            "Weekday": "Th"
+        },
+        {
+            "Date": "02/18",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 7",
+            "StartTime": "",
+            "Topics": "Organization Rollover 4",
+            "WeekNumber": "",
+            "Weekday": "T"
+        },
+        {
+            "Date": "02/20",
+            "EndTime": "",
+            "EventName": "Exam 2",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "Rollover 5",
+            "WeekNumber": "",
+            "Weekday": "Th"
+        },
+        {
+            "Date": "02/25",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 8",
+            "StartTime": "",
+            "Topics": "Ops Rollover 6",
+            "WeekNumber": "",
+            "Weekday": "T"
+        },
+        {
+            "Date": "02/27",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 9",
+            "StartTime": "",
+            "Topics": "Motivation Rollover 7",
+            "WeekNumber": "",
+            "Weekday": "Th"
+        },
+        {
+            "Date": "03/04",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 10",
+            "StartTime": "",
+            "Topics": "HR Rollover 8",
+            "WeekNumber": "",
+            "Weekday": "T"
+        },
+        {
+            "Date": "03/06",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 2",
+            "StartTime": "",
+            "Topics": "Ethics+ Chap 3 Intl Bus",
+            "WeekNumber": "",
+            "Weekday": "Th"
+        },
+        {
+            "Date": "03/11",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 16",
+            "StartTime": "",
+            "Topics": "Financial Mgmt",
+            "WeekNumber": "",
+            "Weekday": "T"
+        },
+        {
+            "Date": "03/13",
+            "EndTime": "",
+            "EventName": "Exam 3",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "",
+            "Weekday": "Th"
+        }
+    ],
+    "CourseTitle": "Contemporary Business Issues Bus 70",
+    "GradingInformation": [
+        {
+            "Category": "Contribution to the course",
+            "Value": "15%"
+        },
+        {
+            "Category": "Current event (CE) presentation",
+            "Value": "10%"
+        },
+        {
+            "Category": "Single User Mikes Bike simulation",
+            "Value": "10%"
+        },
+        {
+            "Category": "Mikes Bike team competition",
+            "Value": "20%"
+        },
+        {
+            "Category": "Exams",
+            "Value": "30%"
+        },
+        {
+            "Category": "Team Paper",
+            "Value": "0%"
+        },
+        {
+            "Category": "Homework",
+            "Value": "15%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "01/23/2025",
+            "EventName": "MB Prelim Due",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "01/30/2025",
+            "EventName": "Exam 1",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "02/04/2025",
+            "EventName": "MB Single Due",
+            "Weekday": "Tuesday"
+        },
+        {
+            "Date": "02/07/2025",
+            "EventName": "MB Quiz Peer Evals",
+            "Weekday": "Friday"
+        },
+        {
+            "Date": "02/20/2025",
+            "EventName": "Exam 2",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "03/06/2025",
+            "EventName": "MB Team report due",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "03/13/2025",
+            "EventName": "Exam 3",
+            "Weekday": "Thursday"
+        }
+    ],
+    "InstructorEmail": "THarris@SCU.edu",
+    "InstructorName": "Tim Harris",
+    "InstructorOffice": "316UU",
+    "Quarter/Semester": "Winter",
+    "Schedule": [
+        {
+            "End Time": "12:00 PM",
+            "Location": "Lucas 310",
+            "Start Time": "10:20 AM",
+            "Type": "Class",
+            "Weekday": "T Th"
+        }
+    ],
+    "Year": "2025"
+}

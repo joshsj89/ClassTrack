@@ -1,0 +1,367 @@
+{
+    "CourseCode": "MECH 114",
+    "CourseSchedule": [
+        {
+            "Date": "01/08",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-1",
+            "StartTime": "",
+            "Topics": "Introduction to Mechanical Design Syllabus and Brief History, Role of Computer, General process of design",
+            "WeekNumber": "0",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/10",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-2",
+            "StartTime": "",
+            "Topics": "Material Selection and Mechanical Properties Material strength and stiffness, Stress-strain relationships",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/12",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-2",
+            "StartTime": "",
+            "Topics": "Material Selection and Mechanical Properties Statistical significance of material properties, Impact properties, Temperature effects",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/17",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-2",
+            "StartTime": "",
+            "Topics": "Material working processes",
+            "WeekNumber": "3",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/19",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-2",
+            "StartTime": "",
+            "Topics": "Material Selection and Mechanical Properties Study of different materials (metals, plastics, non-ferrous metals, composite materials)",
+            "WeekNumber": "4",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/22",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-3",
+            "StartTime": "",
+            "Topics": "Load and Stress Analysis Equilibrium and Free-Body Diagrams, Shear force and Bending moment diagrams, Mohrs circle, Normal stresses",
+            "WeekNumber": "5",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/24",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-3",
+            "StartTime": "",
+            "Topics": "Load and Stress Analysis Uniformly distributed stresses, Shear stresses, Torsion, Contact Stresses, Curved Beams",
+            "WeekNumber": "6",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/26",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-4",
+            "StartTime": "",
+            "Topics": "Failures Resulting from Static Loading Static strength, Stress concentration,",
+            "WeekNumber": "7",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/29",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-4",
+            "StartTime": "",
+            "Topics": "Failures Resulting from Static Loading Failure theories (ductile materials)",
+            "WeekNumber": "8",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/31",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-4",
+            "StartTime": "",
+            "Topics": "Failures Resulting from Static Loading Failure theories (Brittle materials), Selection of failure criteria",
+            "WeekNumber": "9",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/02",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-4",
+            "StartTime": "",
+            "Topics": "Failures Resulting from Static Loading F.O.S, Reliability Prediction",
+            "WeekNumber": "10",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/05",
+            "EndTime": "",
+            "EventName": "Chapter Quiz-1",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "In-class Quiz",
+            "WeekNumber": "11",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/07",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-5",
+            "StartTime": "",
+            "Topics": "Deflection and Stiffness Castiglianos theorem",
+            "WeekNumber": "12",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/12",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-5",
+            "StartTime": "",
+            "Topics": "Deflection and Stiffness Deflection of curved members",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/14",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "Deflection and Stiffness Statistically indeterminate problems",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/16",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-5",
+            "StartTime": "",
+            "Topics": "Deflection and Stiffness Euler Column Buckling",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/19",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-5",
+            "StartTime": "",
+            "Topics": "Deflection and Stiffness Effective column length,",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/21",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-5",
+            "StartTime": "",
+            "Topics": "Deflection and Stiffness Eccentric column loading",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/23",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-5",
+            "StartTime": "",
+            "Topics": "Deflection and Stiffness Applications and solutions",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/26",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-5",
+            "StartTime": "",
+            "Topics": "Deflection and Stiffness Axisymmetric Pressure vessel design",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/28",
+            "EndTime": "",
+            "EventName": "Chapter Quiz-2",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "In-class Quiz",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/01",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-6",
+            "StartTime": "",
+            "Topics": "Fatigue Failure: Variable loading Fatigue failure analysis Approach",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/04",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-6",
+            "StartTime": "",
+            "Topics": "Fatigue Failure: Variable loading Fatigue life methods",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/06",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-6",
+            "StartTime": "",
+            "Topics": "Fatigue Failure: Variable loading Endurance Limit",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/08",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-6",
+            "StartTime": "",
+            "Topics": "Fatigue Failure: Variable loading Stress concentration and notch sensitivity",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/11",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-6",
+            "StartTime": "",
+            "Topics": "Fatigue Failure: Variable loading Fatigue Strength",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/13",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chapter-6",
+            "StartTime": "",
+            "Topics": "Fatigue Failure: Variable loading Fatigue failure criteria",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/15",
+            "EndTime": "",
+            "EventName": "Chapter- Quiz-3",
+            "Reading": null,
+            "StartTime": "",
+            "Topics": "In-class Quiz",
+            "WeekNumber": "",
+            "Weekday": ""
+        }
+    ],
+    "CourseTitle": "MECH 114- Machine Design-1",
+    "GradingInformation": [
+        {
+            "Category": "Homework",
+            "Value": "15%"
+        },
+        {
+            "Category": "Mini Quiz",
+            "Value": "20%"
+        },
+        {
+            "Category": "Chapter-Quiz-1",
+            "Value": "22%"
+        },
+        {
+            "Category": "Chapter-Quiz-2",
+            "Value": "22%"
+        },
+        {
+            "Category": "Chapter-Quiz-3",
+            "Value": "21%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "02/05/24",
+            "EventName": "Chapter-Quiz-1",
+            "Weekday": "Monday"
+        },
+        {
+            "Date": "02/28/24",
+            "EventName": "Chapter-Quiz-2",
+            "Weekday": "Wednesday"
+        },
+        {
+            "Date": "03/15/24",
+            "EventName": "Chapter-Quiz-3",
+            "Weekday": "Friday"
+        }
+    ],
+    "InstructorEmail": "smahadev@scu.edu",
+    "InstructorName": "Sthanu Mahadev",
+    "InstructorOffice": "SCDI 3311-11",
+    "Quarter/Semester": "Winter",
+    "Schedule": [
+        {
+            "End Time": "1:00 PM",
+            "Location": null,
+            "Start Time": "12:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "M"
+        },
+        {
+            "End Time": "1:00 PM",
+            "Location": null,
+            "Start Time": "12:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "W"
+        },
+        {
+            "End Time": "1:00 PM",
+            "Location": null,
+            "Start Time": "12:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "F"
+        },
+        {
+            "End Time": "11:35 AM",
+            "Location": "102 Alameda Hall",
+            "Start Time": "10:30 AM",
+            "Type": "Class",
+            "Weekday": "M W F"
+        },
+        {
+            "End Time": "2:05 PM",
+            "Location": "116 Bergin Hall",
+            "Start Time": "1:00 PM",
+            "Type": "Class",
+            "Weekday": "M W F"
+        }
+    ],
+    "Year": "2024"
+}

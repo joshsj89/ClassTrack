@@ -1,0 +1,188 @@
+{
+    "CourseCode": "MECH 140",
+    "CourseSchedule": [
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch1 + Ch2",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch2",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "10/05",
+            "EndTime": "",
+            "EventName": "Quiz 1",
+            "Reading": "Ch3",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "3",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch3",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "4",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch4",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "5",
+            "Weekday": ""
+        },
+        {
+            "Date": "10/26",
+            "EndTime": "",
+            "EventName": "Quiz 2",
+            "Reading": "Ch5",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "6",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch5",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "7",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch6",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "8",
+            "Weekday": ""
+        },
+        {
+            "Date": "11/16",
+            "EndTime": "",
+            "EventName": "Quiz 3",
+            "Reading": "Ch6",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "9",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch6 + Review",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "10",
+            "Weekday": ""
+        },
+        {
+            "Date": "12/05",
+            "EndTime": "",
+            "EventName": "Final Exam",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "",
+            "Weekday": ""
+        },
+        {
+            "Date": "12/07",
+            "EndTime": "",
+            "EventName": "Final Exam",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "",
+            "Weekday": ""
+        }
+    ],
+    "CourseTitle": "Dynamics (MECH 140)",
+    "GradingInformation": [
+        {
+            "Category": "Weekly homework assignments",
+            "Value": "40 %"
+        },
+        {
+            "Category": "Three quizzes",
+            "Value": "30 %"
+        },
+        {
+            "Category": "Final exam",
+            "Value": "30 %"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "10/05/2023",
+            "EventName": "Quiz 1",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "10/26/2023",
+            "EventName": "Quiz 2",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "11/16/2023",
+            "EventName": "Quiz 3",
+            "Weekday": "Thursday"
+        },
+        {
+            "Date": "12/05/2023",
+            "EventName": "Final Exam",
+            "Weekday": ""
+        },
+        {
+            "Date": "12/07/2023",
+            "EventName": "Final Exam",
+            "Weekday": ""
+        }
+    ],
+    "InstructorEmail": "sheydari@scu.edu",
+    "InstructorName": "Sina Heydari",
+    "InstructorOffice": "SCDI 3311-06",
+    "Quarter/Semester": "Fall",
+    "Schedule": [
+        {
+            "End Time": "10:10 AM",
+            "Location": "Rm 129 Heafey Hall",
+            "Start Time": "8:30 AM",
+            "Type": "Class",
+            "Weekday": "T Th"
+        },
+        {
+            "End Time": "12:00 PM",
+            "Location": "Rm 129 Heafey Hall",
+            "Start Time": "10:20 AM",
+            "Type": "Class",
+            "Weekday": "T Th"
+        }
+    ],
+    "Year": "2023"
+}

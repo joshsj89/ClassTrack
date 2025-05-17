@@ -1,0 +1,96 @@
+{
+    "CourseCode": "ECEN 21",
+    "CourseSchedule": [
+        {
+            "Date": "02/13",
+            "EndTime": "",
+            "EventName": "Midterm 1",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "",
+            "Weekday": "Tuesday"
+        },
+        {
+            "Date": "03/05",
+            "EndTime": "",
+            "EventName": "Midterm 2",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "",
+            "Weekday": "Tuesday"
+        },
+        {
+            "Date": "03/19",
+            "EndTime": "",
+            "EventName": "Final",
+            "Reading": "",
+            "StartTime": "9:10 AM",
+            "Topics": "",
+            "WeekNumber": "",
+            "Weekday": "Tuesday"
+        }
+    ],
+    "CourseTitle": "Introduction to Logic Design  -  ECEN 21",
+    "GradingInformation": [
+        {
+            "Category": "Homework",
+            "Value": "15%"
+        },
+        {
+            "Category": "Group Problem Solving",
+            "Value": "15%"
+        },
+        {
+            "Category": "Midterm 1",
+            "Value": "20%"
+        },
+        {
+            "Category": "Midterm 2",
+            "Value": "20%"
+        },
+        {
+            "Category": "Final",
+            "Value": "30%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "02/13/24",
+            "EventName": "Midterm 1",
+            "Weekday": "Tuesday"
+        },
+        {
+            "Date": "03/05/24",
+            "EventName": "Midterm 2",
+            "Weekday": "Tuesday"
+        },
+        {
+            "Date": "03/19/24",
+            "EventName": "Final",
+            "Weekday": "Tuesday"
+        }
+    ],
+    "InstructorEmail": "pmcguire@scu.edu",
+    "InstructorName": "Patrick McGuire",
+    "InstructorOffice": "SCDI 4025",
+    "Quarter/Semester": "Winter",
+    "Schedule": [
+        {
+            "End Time": "12:00 PM",
+            "Location": "Heafey 122",
+            "Start Time": "10:20 AM",
+            "Type": "Class",
+            "Weekday": "T Th"
+        },
+        {
+            "End Time": "2:30 PM",
+            "Location": "ECE office SCDI 4025",
+            "Start Time": "1:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "T Th"
+        }
+    ],
+    "Year": "2024"
+}

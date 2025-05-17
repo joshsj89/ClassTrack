@@ -1,0 +1,180 @@
+{
+    "CourseCode": "ELEN 50",
+    "CourseSchedule": [
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chs. 1-2",
+            "StartTime": "",
+            "Topics": "Introduction; definitions of circuit variables and elements; Kirchhoffs current and voltage laws",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 3",
+            "StartTime": "",
+            "Topics": "Simple resistive circuits",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Sects. 4.1- 4.13",
+            "StartTime": "",
+            "Topics": "Node-voltage and mesh-current methods; source transformations",
+            "WeekNumber": "3",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/23",
+            "EndTime": "",
+            "EventName": "Exam #1",
+            "Reading": "Sects. 4.14- 4.20",
+            "StartTime": "",
+            "Topics": "Thévenin and Norton equivalent circuits",
+            "WeekNumber": "4",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Sects. 4.21- 4.23, Sects. 6.1-6.3",
+            "StartTime": "",
+            "Topics": "Maximum power transfer; superposition; Capacitance and self-inductance",
+            "WeekNumber": "5",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 7",
+            "StartTime": "",
+            "Topics": "First-order RC and RL circuit analysis",
+            "WeekNumber": "6",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/17",
+            "EndTime": "",
+            "EventName": "Exam #2",
+            "Reading": "Sects. 9.1-9.9",
+            "StartTime": "",
+            "Topics": "Sinusoidal steady-state analysis; phasors",
+            "WeekNumber": "7",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 5",
+            "StartTime": "",
+            "Topics": "Phasor circuit analysis; operational amplifier",
+            "WeekNumber": "8",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 10",
+            "StartTime": "",
+            "Topics": "Op amp circuits; ac power calculations",
+            "WeekNumber": "9",
+            "Weekday": ""
+        },
+        {
+            "Date": "",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Sects. 6.4-6.5, 9.10-9.11",
+            "StartTime": "",
+            "Topics": "Mutual inductance; transformer circuits Review",
+            "WeekNumber": "10",
+            "Weekday": ""
+        },
+        {
+            "Date": "06/13",
+            "EndTime": "4:30 PM",
+            "EventName": "Final Exam",
+            "Reading": "",
+            "StartTime": "1:30 PM",
+            "Topics": "",
+            "WeekNumber": "11",
+            "Weekday": ""
+        }
+    ],
+    "CourseTitle": "ELEN 50 Electric Circuits I",
+    "GradingInformation": [
+        {
+            "Category": "Homework",
+            "Value": "10 %"
+        },
+        {
+            "Category": "Class Participation",
+            "Value": "10%"
+        },
+        {
+            "Category": "Midterm Exams",
+            "Value": "30 %"
+        },
+        {
+            "Category": "Final Exam",
+            "Value": "50 %"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "04/02/2024",
+            "EventName": "First Class",
+            "Weekday": "Tue"
+        },
+        {
+            "Date": "04/23/2024",
+            "EventName": "Exam #1",
+            "Weekday": "Tue"
+        },
+        {
+            "Date": "05/14/2024",
+            "EventName": "Exam #2",
+            "Weekday": "Tue"
+        },
+        {
+            "Date": "04/26/2024",
+            "EventName": "Deadline to drop w/o W",
+            "Weekday": "Fri"
+        },
+        {
+            "Date": "05/17/2024",
+            "EventName": "Deadline to drop with W",
+            "Weekday": "Fri"
+        },
+        {
+            "Date": "06/13/2024",
+            "EventName": "Final Exam",
+            "Weekday": "Thu"
+        }
+    ],
+    "InstructorEmail": "cyang@scu.edu",
+    "InstructorName": "Cary Y. Yang",
+    "InstructorOffice": "SCDI 4025I",
+    "Quarter/Semester": "Spring",
+    "Schedule": [
+        {
+            "End Time": "1:50 PM",
+            "Location": "OConnor 106",
+            "Start Time": "12:10 PM",
+            "Type": "Class",
+            "Weekday": "T Th"
+        }
+    ],
+    "Year": "2024"
+}

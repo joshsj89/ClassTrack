@@ -1,0 +1,178 @@
+{
+    "CourseCode": "ECEN 151",
+    "CourseSchedule": [
+        {
+            "Date": "01/08",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Posted notes Ch. 1, Sects 2.1-2.3",
+            "StartTime": "",
+            "Topics": "Overview of nanoelectronics Materials fundamentals; crystal structures Electronic energy bands and statistics",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/15",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Sects. 2.4-2.6 Sects. 3.1-3.2",
+            "StartTime": "",
+            "Topics": "Equilibrium carrier statistics Carrier drift and diffusion",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/22",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Sect. 3.3 Sects. 3.4-3.6",
+            "StartTime": "",
+            "Topics": "Recombination/Generation Continuity equations Excess minority diffusion equations",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/29",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chs. 4-5",
+            "StartTime": "",
+            "Topics": "pn junction qualitative overview; junction formation and electrostatics",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/05",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 6",
+            "StartTime": "",
+            "Topics": "pn junction I-V characteristics",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/12",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 7",
+            "StartTime": "",
+            "Topics": "pn diode equivalent circuits; diode applications Midterm Exam",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/19",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 14 Ch. 16",
+            "StartTime": "",
+            "Topics": "Metal-Semiconductor contacts Ideal MOS capacitor",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/26",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 18 Ch. 17",
+            "StartTime": "",
+            "Topics": "Nonideal considerations MOSFET fundamentals; equivalent circuit",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/04",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 19; posted notes",
+            "StartTime": "",
+            "Topics": "MOSFET short-channel effects; overview of advanced FET structures",
+            "WeekNumber": "3",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/11",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chs. 10-11",
+            "StartTime": "",
+            "Topics": "BJT basics",
+            "WeekNumber": "3",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/18",
+            "EndTime": "8:00 PM",
+            "EventName": "Final Exam",
+            "Reading": "",
+            "StartTime": "5:00 PM",
+            "Topics": "",
+            "WeekNumber": "3",
+            "Weekday": ""
+        }
+    ],
+    "CourseTitle": "ECEN 151/267 Device Electronics for IC Design",
+    "GradingInformation": [
+        {
+            "Category": "Class Participation & Homework",
+            "Value": "15 %"
+        },
+        {
+            "Category": "Midterm Exam",
+            "Value": "35 %"
+        },
+        {
+            "Category": "Final Exam",
+            "Value": "50 %"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "01/08/2024",
+            "EventName": "Class begins",
+            "Weekday": "Mon"
+        },
+        {
+            "Date": "02/14/2024",
+            "EventName": "Midterm Exam",
+            "Weekday": "Wed"
+        },
+        {
+            "Date": "02/02/2024",
+            "EventName": "Deadline to drop w/o W",
+            "Weekday": "Fri"
+        },
+        {
+            "Date": "02/23/2024",
+            "EventName": "Deadline to drop with W",
+            "Weekday": "Fri"
+        },
+        {
+            "Date": "03/18/2024",
+            "EventName": "Final Exam",
+            "Weekday": "Mon"
+        }
+    ],
+    "InstructorEmail": "cyang@scu.edu",
+    "InstructorName": "Cary Y. Yang",
+    "InstructorOffice": "SCDI 4025I",
+    "Quarter/Semester": "Winter",
+    "Schedule": [
+        {
+            "End Time": "7:00 PM",
+            "Location": "Vari 134",
+            "Start Time": "5:10 PM",
+            "Type": "Class",
+            "Weekday": "M W"
+        },
+        {
+            "End Time": "5:00 PM",
+            "Location": "SCDI 4026",
+            "Start Time": "2:15 PM",
+            "Type": "Lab",
+            "Weekday": "R"
+        }
+    ],
+    "Year": "2024"
+}

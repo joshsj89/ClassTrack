@@ -1,0 +1,106 @@
+{
+    "CourseCode": "CSEN 162",
+    "CourseSchedule": [
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Research Project Presentations",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "3",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Midterm1 exam",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "5",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Paper Project Presentations",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "8",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Midterm 2",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "10",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Guest Talks",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Industry players in the Web area",
+            "WeekNumber": null,
+            "Weekday": null
+        }
+    ],
+    "CourseTitle": "CSEN 162 - Web Infrastructure",
+    "GradingInformation": [
+        {
+            "Category": "Midterm 1",
+            "Value": "30%"
+        },
+        {
+            "Category": "Midterm 2",
+            "Value": "30%"
+        },
+        {
+            "Category": "Code Projects",
+            "Value": "20%"
+        },
+        {
+            "Category": "Paper Projects",
+            "Value": "20%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "04/28/24",
+            "EventName": "Last day to drop without a W",
+            "Weekday": "Monday"
+        },
+        {
+            "Date": "05/19/24",
+            "EventName": "Last day to drop with a W",
+            "Weekday": "Monday"
+        }
+    ],
+    "InstructorEmail": "amusurlian@scu.edu",
+    "InstructorName": "Angela Musurlian",
+    "InstructorOffice": "Heafey 207",
+    "Quarter/Semester": "Spring",
+    "Schedule": [
+        {
+            "End Time": "1:50 PM",
+            "Location": "Heafey 129",
+            "Start Time": "12:10 PM",
+            "Type": "Class",
+            "Weekday": "T Th"
+        },
+        {
+            "End Time": "3:00 PM",
+            "Start Time": "2:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "T Th"
+        }
+    ],
+    "Year": "2024"
+}

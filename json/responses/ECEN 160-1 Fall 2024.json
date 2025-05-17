@@ -1,0 +1,148 @@
+{
+    "CourseCode": "ECEN 160",
+    "CourseSchedule": [
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Introduction",
+            "Reading": "Chapters 2 and 4",
+            "StartTime": null,
+            "Topics": "Unknowable truths in science and math",
+            "WeekNumber": "1",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Technical Topic",
+            "Reading": "Chapters 5 and 6",
+            "StartTime": null,
+            "Topics": "Linear systems",
+            "WeekNumber": "2",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Technical Topic",
+            "Reading": "Chapter 3 and Section 9.1",
+            "StartTime": null,
+            "Topics": "Introduction to nonlinear systems",
+            "WeekNumber": "3",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Technical Topic",
+            "Reading": "Sections 9.2  -  9.3",
+            "StartTime": null,
+            "Topics": "Introduction to nonlinear systems (ctd.)",
+            "WeekNumber": "4",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Technical Topics",
+            "Reading": "Section 9.4",
+            "StartTime": null,
+            "Topics": "Types of attractors\nCharacteristics of chaos",
+            "WeekNumber": "5",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Technical Topic",
+            "Reading": "Section 10.1",
+            "StartTime": null,
+            "Topics": "Fractals",
+            "WeekNumber": "6",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Technical Topic",
+            "Reading": "Section 10.3",
+            "StartTime": null,
+            "Topics": "Bifurcations",
+            "WeekNumber": "7",
+            "Weekday": null
+        },
+        {
+            "Date": "11/12",
+            "EndTime": null,
+            "EventName": "Midterm Exam",
+            "Reading": "Section 10.4",
+            "StartTime": null,
+            "Topics": "Religious pluralism",
+            "WeekNumber": "8",
+            "Weekday": "Tuesday"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Technical Topic",
+            "Reading": "Sections 8.1  -  8.3",
+            "StartTime": null,
+            "Topics": "Paths to chaos",
+            "WeekNumber": "9",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Technical Topic",
+            "Reading": "Sections 7.1  -  7.3",
+            "StartTime": null,
+            "Topics": "Paths to chaos (ctd.)",
+            "WeekNumber": "10",
+            "Weekday": null
+        }
+    ],
+    "CourseTitle": "ECEN 160: Chaos Theory, Metamathematics and the Limits of Knowledge: A Scientific Perspective on Religion",
+    "GradingInformation": [
+        {
+            "Category": "Project",
+            "Value": "15%"
+        },
+        {
+            "Category": "Homework",
+            "Value": "20%"
+        },
+        {
+            "Category": "Midterm Exam",
+            "Value": "25%"
+        },
+        {
+            "Category": "Final Essay",
+            "Value": "25%"
+        },
+        {
+            "Category": "Class Participation",
+            "Value": "15%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "11/12/2024",
+            "EventName": "Midterm Exam",
+            "Weekday": "Tuesday"
+        }
+    ],
+    "InstructorEmail": "azecevic@scu.edu",
+    "InstructorName": "Aleksandar I. Zecevic",
+    "InstructorOffice": "SCDI 4025",
+    "Quarter/Semester": "Fall",
+    "Schedule": [
+        {
+            "End Time": "5:00 PM",
+            "Start Time": "4:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "T Th"
+        }
+    ],
+    "Year": "2024"
+}

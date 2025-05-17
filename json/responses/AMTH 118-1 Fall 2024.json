@@ -1,0 +1,184 @@
+{
+    "CourseCode": "AMTH 118",
+    "CourseSchedule": [
+        {
+            "Date": "09/23",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "1.2, 1.3",
+            "StartTime": "",
+            "Topics": "Error Analysis",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "09/30",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "1.4, 2.2, 2.3",
+            "StartTime": "",
+            "Topics": "Numerical solution of equations",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "10/07",
+            "EndTime": "",
+            "EventName": "P1",
+            "Reading": "2.4, 2.5",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "3",
+            "Weekday": ""
+        },
+        {
+            "Date": "10/14",
+            "EndTime": "",
+            "EventName": "H1",
+            "Reading": "3.2, 3.3",
+            "StartTime": "",
+            "Topics": "Interpolation and Polynomial approximation of functions",
+            "WeekNumber": "4",
+            "Weekday": ""
+        },
+        {
+            "Date": "10/21",
+            "EndTime": "",
+            "EventName": "P2",
+            "Reading": "3.4, 3.5",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "5",
+            "Weekday": ""
+        },
+        {
+            "Date": "10/28",
+            "EndTime": "",
+            "EventName": "Midterm",
+            "Reading": "4.2, 4.3",
+            "StartTime": "",
+            "Topics": "Numerical Integration and Differentiation",
+            "WeekNumber": "6",
+            "Weekday": ""
+        },
+        {
+            "Date": "11/04",
+            "EndTime": "",
+            "EventName": "P3",
+            "Reading": "4.4, 4.5, 4.6",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "7",
+            "Weekday": ""
+        },
+        {
+            "Date": "11/11",
+            "EndTime": "",
+            "EventName": "H2",
+            "Reading": "4.9, 5.2",
+            "StartTime": "",
+            "Topics": "Numerical solution of Differential Equations",
+            "WeekNumber": "8",
+            "Weekday": ""
+        },
+        {
+            "Date": "11/18",
+            "EndTime": "",
+            "EventName": "P4",
+            "Reading": "5.3, 5.7",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "9",
+            "Weekday": ""
+        },
+        {
+            "Date": "12/02",
+            "EndTime": "",
+            "EventName": "P5",
+            "Reading": "8.2, 8.3, 8.7",
+            "StartTime": "",
+            "Topics": "Approximation of functions",
+            "WeekNumber": "11",
+            "Weekday": ""
+        },
+        {
+            "Date": "12/09",
+            "EndTime": "",
+            "EventName": "Final",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "12",
+            "Weekday": ""
+        },
+        {
+            "Date": "12/09",
+            "EndTime": "",
+            "EventName": "H3",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "",
+            "WeekNumber": "12",
+            "Weekday": ""
+        }
+    ],
+    "CourseTitle": "Numerical Methods. Amth 118",
+    "GradingInformation": [
+        {
+            "Category": "Homework",
+            "Value": "15%"
+        },
+        {
+            "Category": "programming assignments",
+            "Value": "20%"
+        },
+        {
+            "Category": "midterm test",
+            "Value": "30%"
+        },
+        {
+            "Category": "final exam",
+            "Value": "35%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "10/30/2024",
+            "EventName": "Midterm test",
+            "Weekday": "Wednesday"
+        },
+        {
+            "Date": "12/09/2024",
+            "EventName": "Final exam",
+            "Weekday": "Monday"
+        }
+    ],
+    "InstructorEmail": "paco.villarroya@scu.edu",
+    "InstructorName": "Francisco Villarroya Alvarez",
+    "InstructorOffice": "Heafey Hall, 117",
+    "Quarter/Semester": "Fall",
+    "Schedule": [
+        {
+            "End Time": "12:50 PM",
+            "Location": "Kenna Hall, room 212",
+            "Start Time": "11:45 AM",
+            "Type": "Class",
+            "Weekday": "M W F"
+        },
+        {
+            "End Time": "2:30 PM",
+            "Location": "Heafey Hall, 117",
+            "Start Time": "1:30 PM",
+            "Type": "Office Hour",
+            "Weekday": "M F"
+        },
+        {
+            "End Time": "2:00 PM",
+            "Location": "Heafey Hall, 117",
+            "Start Time": "1:30 PM",
+            "Type": "Office Hour",
+            "Weekday": "W"
+        }
+    ],
+    "Year": "2024"
+}

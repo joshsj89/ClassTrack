@@ -1,0 +1,176 @@
+{
+    "CourseCode": "ELEN 50",
+    "CourseSchedule": [
+        {
+            "Date": "01/18",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Chs. 1-2",
+            "StartTime": "",
+            "Topics": "Introduction; Definitions of Circuit Variables and Elements; Kirchhoffs current (KCL) and voltage laws (KVL)",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/15",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 3",
+            "StartTime": "",
+            "Topics": "Simple Resistive Circuits",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/22",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Sects. 4.1-4.8",
+            "StartTime": "",
+            "Topics": "Node-voltage and Mesh-current Methods",
+            "WeekNumber": "3",
+            "Weekday": ""
+        },
+        {
+            "Date": "01/29",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Sects. 4.9-4.10",
+            "StartTime": "",
+            "Topics": "Source Transformations Exam #1 (tentative)",
+            "WeekNumber": "4",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/05",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Sects. 4.10-4.13",
+            "StartTime": "",
+            "Topics": "Thévenin and Norton Equivalent Circuits, Maximum Power Transfer, Superposition",
+            "WeekNumber": "5",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/12",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Sects. 6.1-6.5",
+            "StartTime": "",
+            "Topics": "Capacitance and Inductance",
+            "WeekNumber": "6",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/19",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 7",
+            "StartTime": "",
+            "Topics": "First-order RC and RL Circuits",
+            "WeekNumber": "7",
+            "Weekday": ""
+        },
+        {
+            "Date": "02/26",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Sects. 9.1-9.9",
+            "StartTime": "",
+            "Topics": "Phasors, Sinusoidal Steady-state Analysis Exam #2 (tentative)",
+            "WeekNumber": "8",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/03",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "Ch. 5",
+            "StartTime": "",
+            "Topics": "Operational Amplifiers",
+            "WeekNumber": "9",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/11",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "Review for Final Exam",
+            "WeekNumber": "10",
+            "Weekday": ""
+        },
+        {
+            "Date": "03/19",
+            "EndTime": "12:10 PM",
+            "EventName": "Final Exam",
+            "Reading": "",
+            "StartTime": "9:10 AM",
+            "Topics": "Final Exam",
+            "WeekNumber": "",
+            "Weekday": "Tuesday"
+        }
+    ],
+    "CourseTitle": "ELEN 50  -  Electric Circuits I",
+    "GradingInformation": [
+        {
+            "Category": "Two exams",
+            "Value": "35%"
+        },
+        {
+            "Category": "One comprehensive final exam",
+            "Value": "35%"
+        },
+        {
+            "Category": "Homework Assignments",
+            "Value": "25%"
+        },
+        {
+            "Category": "Class participation",
+            "Value": "5%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "03/19/2024",
+            "EventName": "Final Exam",
+            "Weekday": "Tuesday"
+        }
+    ],
+    "InstructorEmail": "dtran3@scu.edu",
+    "InstructorName": "Fr. Dat Tran, S. J.",
+    "InstructorOffice": "SCDI 4025N",
+    "Quarter/Semester": "Winter",
+    "Schedule": [
+        {
+            "End Time": "12:00 PM",
+            "Location": "Heafey 125",
+            "Start Time": "10:20 AM",
+            "Type": "Class",
+            "Weekday": "T Th"
+        },
+        {
+            "End Time": "5:00 PM",
+            "Location": "SCDI 4025N",
+            "Start Time": "3:30 PM",
+            "Type": "Office Hour",
+            "Weekday": "T"
+        },
+        {
+            "End Time": "4:30 PM",
+            "Location": "SCDI 4025N",
+            "Start Time": "3:30 PM",
+            "Type": "Office Hour",
+            "Weekday": "W"
+        },
+        {
+            "End Time": "7:10 PM",
+            "Location": "SCDI 4002",
+            "Start Time": "5:15 PM",
+            "Type": "Peer Educator",
+            "Weekday": "F"
+        }
+    ],
+    "Year": "2024"
+}

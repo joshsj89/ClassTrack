@@ -1,0 +1,158 @@
+{
+    "CourseCode": "ELEN 110",
+    "CourseSchedule": [
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Introduction to Signals & Systems",
+            "WeekNumber": "1",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "LTI Systems - Continuous",
+            "WeekNumber": "2",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Convolution",
+            "WeekNumber": "3",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "MIDTERM 1",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "April 26th",
+            "WeekNumber": "4",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Laplace transform",
+            "WeekNumber": "5",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "State variables for continuous time systems",
+            "WeekNumber": "6",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Fourier Series",
+            "WeekNumber": "7",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "MIDTERM 2",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "May 17th",
+            "WeekNumber": "8",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Fourier Transform",
+            "WeekNumber": "9",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Discrete Time",
+            "WeekNumber": "10",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Final week",
+            "WeekNumber": "11",
+            "Weekday": null
+        }
+    ],
+    "CourseTitle": "ELEN 110 Linear Systems",
+    "GradingInformation": [
+        {
+            "Category": "Homework",
+            "Value": "10%"
+        },
+        {
+            "Category": "Participation",
+            "Value": "5%"
+        },
+        {
+            "Category": "Midterm 1",
+            "Value": "25%"
+        },
+        {
+            "Category": "Midterm 2",
+            "Value": "25%"
+        },
+        {
+            "Category": "Final Exam",
+            "Value": "35%"
+        }
+    ],
+    "ImportantDates": [],
+    "InstructorEmail": "mkhanbaghi@scu.edu",
+    "InstructorName": "Maryam Khanbaghi",
+    "InstructorOffice": "SCDI 4025C",
+    "Quarter/Semester": "Spring",
+    "Schedule": [
+        {
+            "End Time": "2:00 PM",
+            "Start Time": "1:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "M"
+        },
+        {
+            "End Time": "5:00 PM",
+            "Start Time": "4:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "W"
+        }
+    ],
+    "Year": "2024"
+}
