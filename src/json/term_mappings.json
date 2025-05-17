@@ -1,4 +1,12 @@
 {
+    "Spring 2023": {
+        "id": "AP_23_SQ",
+        "startDate": "2023-04-03",
+        "endDate": "2023-06-16",
+        "session": "1",
+        "level": "Undergraduate",
+        "type": "Quarter"
+    },
     "Fall 2023": {
         "id": "AP_23_FQ",
         "startDate": "2023-09-18",
