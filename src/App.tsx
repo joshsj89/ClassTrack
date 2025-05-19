@@ -244,6 +244,30 @@ function App() {
         }
     }
 
+    const handleUploadClick = () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.pdf, .docx, .txt'; // Accept PDF, DOCX, and TXT files
+        input.onchange = (event) => {
+            const file = (event.target as HTMLInputElement).files?.[0];
+            if (file) {
+                uploadFile(file); // Call the upload function with the selected file
+            }
+        };
+        input.click(); // Trigger the file input click
+    }
+
+    const handlePasteTextClick = () => {
+        const input = document.createElement('input');
+        input.type = 'text';
+
+        const plainText = window.prompt("Paste the text here:");
+
+        if (plainText) {
+            uploadText(plainText); // Call the upload function with the pasted text
+        }
+    }
+
     // Fetch calendar events from Google Calendar API
     const fetchCalendarEvents = async (token: string) => {
         const response = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
@@ -314,8 +338,7 @@ function App() {
         console.log("Folder created:", data);
     }
 
-    // Upload syllabus and extract data from back end
-    const uploadSyllabus = async (file: File) => {
+    const uploadFile = async (file: File) => {
         const formData = new FormData();
         formData.append('file', file); // Append the file to the form data
 
@@ -332,62 +355,90 @@ function App() {
             const data: Course = await response.json();
             console.log("Syllabus data:", data); // Log the extracted data
 
-            const courseData = await checkCourse(data); // Check the course data
-
-            if (courseData) {
-                console.log("Course data found:", courseData); // Log the course data
-
-                if (linkToCalendar && isLectures) {
-                    await addWorkdayClassToCalendar(courseData); // Add the course lectures to Google Calendar
-                }
-
-                if (linkToCalendar && isLabs) {
-                    const labData = await checkLabs(data); // Check the lab data
-
-                    // If there's only one lab, add it to the calendar
-                    if (labData.length === 1) {
-                        await addWorkdayClassToCalendar(labData[0]); // Add the lab to Google Calendar
-                    } else if (labData.length > 1) {// If there are multiple labs, have the user select which one to add
-                        const labOptions = labData.map((lab) => ({
-                            label: `${lab["Course Section"]} - ${lab["Meeting Patterns"]}`,
-                            value: lab,
-                        }));
-
-                        const selectedLab = await new Promise<WorkdayCourseFormat | null>((resolve) => {
-                            let selection: WorkdayCourseFormat | null = null;
-
-                            const promptMessage = "Select a lab:\n" + labOptions.map((option, index) => `${index + 1}. ${option.label}`).join("\n");
-
-                            do {
-                                // Show a modal or prompt to select the lab
-                                const selectedLabNum = window.prompt(promptMessage);
-    
-                                if (selectedLabNum === null) break; // User canceled the prompt
-
-                                selection = labOptions[parseInt(selectedLabNum) - 1]?.value || null;
-                            } while (!selection);
-
-                            resolve(selection);
-                        });
-
-                        if (selectedLab) {
-                            await addWorkdayClassToCalendar(selectedLab); // Add the selected lab to Google Calendar
-                        }
-                    }
-                }
-
-                if (linkToCalendar && isOfficeHours) {
-                    const officeHoursData = await checkOfficeHours(data); // Check the office hours data
-
-                    for (const officeHour of officeHoursData) {
-                        await addScheduleEventToCalendar(data, officeHour); // Add the office hours to Google Calendar
-                    }
-                }
-            } else {
-                console.error("Course data not found.");
-            }
+            await uploadSyllabus(data);
         } catch (error) {
             console.error("Error uploading syllabus:", error);
+        }
+    }
+
+    const uploadText = async (text: string) => {
+        try {
+            const response = await fetch('https://starfish-calm-burro.ngrok-free.app/parsetext', {
+                method: 'POST',
+                body: text,
+                headers: {
+                    'Content-Type': 'text/plain',
+                },
+            });
+    
+            if (!response.ok) {
+                throw new Error(`Error uploading text: ${response.statusText}`);
+            }
+    
+            const data: Course = await response.json();
+            console.log("Syllabus data:", data); // Log the extracted data
+    
+            await uploadSyllabus(data);
+        } catch (error) {
+            console.error("Error uploading syllabus:", error);
+        }
+    }
+
+    // Upload syllabus and extract data from back end
+    const uploadSyllabus = async (data: Course) => {
+        const courseData = await checkCourse(data); // Check the course data
+
+        if (courseData) {
+            console.log("Course data found:", courseData); // Log the course data
+
+            if (linkToCalendar && isLectures) {
+                await addWorkdayClassToCalendar(courseData); // Add the course lectures to Google Calendar
+            }
+
+            if (linkToCalendar && isLabs) {
+                const labData = await checkLabs(data); // Check the lab data
+
+                // If there's only one lab, add it to the calendar
+                if (labData.length === 1) {
+                    await addWorkdayClassToCalendar(labData[0]); // Add the lab to Google Calendar
+                } else if (labData.length > 1) {// If there are multiple labs, have the user select which one to add
+                    const labOptions = labData.map((lab) => ({
+                        label: `${lab["Course Section"]} - ${lab["Meeting Patterns"]}`,
+                        value: lab,
+                    }));
+
+                    const selectedLab = await new Promise<WorkdayCourseFormat | null>((resolve) => {
+                        let selection: WorkdayCourseFormat | null = null;
+
+                        const promptMessage = "Select a lab:\n" + labOptions.map((option, index) => `${index + 1}. ${option.label}`).join("\n");
+
+                        do {
+                            // Show a modal or prompt to select the lab
+                            const selectedLabNum = window.prompt(promptMessage);
+
+                            if (selectedLabNum === null) break; // User canceled the prompt
+
+                            selection = labOptions[parseInt(selectedLabNum) - 1]?.value || null;
+                        } while (!selection);
+
+                        resolve(selection);
+                    });
+
+                    if (selectedLab) {
+                        await addWorkdayClassToCalendar(selectedLab); // Add the selected lab to Google Calendar
+                    }
+                }
+            }
+
+            if (linkToCalendar && isOfficeHours) {
+                const officeHoursData = await checkOfficeHours(data); // Check the office hours data
+
+                for (const officeHour of officeHoursData) {
+                    await addScheduleEventToCalendar(data, officeHour); // Add the office hours to Google Calendar
+                }
+            }
+        } else {
+            console.error("Course data not found.");
         }
     }
 
@@ -642,18 +693,7 @@ function App() {
                 <div className={`${styles["row"]} ${styles["row-2"]}`}>
                     <IconButton
                         text="Upload"
-                        onClick={() => {
-                            const input = document.createElement('input');
-                            input.type = 'file';
-                            input.accept = '.pdf, .docx, .txt'; // Accept PDF, DOCX, and TXT files
-                            input.onchange = (event) => {
-                                const file = (event.target as HTMLInputElement).files?.[0];
-                                if (file) {
-                                    uploadSyllabus(file); // Call the upload function with the selected file
-                                }
-                            };
-                            input.click(); // Trigger the file input click
-                        }}
+                        onClick={handleUploadClick}
                         iconSrc="images/upload-icon.png"
                         alt="Upload"
                         backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
@@ -661,7 +701,7 @@ function App() {
                     />
                     <IconButton
                         text="Paste Text"
-                        onClick={() => console.log("Paste Text clicked")}
+                        onClick={handlePasteTextClick}
                         iconSrc="images/paste-icon.png"
                         alt="Paste"
                         backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
