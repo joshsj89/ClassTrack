@@ -57,7 +57,7 @@
             "EventName": "Class",
             "Reading": "Ch. 7",
             "StartTime": "",
-            "Topics": "pn diode equivalent circuits; diode applications Midterm Exam",
+            "Topics": "pn diode equivalent circuits; diode applications Midterm Exam ***2/14***",
             "WeekNumber": "2",
             "Weekday": ""
         },
@@ -107,7 +107,7 @@
             "EventName": "Final Exam",
             "Reading": "",
             "StartTime": "5:00 PM",
-            "Topics": "",
+            "Topics": "Final Exam ***3/18, 17:00-20:00***",
             "WeekNumber": "3",
             "Weekday": ""
         }
@@ -171,7 +171,7 @@
             "Location": "SCDI 4026",
             "Start Time": "2:15 PM",
             "Type": "Lab",
-            "Weekday": "R"
+            "Weekday": "Th"
         }
     ],
     "Year": "2024"
