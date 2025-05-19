@@ -6,12 +6,12 @@ import { useDarkMode } from './darkModeContext';
 import { DarkModeProvider } from './darkModeContext';
 import { useState, useEffect } from 'react';
 import ColorPicker from './ColorPicker';
-import { Course, WorkdayCourseFormat, CourseAvailCourseFormat } from '../types/course';
+import { ScheduleEvent, Course, WorkdayCourseFormat } from '../types/course';
 import { Term, TermMappings } from '../types/term';
 import termMappingsJson from './json/term_mappings.json'; // Import the JSON file directly
-import { convertMDYToDate, convertMDYToYYYYMMDD, convertDayToDayAbbrev } from './helper/date';
+import { convertMDYToDate, convertMDYToYYYYMMDD, convertDayToDayAbbrev, convertscheduleEventToDate } from './helper/date';
 import { calendar_v3 } from 'googleapis';
-import { EventColor, EventColorHex } from './helper/color';
+import { EventColor } from './helper/color';
 
 type Event = calendar_v3.Schema$Event;
 
@@ -28,8 +28,8 @@ function App() {
     const [isLectures, setIsLectures] = useState<boolean>(false);
     const [isLabs, setIsLabs] = useState<boolean>(false);
     const [isAssignments, setIsAssignments] = useState<boolean>(false);
-    const [isMidterms, setIsMidterms] = useState<boolean>(false);
-    const [isFinals, setIsFinals] = useState<boolean>(false);
+    const [isOfficeHours, setIsOfficeHours] = useState<boolean>(false);
+    const [isExams, setIsExams] = useState<boolean>(false);
     const [isGoogleLinked, setIsGoogleLinked] = useState<boolean>(false);
     const [isDarkModeScheduled, setIsDarkModeScheduled] = useState<boolean>(false);
     const [darkMode, toggleDarkMode] = useState<boolean>(false);
@@ -63,8 +63,8 @@ function App() {
             isLectures,
             isLabs,
             isAssignments,
-            isMidterms,
-            isFinals,
+            isOfficeHours,
+            isExams,
             isDarkModeScheduled,
             darkMode,
             organizeDrive,
@@ -82,8 +82,8 @@ function App() {
         isLectures, 
         isLabs, 
         isAssignments, 
-        isMidterms, 
-        isFinals, 
+        isOfficeHours, 
+        isExams, 
         darkMode, 
         isDarkModeScheduled,
         organizeDrive, 
@@ -103,8 +103,8 @@ function App() {
             const storedIsLectures = await getStoredState('isLectures', false);
             const storedIsLabs = await getStoredState('isLabs', false);
             const storedIsAssignments = await getStoredState('isAssignments', false);
-            const storedIsMidterms = await getStoredState('isMidterms', false);
-            const storedIsFinals = await getStoredState('isFinals', false);
+            const storedisOfficeHours = await getStoredState('isOfficeHours', false);
+            const storedIsExams = await getStoredState('IsExams', false);
             const storedIsDarkModeScheduled = await getStoredState('isDarkModeScheduled', false);
             const storedDarkMode = await getStoredState('darkMode', false);
             const storedOrganizeDrive = await getStoredState('organizeDrive', false);
@@ -122,8 +122,8 @@ function App() {
             setIsLectures(storedIsLectures);
             setIsLabs(storedIsLabs);
             setIsAssignments(storedIsAssignments);
-            setIsMidterms(storedIsMidterms);
-            setIsFinals(storedIsFinals);
+            setIsOfficeHours(storedisOfficeHours);
+            setIsExams(storedIsExams);
             setIsDarkModeScheduled(storedIsDarkModeScheduled);
             toggleDarkMode(storedDarkMode);
             setOrganizeDrive(storedOrganizeDrive);
@@ -338,7 +338,50 @@ function App() {
                 console.log("Course data found:", courseData); // Log the course data
 
                 if (linkToCalendar && isLectures) {
-                    await addClassToCalendar(courseData); // Add the course lectures to Google Calendar
+                    await addWorkdayClassToCalendar(courseData); // Add the course lectures to Google Calendar
+                }
+
+                if (linkToCalendar && isLabs) {
+                    const labData = await checkLabs(data); // Check the lab data
+
+                    // If there's only one lab, add it to the calendar
+                    if (labData.length === 1) {
+                        await addWorkdayClassToCalendar(labData[0]); // Add the lab to Google Calendar
+                    } else if (labData.length > 1) {// If there are multiple labs, have the user select which one to add
+                        const labOptions = labData.map((lab) => ({
+                            label: `${lab["Course Section"]} - ${lab["Meeting Patterns"]}`,
+                            value: lab,
+                        }));
+
+                        const selectedLab = await new Promise<WorkdayCourseFormat | null>((resolve) => {
+                            let selection: WorkdayCourseFormat | null = null;
+
+                            const promptMessage = "Select a lab:\n" + labOptions.map((option, index) => `${index + 1}. ${option.label}`).join("\n");
+
+                            do {
+                                // Show a modal or prompt to select the lab
+                                const selectedLabNum = window.prompt(promptMessage);
+    
+                                if (selectedLabNum === null) break; // User canceled the prompt
+
+                                selection = labOptions[parseInt(selectedLabNum) - 1]?.value || null;
+                            } while (!selection);
+
+                            resolve(selection);
+                        });
+
+                        if (selectedLab) {
+                            await addWorkdayClassToCalendar(selectedLab); // Add the selected lab to Google Calendar
+                        }
+                    }
+                }
+
+                if (linkToCalendar && isOfficeHours) {
+                    const officeHoursData = await checkOfficeHours(data); // Check the office hours data
+
+                    for (const officeHour of officeHoursData) {
+                        await addScheduleEventToCalendar(data, officeHour); // Add the office hours to Google Calendar
+                    }
                 }
             } else {
                 console.error("Course data not found.");
@@ -403,8 +446,59 @@ function App() {
         return courseFound ? courseData : null;
     }
 
-    const addClassToCalendar = async (course: WorkdayCourseFormat) => {
-        // const token = await chrome.storage.local.get('googleToken');
+    const checkLabs = async (course: Course) : Promise<Array<WorkdayCourseFormat>> => {
+        const term = `${course["Quarter/Semester"]} ${course["Year"]}`;
+        const term2 = `${course["Quarter/Semester"].toLowerCase()}${course["Year"]}`;
+
+        const termMappings: TermMappings = termMappingsJson as TermMappings; // Use the imported JSON directly
+        const termMapping: Term = termMappings[term];
+
+        if (!termMapping) {
+            console.error(`No term mapping found for ${term}`);
+            return [];
+        }
+
+        const allCoursesJson = await import(`./json/courses/courses_${term2}.json`, {
+            assert: { type: 'json' },
+        });
+        const allCourses: Array<WorkdayCourseFormat> = allCoursesJson.default as Array<WorkdayCourseFormat>; // Use the imported JSON directly
+
+        let courseFound = false;
+        let courseData: Array<WorkdayCourseFormat> = [];
+
+        for (const courseItem of allCourses) {
+            if (`${course["CourseCode"]}L` === courseItem["Course Section"].split(" - ")[0].split("-")[0]) {
+                courseFound = true;
+                courseData.push(courseItem);
+            }
+        }
+
+        return courseFound ? courseData : [];
+    }
+
+    const checkOfficeHours = async (course: Course) : Promise<Array<ScheduleEvent>> => {
+        const term = `${course["Quarter/Semester"]} ${course["Year"]}`;
+
+        const termMappings: TermMappings = termMappingsJson as TermMappings; // Use the imported JSON directly
+        const termMapping: Term = termMappings[term];
+
+        if (!termMapping) {
+            console.error(`No term mapping found for ${term}`);
+            return [];
+        }
+        
+        let courseData: Array<ScheduleEvent> = [];
+
+        for (const scheduleEvent of course["Schedule"]) {
+            if (scheduleEvent["Type"] !== "Office Hour") continue; // Skip if the type is not "Office Hours"
+
+            courseData.push(scheduleEvent);
+        }
+
+        return courseData;
+    }
+
+    const addWorkdayClassToCalendar = async (course: WorkdayCourseFormat) => {
         const token = await getGoogleToken();
 
         if (!token) {
@@ -453,8 +547,65 @@ function App() {
         return data; // Return the added event data
     }
 
-    const addCalendarEvents = async (course: WorkdayCourseFormat) => {
+    const addScheduleEventToCalendar = async (course: Course, scheduleEvent: ScheduleEvent) => {
+        const token = await getGoogleToken();
 
+        if (!token) {
+            throw new Error("Google token not found");
+        }
+
+        const calendarId = await getCalendarId();
+
+        if (!calendarId) {
+            throw new Error("Course calendar ID not found");
+        }
+
+        const term = `${course["Quarter/Semester"]} ${course["Year"]}`;
+
+        const termMappings: TermMappings = termMappingsJson as TermMappings; // Use the imported JSON directly
+        const termMapping: Term = termMappings[term];
+        const endDate = termMapping.endDate;
+
+        if (!termMapping) {
+            console.error(`No term mapping found for ${term}`);
+            return [];
+        }
+
+        const eventTimes = convertscheduleEventToDate(termMapping, scheduleEvent);
+
+        const event: Event = {
+            summary: `${course["CourseCode"]} - ${scheduleEvent["Type"]}`,
+            start: {
+                dateTime: eventTimes["startTime"].toISOString(),
+                timeZone: 'America/Los_Angeles',
+            },
+            end: {
+                dateTime: eventTimes["endTime"].toISOString(),
+                timeZone: 'America/Los_Angeles',
+            },
+            location: scheduleEvent["Location"],
+            recurrence: [
+                `RRULE:FREQ=WEEKLY;BYDAY=${scheduleEvent["Weekday"].split(" ").map((dayString) => convertDayToDayAbbrev(dayString)).toString()};UNTIL=${endDate.replaceAll("-", "")}T235959Z`,
+            ],
+            colorId: selectedColor[1],
+        };
+
+        const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events`, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(event),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error adding event to calendar: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Event added to calendar:", data); // Log the added event
+        return data; // Return the added event data
     }
 
     return (
@@ -588,16 +739,16 @@ function App() {
                             onChange={(checked) => setIsAssignments(checked)}
                         />
                         <Toggle
-                            key="Midterms"
-                            label="Midterms"
-                            checked={isMidterms}
-                            onChange={(checked) => setIsMidterms(checked)}
+                            key="Office Hours"
+                            label="Office Hours"
+                            checked={isOfficeHours}
+                            onChange={(checked) => setIsOfficeHours(checked)}
                         />
                         <Toggle
-                            key="Finals"
-                            label="Finals"
-                            checked={isFinals}
-                            onChange={(checked) => setIsFinals(checked)}
+                            key="Exams"
+                            label="Exams"
+                            checked={isExams}
+                            onChange={(checked) => setIsExams(checked)}
                         />
                     </div>
                 </div>

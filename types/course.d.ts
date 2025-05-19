@@ -1,3 +1,11 @@
+export interface ScheduleEvent {
+    "Type": string;
+    "Weekday": string;
+    "Start Time": string;
+    "End Time": string;
+    "Location": string;
+}
+
 export interface Course {
     "CourseCode": string;
     "CourseTitle": string;
@@ -13,16 +21,7 @@ export interface Course {
         "End Time": string;
         "Location": string;
     }>;
-    "CourseSchedule": Array<{
-        "WeekNumber": string;
-        "Weekday": string | null;
-        "Date": string | null;
-        "StartTime": string | null;
-        "EndTime": string | null;
-        "EventName": string;
-        "Topics": string;
-        "Reading": string;
-    }>;
+    "CourseSchedule": Array<ScheduleEvent>;
     "ImportantDates": Array<{
         "Date": string;
         "EventName": string;
