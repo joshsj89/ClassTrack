@@ -357,6 +357,7 @@ function App() {
         console.log("Folder created:", data);
     }
 
+    // Upload syllabus file to the back end
     const uploadFile = async (file: File) => {
         const formData = new FormData();
         formData.append('file', file); // Append the file to the form data
@@ -374,12 +375,13 @@ function App() {
             const data: Course = await response.json();
             console.log("Syllabus data:", data); // Log the extracted data
 
-            await uploadSyllabus(data);
+            await processSyllabus(data);
         } catch (error) {
             console.error("Error uploading syllabus:", error);
         }
     }
 
+    // Upload plain text to the back end
     const uploadText = async (text: string) => {
         try {
             const response = await fetch('https://starfish-calm-burro.ngrok-free.app/parsetext', {
@@ -397,21 +399,50 @@ function App() {
             const data: Course = await response.json();
             console.log("Syllabus data:", data); // Log the extracted data
     
-            await uploadSyllabus(data);
+            await processSyllabus(data);
         } catch (error) {
             console.error("Error uploading syllabus:", error);
         }
     }
 
-    // Upload syllabus and extract data from back end
-    const uploadSyllabus = async (data: Course) => {
+    // Extract course data and add it to Google Calendar
+    const processSyllabus = async (data: Course) => {
         const courseData = await checkCourse(data); // Check the course data
 
         if (courseData) {
             console.log("Course data found:", courseData); // Log the course data
 
             if (linkToCalendar && isLectures) {
-                await addWorkdayClassToCalendar(courseData); // Add the course lectures to Google Calendar
+                // If there's only one lecture, add it to the calendar
+                if (courseData.length === 1) {
+                    await addWorkdayClassToCalendar(courseData[0]); // Add the course lecture to Google Calendar
+                } else if (courseData.length > 1) { // If there are multiple lectures, have the user select which one to add
+                    const courseOptions = courseData.map((course) => ({
+                        label: `${course["Course Section"]} - ${course["Meeting Patterns"]}`,
+                        value: course,
+                    }));
+
+                    const selectedCourse = await new Promise<WorkdayCourseFormat | null>((resolve) => {
+                        let selection: WorkdayCourseFormat | null = null;
+
+                        const promptMessage = "Select a lecture:\n" + courseOptions.map((option, index) => `${index + 1}. ${option.label}`).join("\n");
+
+                        do {
+                            // Show a modal or prompt to select the course
+                            const selectedCourseNum = window.prompt(promptMessage);
+
+                            if (selectedCourseNum === null) break; // User canceled the prompt
+
+                            selection = courseOptions[parseInt(selectedCourseNum) - 1]?.value || null;
+                        } while (!selection);
+
+                        resolve(selection);
+                    });
+
+                    if (selectedCourse) {
+                        await addWorkdayClassToCalendar(selectedCourse); // Add the selected lecture to Google Calendar
+                    }
+                }
             }
 
             if (linkToCalendar && isLabs) {
@@ -461,29 +492,25 @@ function App() {
         }
     }
 
-    const checkCourse = async (course: Course): Promise<WorkdayCourseFormat | null> => {
+    const checkCourse = async (course: Course): Promise<Array<WorkdayCourseFormat>> => {
         const term = `${course["Quarter/Semester"]} ${course["Year"]}`;
         const term2 = `${course["Quarter/Semester"].toLowerCase()}${course["Year"]}`;
 
-        // const termMappingsResponse = await fetch('../json/term_mappings.json');
-        // const termMappings: TermMappings = await termMappingsResponse.json();
         const termMappings: TermMappings = termMappingsJson as TermMappings; // Use the imported JSON directly
         const termMapping: Term = termMappings[term];
 
         if (!termMapping) {
             console.error(`No term mapping found for ${term}`);
-            return null;
+            return [];
         }
 
-        // const allCoursesResponse = await fetch(`./json/courses_${term2}.json`);
-        // const allCourses: Array<WorkdayCourseFormat> = await allCoursesResponse.json();
         const allCoursesJson = await import(`./json/courses/courses_${term2}.json`, {
             assert: { type: 'json' },
         });
         const allCourses: Array<WorkdayCourseFormat> = allCoursesJson.default as Array<WorkdayCourseFormat>; // Use the imported JSON directly
 
         let courseFound = false;
-        let courseData: WorkdayCourseFormat | null = null;
+        let courseData: Array<WorkdayCourseFormat> = [];
 
         for (const courseItem of allCourses) {
             if (course["CourseCode"] === courseItem["Course Section"].split(" - ")[0].split("-")[0]) {
@@ -508,12 +535,12 @@ function App() {
                     if (endTime !== meetingPatterns[1].split(" - ")[1].trim()) continue; // Skip if the end time doesn't match
 
                     courseFound = true;
-                    return courseItem;
+                    courseData.push(courseItem);
                 }
             }
         }
 
-        return courseFound ? courseData : null;
+        return courseFound ? courseData : [];
     }
 
     const checkLabs = async (course: Course) : Promise<Array<WorkdayCourseFormat>> => {
