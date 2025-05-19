@@ -19,8 +19,6 @@ function App() {
     console.log(chrome);
     // Initialize state with a default value
 
-    const [courseCalendarId, setCourseCalendarId] = useState<string>('');
-
     const [startTime, setStartTime] = useState<string>('20:00');
     const [endTime, setEndTime] = useState<string>('08:00');
 
@@ -58,7 +56,6 @@ function App() {
         if (!isInitialized) return;
 
         chrome.storage.sync.set({
-            courseCalendarId,
             startTime,
             endTime,
             selectedColor,
@@ -78,7 +75,6 @@ function App() {
             console.log("All settings saved to chrome.storage.sync");
         }); 
     }, [
-        courseCalendarId,
         startTime, 
         endTime, 
         selectedColor,
@@ -100,7 +96,6 @@ function App() {
     useEffect(() => {
         const loadStoredState = async () => {
             console.log("Loading stored state...");
-            const storedCourseCalendarId = await getStoredState('courseCalendarId', '');
             const storedStartTime = await getStoredState('startTime', '20:00');
             const storedEndTime = await getStoredState('endTime', '08:00');
             const storedSelectedColor = await getStoredState('selectedColor', [EventColor.Peacock, EventColor.PaleGreen, EventColor.Mauve, EventColor.PaleRed]);
@@ -120,7 +115,6 @@ function App() {
 
             // Set state with the stored values
             console.log("Setting state with loaded values...");
-            setCourseCalendarId(storedCourseCalendarId);
             setStartTime(storedStartTime);
             setEndTime(storedEndTime);
             setSelectedColor(storedSelectedColor);
@@ -212,18 +206,6 @@ function App() {
                 }
             });
         })
-    }
-
-    const getCalendarId = async () : Promise<string> => {
-        return new Promise<string>((resolve, reject) => {
-            chrome.storage.sync.get(['courseCalendarId'], (result) => {
-                if (chrome.runtime.lastError || !result.courseCalendarId) { // Check for errors
-                    reject(new Error("Failed to retrieve calendar ID: " + chrome.runtime.lastError));
-                } else {
-                    resolve(result.courseCalendarId);
-                }
-            });
-        });
     }
 
     // Link Google Account
@@ -608,12 +590,6 @@ function App() {
             throw new Error("Google token not found");
         }
 
-        const calendarId = await getCalendarId();
-
-        if (!calendarId) {
-            throw new Error("Course calendar ID not found");
-        }
-
         const event: Event = {
             summary: course["Course Section"],
             start: {
@@ -632,7 +608,7 @@ function App() {
             colorId: selectedColor[0],
         };
 
-        const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events`, {
+        const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/primary/events`, {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -655,12 +631,6 @@ function App() {
 
         if (!token) {
             throw new Error("Google token not found");
-        }
-
-        const calendarId = await getCalendarId();
-
-        if (!calendarId) {
-            throw new Error("Course calendar ID not found");
         }
 
         const term = `${course["Quarter/Semester"]} ${course["Year"]}`;
@@ -693,7 +663,7 @@ function App() {
             colorId: selectedColor[1],
         };
 
-        const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events`, {
+        const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/primary/events`, {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,
