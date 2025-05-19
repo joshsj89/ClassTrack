@@ -1,0 +1,270 @@
+{
+    "CourseCode": "CSEN 174",
+    "CourseSchedule": [
+        {
+            "Date": "03/31",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "Course Introduction Introduction Software Engineering Requirement Engineering",
+            "WeekNumber": "1",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/07",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "Traditional Software Process Models Agile Software Process Models",
+            "WeekNumber": "2",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/14",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "Software Architecture Architectural Styles",
+            "WeekNumber": "3",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/21",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "Testing and Quality Assurance: Functional Testing Unit Testing Performance Testing Stress Testing",
+            "WeekNumber": "4",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/28",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "Code and Implementation Optimizations: Optimizations Profiling Reliable Programming",
+            "WeekNumber": "5",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/05",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "Design Pattern (Intro) Configuration Management",
+            "WeekNumber": "6",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/12",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "DevOps (Development & Operations)",
+            "WeekNumber": "7",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/19",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "IEEE/CS code of ethics for software engineers Privacy and Security",
+            "WeekNumber": "8",
+            "Weekday": ""
+        },
+        {
+            "Date": "05/26",
+            "EndTime": "",
+            "EventName": "Class",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "1. Software Project Management 2. Cloud 3. Microservices",
+            "WeekNumber": "9",
+            "Weekday": ""
+        },
+        {
+            "Date": "06/02",
+            "EndTime": "",
+            "EventName": "Final Project Presentation",
+            "Reading": "",
+            "StartTime": "",
+            "Topics": "Final Project Presentation",
+            "WeekNumber": "10",
+            "Weekday": ""
+        }
+    ],
+    "CourseTitle": "CSEN 174 -1",
+    "GradingInformation": [
+        {
+            "Category": "Quizzes",
+            "Value": "33.3%"
+        },
+        {
+            "Category": "Lab Assignments",
+            "Value": "33.3%"
+        },
+        {
+            "Category": "Final presentation",
+            "Value": "33.3%"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "04/07/2025",
+            "EventName": "Action item",
+            "Weekday": ""
+        },
+        {
+            "Date": "04/04/2025",
+            "EventName": "Quiz 1",
+            "Weekday": "Fri"
+        },
+        {
+            "Date": "04/07/2025",
+            "EventName": "Lab 1: Project Proposal (Group)",
+            "Weekday": "Mon"
+        },
+        {
+            "Date": "04/07/2025",
+            "EventName": "Lab 1: Project Proposal",
+            "Weekday": "Mon"
+        },
+        {
+            "Date": "04/11/2025",
+            "EventName": "Quiz 2",
+            "Weekday": "Fri"
+        },
+        {
+            "Date": "04/14/2025",
+            "EventName": "Lab 2: Text Use Cases and UML Use Case Diagram",
+            "Weekday": "Mon"
+        },
+        {
+            "Date": "04/18/2025",
+            "EventName": "Quiz 3",
+            "Weekday": "Fri"
+        },
+        {
+            "Date": "04/21/2025",
+            "EventName": "Lab 3: Scrum Product Backlog",
+            "Weekday": "Mon"
+        },
+        {
+            "Date": "04/25/2025",
+            "EventName": "Quiz 4",
+            "Weekday": "Fri"
+        },
+        {
+            "Date": "04/28/2025",
+            "EventName": "Lab 4: Software Architecture Diagrams",
+            "Weekday": "Mon"
+        },
+        {
+            "Date": "05/02/2025",
+            "EventName": "Quiz 5",
+            "Weekday": "Fri"
+        },
+        {
+            "Date": "05/05/2025",
+            "EventName": "Lab 5: Unit Testing",
+            "Weekday": "Mon"
+        },
+        {
+            "Date": "05/09/2025",
+            "EventName": "Quiz 6",
+            "Weekday": "Fri"
+        },
+        {
+            "Date": "05/12/2025",
+            "EventName": "Lab 6: First Prototype",
+            "Weekday": "Mon"
+        },
+        {
+            "Date": "05/16/2025",
+            "EventName": "Quiz 7",
+            "Weekday": "Fri"
+        },
+        {
+            "Date": "05/19/2025",
+            "EventName": "Lab 7: Nicer Prototype",
+            "Weekday": "Mon"
+        }
+    ],
+    "InstructorEmail": "xli18@scu.edu",
+    "InstructorName": "Xiao Li",
+    "InstructorOffice": "Bergin 206",
+    "Quarter/Semester": "Spring",
+    "Schedule": [
+        {
+            "End Time": "12:00 PM",
+            "Location": "SCDI 3301",
+            "Start Time": "10:20 AM",
+            "Type": "Class",
+            "Weekday": "T Th"
+        },
+        {
+            "End Time": "4:30 PM",
+            "Start Time": "3:30 PM",
+            "Type": "Office Hour",
+            "Weekday": "T"
+        },
+        {
+            "End Time": "4:30 PM",
+            "Start Time": "3:30 PM",
+            "Type": "Office Hour",
+            "Weekday": "Th"
+        },
+        {
+            "End Time": "5:00 PM",
+            "Location": "Heafy 111",
+            "Start Time": "2:15 PM",
+            "Type": "Lab",
+            "Weekday": "T"
+        },
+        {
+            "End Time": "5:00 PM",
+            "Location": "Heafy 111",
+            "Start Time": "2:15 PM",
+            "Type": "Lab",
+            "Weekday": "W"
+        },
+        {
+            "End Time": "8:15 PM",
+            "Location": "Heafy 111",
+            "Start Time": "5:30 PM",
+            "Type": "Lab",
+            "Weekday": "T"
+        },
+        {
+            "End Time": "8:15 PM",
+            "Location": "Heafy 111",
+            "Start Time": "5:30 PM",
+            "Type": "Lab",
+            "Weekday": "W"
+        },
+        {
+            "End Time": "11:30 AM",
+            "Location": "Heafey Atrium",
+            "Start Time": "10:30 AM",
+            "Type": "Office Hour",
+            "Weekday": "W"
+        },
+        {
+            "End Time": "5:15 PM",
+            "Location": "Zoom",
+            "Start Time": "4:15 PM",
+            "Type": "Office Hour",
+            "Weekday": "M"
+        }
+    ],
+    "Year": "2025"
+}

@@ -1,0 +1,355 @@
+{
+    "CourseCode": "CSEN 122",
+    "CourseSchedule": [
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 1",
+            "StartTime": null,
+            "Topics": "Introduction, computer performance",
+            "WeekNumber": "1",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Verilog/Vivado intro, assignment 1: MUX",
+            "WeekNumber": "1",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 2",
+            "StartTime": null,
+            "Topics": "Instruction set of RISC-V, instruction formats, addressing modes",
+            "WeekNumber": "2",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Assignment 2: ALU",
+            "WeekNumber": "2",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Optional attendance",
+            "WeekNumber": "3",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 4 - Part 1",
+            "StartTime": null,
+            "Topics": "Datapath and control of single cycle computer",
+            "WeekNumber": "4",
+            "Weekday": null
+        },
+        {
+            "Date": "04/25",
+            "EndTime": null,
+            "EventName": "Exam 1",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Ch.1, Ch.2, and Ch.4-Part1",
+            "WeekNumber": "4",
+            "Weekday": "Friday"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Assignment 3: Register File",
+            "WeekNumber": "4",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 4 - Part 2",
+            "StartTime": null,
+            "Topics": "Pipelining datapath and control",
+            "WeekNumber": "5",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Assignment 4: Pipeline Buffer",
+            "WeekNumber": "5",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 4 - Part 3",
+            "StartTime": null,
+            "Topics": "Pipeline hazards, data & control dependence, forwarding",
+            "WeekNumber": "6",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Project",
+            "WeekNumber": "6",
+            "Weekday": null
+        },
+        {
+            "Date": "05/16",
+            "EndTime": null,
+            "EventName": "Exam 2",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Ch.4-Part2 and Ch.4-Part3",
+            "WeekNumber": "7",
+            "Weekday": "Friday"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Project",
+            "WeekNumber": "7",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 5",
+            "StartTime": null,
+            "Topics": "Memory hierarchy, caches, virtual memory",
+            "WeekNumber": "8",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Project",
+            "WeekNumber": "8",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 5",
+            "StartTime": null,
+            "Topics": "Memory hierarchy, caches, virtual memory",
+            "WeekNumber": "9",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Project",
+            "WeekNumber": "9",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": "Ch. 6",
+            "StartTime": null,
+            "Topics": "Parallel processors",
+            "WeekNumber": "10",
+            "Weekday": null
+        },
+        {
+            "Date": "06/06",
+            "EndTime": null,
+            "EventName": "Exam 3",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "Ch.5 and Ch.6",
+            "WeekNumber": "10",
+            "Weekday": "Friday"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Project demo to TA",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": null,
+            "WeekNumber": "10",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "All project deliverables must be submitted",
+            "WeekNumber": "11",
+            "Weekday": null
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Make-up exam",
+            "Reading": null,
+            "StartTime": "8:00 AM",
+            "Topics": "comprehensive exam for the weight of the missed exam",
+            "WeekNumber": "11",
+            "Weekday": "Monday"
+        },
+        {
+            "Date": null,
+            "EndTime": null,
+            "EventName": "Class",
+            "Reading": null,
+            "StartTime": null,
+            "Topics": "No final exam in the finals week.",
+            "WeekNumber": "11",
+            "Weekday": null
+        }
+    ],
+    "CourseTitle": "CSEN 122 Computer Architecture",
+    "GradingInformation": [
+        {
+            "Category": "Three Exams",
+            "Value": "75 pts"
+        },
+        {
+            "Category": "Project",
+            "Value": "25 pts"
+        },
+        {
+            "Category": "Class participation",
+            "Value": "5 pts"
+        }
+    ],
+    "ImportantDates": [
+        {
+            "Date": "04/25/2025",
+            "EventName": "Exam 1",
+            "Weekday": "Friday"
+        },
+        {
+            "Date": "04/18/2025",
+            "EventName": "Good Friday",
+            "Weekday": "Friday"
+        },
+        {
+            "Date": "05/16/2025",
+            "EventName": "Exam 2",
+            "Weekday": "Friday"
+        },
+        {
+            "Date": "05/26/2025",
+            "EventName": "Memorial Day",
+            "Weekday": "Monday"
+        },
+        {
+            "Date": "06/06/2025",
+            "EventName": "Exam 3",
+            "Weekday": "Friday"
+        },
+        {
+            "Date": null,
+            "EventName": "Make-up exam",
+            "Weekday": "Monday"
+        }
+    ],
+    "InstructorEmail": "younghyun.cho@scu.edu",
+    "InstructorName": "Younghyun Cho",
+    "InstructorOffice": "Heafey 217",
+    "Quarter/Semester": "Spring",
+    "Schedule": [
+        {
+            "End Time": "4:00 PM",
+            "Location": "Heafey 217",
+            "Start Time": "2:00 PM",
+            "Type": "Office Hour",
+            "Weekday": "M"
+        },
+        {
+            "End Time": "9:05 AM",
+            "Location": "Vari Hall 133",
+            "Start Time": "8:00 AM",
+            "Type": "Class",
+            "Weekday": "M W F"
+        },
+        {
+            "End Time": "11:35 AM",
+            "Location": "SCDI 3302",
+            "Start Time": "10:30 AM",
+            "Type": "Class",
+            "Weekday": "M W F"
+        },
+        {
+            "End Time": "5:00 PM",
+            "Location": null,
+            "Start Time": "2:15 PM",
+            "Type": "Lab",
+            "Weekday": "T"
+        },
+        {
+            "End Time": "5:00 PM",
+            "Location": null,
+            "Start Time": "2:15 PM",
+            "Type": "Lab",
+            "Weekday": "W"
+        },
+        {
+            "End Time": "5:00 PM",
+            "Location": null,
+            "Start Time": "2:15 PM",
+            "Type": "Lab",
+            "Weekday": "Th"
+        },
+        {
+            "End Time": "5:00 PM",
+            "Location": null,
+            "Start Time": "2:15 PM",
+            "Type": "Lab",
+            "Weekday": "F"
+        },
+        {
+            "End Time": "8:15 PM",
+            "Location": null,
+            "Start Time": "5:30 PM",
+            "Type": "Lab",
+            "Weekday": "T"
+        }
+    ],
+    "Year": "2025"
+}
