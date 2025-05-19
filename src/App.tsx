@@ -21,7 +21,6 @@ function App() {
 
     const [startTime, setStartTime] = useState<string>('20:00');
     const [endTime, setEndTime] = useState<string>('08:00');
-    
 
     const [selectedColor, setSelectedColor] = useState<EventColor[]>([EventColor.Peacock, EventColor.PaleGreen, EventColor.Mauve, EventColor.PaleRed]);
 
@@ -138,7 +137,23 @@ function App() {
         loadStoredState(); // Call the function to load data
     }, []);
 
-  
+    useEffect(() => {
+        const getToken = async () => {
+            try {
+                const token = await getGoogleToken(false); // Get the Google token without prompting the user
+
+                if (token) {
+                    setIsGoogleLinked(true);
+                    console.log("Google token retrieved successfully.");
+                }
+            } catch (error) {
+                console.error("Error retrieving Google token:", error);
+                return null;
+            }
+        }
+
+        getToken();
+    }, []);
 
     const year = new Date().getFullYear();
 
@@ -181,9 +196,9 @@ function App() {
         }
     }, [startTime, endTime, isDarkModeScheduled]);
 
-    const getGoogleToken = async () : Promise<string> => {
+    const getGoogleToken = async (prompt: boolean = true) : Promise<string> => {
         return new Promise<string>((resolve, reject) => {
-            chrome.identity.getAuthToken({ interactive: true }, (token) => {
+            chrome.identity.getAuthToken({ interactive: prompt }, (token) => {
                 if (chrome.runtime.lastError || !token) { // Check for errors
                     reject(new Error("Failed to retrieve Google token: " + chrome.runtime.lastError));
                 } else {
@@ -245,6 +260,8 @@ function App() {
     }
 
     const handleUploadClick = () => {
+        if (!isGoogleLinked) alert("Please link your Google account first.");
+        
         const input = document.createElement('input');
         input.type = 'file';
         input.accept = '.pdf, .docx, .txt'; // Accept PDF, DOCX, and TXT files
@@ -258,6 +275,8 @@ function App() {
     }
 
     const handlePasteTextClick = () => {
+        if (!isGoogleLinked) alert("Please link your Google account first.");
+
         const input = document.createElement('input');
         input.type = 'text';
 
