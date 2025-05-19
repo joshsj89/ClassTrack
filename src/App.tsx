@@ -692,14 +692,14 @@ function App() {
             <div className={styles["main"]}>
                 {/* Row 1 */}
                 <div className={`${styles["row"]} ${styles["row-1"]}`}>
-                    <LogoButton
+                    {/*<LogoButton
                         text="Connect to Canvas"
                         onClick={(() => console.log("Canvas Connected"))}
                         logoSrc="images/canvas-logo.png"
                         alt="Canvas"
                         backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
                         textColor={darkMode ? "white" : "black"}
-                    />
+                    />*/}
                     <LogoButton
                         text={isGoogleLinked ? "Google Linked" : "Link to Google Account"}
                         onClick={handleGoogleLink}
@@ -729,6 +729,7 @@ function App() {
                         backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
                         textColor={darkMode ? "white" : "black"}
                     />
+                    {/*}
                     <IconButton
                         text="Sync"
                         onClick={() => console.log("Sync clicked")}
@@ -737,6 +738,7 @@ function App() {
                         backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
                         textColor={darkMode ? "white" : "black"}
                     />
+                    */}
                 </div>
                 {/* Row 3 */}
                 <div className={`${styles["row"]} ${styles["row-3"]}`}>
@@ -882,12 +884,14 @@ function App() {
                             checked={includeAssignment}
                             onChange={(checked) => setIncludeAssignment(checked)}
                         />
+                        {/* For debugging purposes}
                         <Toggle
                             key="Link to Calendar"
                             label="Link to Calendar"
                             checked={linkToCalendar}
                             onChange={(checked) => setLinkToCalendar(checked)}
                         />
+                        */}
                     </div>
                 </div>
             </div>
