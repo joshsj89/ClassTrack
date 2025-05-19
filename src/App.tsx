@@ -98,7 +98,7 @@ function App() {
             console.log("Loading stored state...");
             const storedStartTime = await getStoredState('startTime', '20:00');
             const storedEndTime = await getStoredState('endTime', '08:00');
-            const storedSelectedColor = await getStoredState('selectedColor', ['#7986CB', '#7986CB', '#7986CB']);
+            const storedSelectedColor = await getStoredState('selectedColor', [EventColor.Peacock, EventColor.PaleGreen, EventColor.Mauve, EventColor.PaleRed]);
             const storedIsLectures = await getStoredState('isLectures', false);
             const storedIsLabs = await getStoredState('isLabs', false);
             const storedIsAssignments = await getStoredState('isAssignments', false);
