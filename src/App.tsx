@@ -13,6 +13,7 @@ import { convertMDYToDate, convertMDYToYYYYMMDD, convertDayToDayAbbrev, converts
 import { calendar_v3 } from 'googleapis';
 import { EventColor } from './helper/color';
 import CourseSelectionModal from './CourseSelectionModal';
+import Loading from './Loading';
 
 type Event = calendar_v3.Schema$Event;
 
@@ -743,284 +744,241 @@ function App() {
     
     return (
         <>
-        {isLoading && (
-            <div style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundColor: 'rgba(0, 0, 0, 0.4)',
-                backdropFilter: 'blur(3px)',
-                WebkitBackdropFilter: 'blur(3px)', 
-                zIndex: 99999,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#fff',
-                fontSize: '1.2rem',
-                fontWeight: 'bolder',
-                textAlign: 'center',
-                padding: '1rem'
-            }}>
-                <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '10px',
-                marginBottom: '20px',
-                height: '30px'
-                }}>
-                <div className={styles["spinner-dots"]}>
-                    <div className={styles.dot}></div>
-                    <div className={styles.dot}></div>
-                    <div className={styles.dot}></div>
-                </div>
-                </div>
-                <span style={{ animation: 'fadeIn 1.5s ease-in-out infinite alternate' }}>
-                Processing your syllabus, please wait...
-                </span>
-            </div>
-        )}
+            {isLoading && <Loading />}
 
-
-        
-          
-        <div className={`${styles["App"]} ${darkMode ? styles["dark"] : ""}`}>
-            {/* Title Bar */}
-            <div className={styles["title"]}>
-                <h1>ClassTrack</h1>
-            </div>
-
-            {/* Main Container */}
-            <div className={styles["main"]}>
-                {/* Row 1 */}
-                <div className={`${styles["row"]} ${styles["row-1"]}`}>
-                    {/*<LogoButton
-                        text="Connect to Canvas"
-                        onClick={(() => console.log("Canvas Connected"))}
-                        logoSrc="images/canvas-logo.png"
-                        alt="Canvas"
-                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
-                        textColor={darkMode ? "white" : "black"}
-                    />*/}
-                    <LogoButton
-                        text={isGoogleLinked ? `Google Linked (${email})` : "Link to Google Account"}
-                        onClick={isGoogleLinked ? revokeGoogleToken : handleGoogleLink}
-                        logoSrc="images/google-logo.png"
-                        alt="Google"
-                        // disabled={isGoogleLinked}
-                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
-                        textColor={darkMode ? "white" : "black"}
-                    />
+            <div className={`${styles["App"]} ${darkMode ? styles["dark"] : ""}`}>
+                {/* Title Bar */}
+                <div className={styles["title"]}>
+                    <h1>ClassTrack</h1>
                 </div>
 
-                {/* Row 2 */}
-                <div className={`${styles["row"]} ${styles["row-2"]}`}>
-                    <IconButton
-                        text="Upload"
-                        onClick={handleUploadClick}
-                        iconSrc="images/upload-icon.png"
-                        alt="Upload"
-                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
-                        textColor={darkMode ? "white" : "black"}
-                    />
-                    <IconButton
-                        text="Paste Text"
-                        onClick={handlePasteTextClick}
-                        iconSrc="images/paste-icon.png"
-                        alt="Paste"
-                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
-                        textColor={darkMode ? "white" : "black"}
-                    />
-                    {/*}
-                    <IconButton
-                        text="Sync"
-                        onClick={() => console.log("Sync clicked")}
-                        iconSrc="images/sync-icon.png"
-                        alt="Sync"
-                        backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
-                        textColor={darkMode ? "white" : "black"}
-                    />
-                    */}
-                </div>
-                {/* Row 3 */}
-                <div className={`${styles["row"]} ${styles["row-3"]}`}>
-                    <div className={styles["toggle-container"]}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                            <ColorPicker
-                                label='Lectures'
-                                selectedColor={selectedColor[0]}
-                                onColorChange={(newColor: EventColor) => {
-                                    const updatedColors = [...selectedColor];
-                                    updatedColors[0] = newColor;
-                                    setSelectedColor(updatedColors);
-                                }}
-                            />
-                            <ColorPicker
-                                label='Events'
-                                selectedColor={selectedColor[1]}
-                                onColorChange={(newColor: EventColor) => {
-                                    const updatedColors = [...selectedColor];
-                                    updatedColors[1] = newColor;
-                                    setSelectedColor(updatedColors);
-                                }}
-                            />
-                            <ColorPicker
-                                label='Tasks'
-                                selectedColor={selectedColor[2]}
-                                onColorChange={(newColor: EventColor) => {
-                                    const updatedColors = [...selectedColor];
-                                    updatedColors[2] = newColor;
-                                    setSelectedColor(updatedColors);
-                                }}
-                            />
-                            <ColorPicker
-                                label='Exams'
-                                selectedColor={selectedColor[3]}
-                                onColorChange={(newColor: EventColor) => {
-                                    const updatedColors = [...selectedColor];
-                                    updatedColors[3] = newColor;
-                                    setSelectedColor(updatedColors);
-                                }}
-                            />
-                        </div>
+                {/* Main Container */}
+                <div className={styles["main"]}>
+                    {/* Row 1 */}
+                    <div className={`${styles["row"]} ${styles["row-1"]}`}>
+                        {/*<LogoButton
+                            text="Connect to Canvas"
+                            onClick={(() => console.log("Canvas Connected"))}
+                            logoSrc="images/canvas-logo.png"
+                            alt="Canvas"
+                            backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                            textColor={darkMode ? "white" : "black"}
+                        />*/}
+                        <LogoButton
+                            text={isGoogleLinked ? `Google Linked (${email})` : "Link to Google Account"}
+                            onClick={isGoogleLinked ? revokeGoogleToken : handleGoogleLink}
+                            logoSrc="images/google-logo.png"
+                            alt="Google"
+                            // disabled={isGoogleLinked}
+                            backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                            textColor={darkMode ? "white" : "black"}
+                        />
                     </div>
 
-                    <div className={styles["toggle-container"]}>
-                        <Toggle
-                            key="Lectures"
-                            label="Lectures"
-                            checked={isLectures}
-                            onChange={(checked) => setIsLectures(checked)}
+                    {/* Row 2 */}
+                    <div className={`${styles["row"]} ${styles["row-2"]}`}>
+                        <IconButton
+                            text="Upload"
+                            onClick={handleUploadClick}
+                            iconSrc="images/upload-icon.png"
+                            alt="Upload"
+                            backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                            textColor={darkMode ? "white" : "black"}
                         />
-                        <Toggle
-                            key="Labs"
-                            label="Labs"
-                            checked={isLabs}
-                            onChange={(checked) => setIsLabs(checked)}
+                        <IconButton
+                            text="Paste Text"
+                            onClick={handlePasteTextClick}
+                            iconSrc="images/paste-icon.png"
+                            alt="Paste"
+                            backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                            textColor={darkMode ? "white" : "black"}
                         />
-                        <Toggle
-                            key="Assignments"
-                            label="Assignments"
-                            checked={isAssignments}
-                            onChange={(checked) => setIsAssignments(checked)}
-                        />
-                        <Toggle
-                            key="Office Hours"
-                            label="Office Hours"
-                            checked={isOfficeHours}
-                            onChange={(checked) => setIsOfficeHours(checked)}
-                        />
-                        <Toggle
-                            key="Exams"
-                            label="Exams"
-                            checked={isExams}
-                            onChange={(checked) => setIsExams(checked)}
-                        />
-                    </div>
-                </div>
-
-
-                {/* Row 4 (updated) */}
-                <div className={`${styles["row"]} ${styles["row-4"]}`}>
-                    <div className={styles["toggle-container"]}>
-                        <Toggle
-                            key="Dark Mode"
-                            label="Dark Mode"
-                            checked={darkMode}
-                            onChange={(checked) => toggleDarkMode(checked)}
-                        />
-                        <Toggle
-                            key="Scheduled Dark Mode"
-                            label="Scheduled Dark Mode"
-                            checked={isDarkModeScheduled}
-                            onChange={(checked) => {
-                                console.log(`Scheduled Dark Mode toggled: ${checked}`);
-                                setIsDarkModeScheduled(checked);
-
-                                if (checked) {
-                                    checkScheduledDarkMode(); // Check the scheduled dark mode state immediately
-                                } else {
-                                    toggleDarkMode(false); // Turn off dark mode if scheduled is disabled
-                                }
-                            }}
-                        />
-                        <div>
-                            <label>Start Time: </label>
-                            <input
-                                type="time"
-                                value={startTime}
-                                onChange={(e) => setStartTime(e.target.value)}
-                            />
-                        </div>
-                        <div>
-                            <label>End Time: </label>
-                            <input
-                                type="time"
-                                value={endTime}
-                                onChange={(e) => setEndTime(e.target.value)}
-                            />
-                        </div>
-                    </div>
-                    <div className={styles["toggle-container"]}>
-                        <Toggle
-                            key="Organize Drive"
-                            label="Organize Drive"
-                            checked={organizeDrive}
-                            onChange={(checked) => setOrganizeDrive(checked)}
-                        />
-                        <Toggle
-                            key="Create Files"
-                            label="Create Files"
-                            checked={createFiles}
-                            onChange={(checked) => setCreateFiles(checked)}
-                        />
-                        <Toggle
-                            key="Include Lecture Name"
-                            label="Include Lecture Name"
-                            checked={includeLectureName}
-                            onChange={(checked) => setIncludeLectureName(checked)}
-                        />
-                        <Toggle
-                            key="Include Assignment"
-                            label="Include Assignment"
-                            checked={includeAssignment}
-                            onChange={(checked) => setIncludeAssignment(checked)}
-                        />
-                        {/* For debugging purposes}
-                        <Toggle
-                            key="Link to Calendar"
-                            label="Link to Calendar"
-                            checked={linkToCalendar}
-                            onChange={(checked) => setLinkToCalendar(checked)}
+                        {/*}
+                        <IconButton
+                            text="Sync"
+                            onClick={() => console.log("Sync clicked")}
+                            iconSrc="images/sync-icon.png"
+                            alt="Sync"
+                            backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
+                            textColor={darkMode ? "white" : "black"}
                         />
                         */}
                     </div>
+                    {/* Row 3 */}
+                    <div className={`${styles["row"]} ${styles["row-3"]}`}>
+                        <div className={styles["toggle-container"]}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                <ColorPicker
+                                    label='Lectures'
+                                    selectedColor={selectedColor[0]}
+                                    onColorChange={(newColor: EventColor) => {
+                                        const updatedColors = [...selectedColor];
+                                        updatedColors[0] = newColor;
+                                        setSelectedColor(updatedColors);
+                                    }}
+                                />
+                                <ColorPicker
+                                    label='Events'
+                                    selectedColor={selectedColor[1]}
+                                    onColorChange={(newColor: EventColor) => {
+                                        const updatedColors = [...selectedColor];
+                                        updatedColors[1] = newColor;
+                                        setSelectedColor(updatedColors);
+                                    }}
+                                />
+                                <ColorPicker
+                                    label='Tasks'
+                                    selectedColor={selectedColor[2]}
+                                    onColorChange={(newColor: EventColor) => {
+                                        const updatedColors = [...selectedColor];
+                                        updatedColors[2] = newColor;
+                                        setSelectedColor(updatedColors);
+                                    }}
+                                />
+                                <ColorPicker
+                                    label='Exams'
+                                    selectedColor={selectedColor[3]}
+                                    onColorChange={(newColor: EventColor) => {
+                                        const updatedColors = [...selectedColor];
+                                        updatedColors[3] = newColor;
+                                        setSelectedColor(updatedColors);
+                                    }}
+                                />
+                            </div>
+                        </div>
+
+                        <div className={styles["toggle-container"]}>
+                            <Toggle
+                                key="Lectures"
+                                label="Lectures"
+                                checked={isLectures}
+                                onChange={(checked) => setIsLectures(checked)}
+                            />
+                            <Toggle
+                                key="Labs"
+                                label="Labs"
+                                checked={isLabs}
+                                onChange={(checked) => setIsLabs(checked)}
+                            />
+                            <Toggle
+                                key="Assignments"
+                                label="Assignments"
+                                checked={isAssignments}
+                                onChange={(checked) => setIsAssignments(checked)}
+                            />
+                            <Toggle
+                                key="Office Hours"
+                                label="Office Hours"
+                                checked={isOfficeHours}
+                                onChange={(checked) => setIsOfficeHours(checked)}
+                            />
+                            <Toggle
+                                key="Exams"
+                                label="Exams"
+                                checked={isExams}
+                                onChange={(checked) => setIsExams(checked)}
+                            />
+                        </div>
+                    </div>
+
+
+                    {/* Row 4 (updated) */}
+                    <div className={`${styles["row"]} ${styles["row-4"]}`}>
+                        <div className={styles["toggle-container"]}>
+                            <Toggle
+                                key="Dark Mode"
+                                label="Dark Mode"
+                                checked={darkMode}
+                                onChange={(checked) => toggleDarkMode(checked)}
+                            />
+                            <Toggle
+                                key="Scheduled Dark Mode"
+                                label="Scheduled Dark Mode"
+                                checked={isDarkModeScheduled}
+                                onChange={(checked) => {
+                                    console.log(`Scheduled Dark Mode toggled: ${checked}`);
+                                    setIsDarkModeScheduled(checked);
+
+                                    if (checked) {
+                                        checkScheduledDarkMode(); // Check the scheduled dark mode state immediately
+                                    } else {
+                                        toggleDarkMode(false); // Turn off dark mode if scheduled is disabled
+                                    }
+                                }}
+                            />
+                            <div>
+                                <label>Start Time: </label>
+                                <input
+                                    type="time"
+                                    value={startTime}
+                                    onChange={(e) => setStartTime(e.target.value)}
+                                />
+                            </div>
+                            <div>
+                                <label>End Time: </label>
+                                <input
+                                    type="time"
+                                    value={endTime}
+                                    onChange={(e) => setEndTime(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                        <div className={styles["toggle-container"]}>
+                            <Toggle
+                                key="Organize Drive"
+                                label="Organize Drive"
+                                checked={organizeDrive}
+                                onChange={(checked) => setOrganizeDrive(checked)}
+                            />
+                            <Toggle
+                                key="Create Files"
+                                label="Create Files"
+                                checked={createFiles}
+                                onChange={(checked) => setCreateFiles(checked)}
+                            />
+                            <Toggle
+                                key="Include Lecture Name"
+                                label="Include Lecture Name"
+                                checked={includeLectureName}
+                                onChange={(checked) => setIncludeLectureName(checked)}
+                            />
+                            <Toggle
+                                key="Include Assignment"
+                                label="Include Assignment"
+                                checked={includeAssignment}
+                                onChange={(checked) => setIncludeAssignment(checked)}
+                            />
+                            {/* For debugging purposes}
+                            <Toggle
+                                key="Link to Calendar"
+                                label="Link to Calendar"
+                                checked={linkToCalendar}
+                                onChange={(checked) => setLinkToCalendar(checked)}
+                            />
+                            */}
+                        </div>
+                    </div>
+                </div>
+
+                {selectionOptions && onSelectCourse && (
+                    <CourseSelectionModal
+                        options={selectionOptions}
+                        onSelect={(selected) => {
+                        setSelectionOptions(null);
+                        onSelectCourse(selected);
+                        }}
+                        onCancel={() => {
+                        setSelectionOptions(null);
+                        onSelectCourse(null);
+                        }}
+                    />
+                )}
+
+                {/* Footer */}
+                <div className={styles["footer"]}>
+                    <p>&copy; {year} ClassTrack. All rights reserved.</p>
                 </div>
             </div>
-
-            {selectionOptions && onSelectCourse && (
-                <CourseSelectionModal
-                    options={selectionOptions}
-                    onSelect={(selected) => {
-                    setSelectionOptions(null);
-                    onSelectCourse(selected);
-                    }}
-                    onCancel={() => {
-                    setSelectionOptions(null);
-                    onSelectCourse(null);
-                    }}
-                />
-            )}
-
-            {/* Footer */}
-            <div className={styles["footer"]}>
-                <p>&copy; {year} ClassTrack. All rights reserved.</p>
-            </div>
-        </div>
-
         </>
     );
 };
