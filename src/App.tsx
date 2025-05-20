@@ -12,12 +12,21 @@ import termMappingsJson from './json/term_mappings.json'; // Import the JSON fil
 import { convertMDYToDate, convertMDYToYYYYMMDD, convertDayToDayAbbrev, convertscheduleEventToDate } from './helper/date';
 import { calendar_v3 } from 'googleapis';
 import { EventColor } from './helper/color';
+import CourseSelectionModal from './CourseSelectionModal';
 
 type Event = calendar_v3.Schema$Event;
 
 function App() {
     console.log(chrome);
     // Initialize state with a default value
+
+    const [isLoading, setIsLoading] = useState(false);
+
+
+    const [selectionOptions, setSelectionOptions] = useState<{ label: string, value: WorkdayCourseFormat }[] | null>(null);
+    const [onSelectCourse, setOnSelectCourse] = useState<((selected: WorkdayCourseFormat | null) => void) | null>(null);
+
+
 
     const [startTime, setStartTime] = useState<string>('20:00');
     const [endTime, setEndTime] = useState<string>('08:00');
@@ -347,6 +356,7 @@ function App() {
 
     // Upload syllabus file to the back end
     const uploadFile = async (file: File) => {
+        setIsLoading(true);
         const formData = new FormData();
         formData.append('file', file); // Append the file to the form data
 
@@ -366,11 +376,15 @@ function App() {
             await processSyllabus(data);
         } catch (error) {
             console.error("Error uploading syllabus:", error);
+        } finally {
+            setIsLoading(false);
         }
+        
     }
 
     // Upload plain text to the back end
     const uploadText = async (text: string) => {
+        setIsLoading(true);
         try {
             const response = await fetch('https://starfish-calm-burro.ngrok-free.app/parsetext', {
                 method: 'POST',
@@ -390,11 +404,15 @@ function App() {
             await processSyllabus(data);
         } catch (error) {
             console.error("Error uploading syllabus:", error);
+        } finally{
+            setIsLoading(false);
         }
     }
+   
 
-    // Extract course data and add it to Google Calendar
-    const processSyllabus = async (data: Course) => {
+
+     // Extract course data and add it to Google Calendar
+     const processSyllabus = async (data: Course) => {
         const courseData = await checkCourse(data); // Check the course data
 
         if (courseData) {
@@ -430,7 +448,9 @@ function App() {
                     if (selectedCourse) {
                         await addWorkdayClassToCalendar(selectedCourse); // Add the selected lecture to Google Calendar
                     }
-                }
+
+
+       }
             }
 
             if (linkToCalendar && isLabs) {
@@ -465,11 +485,10 @@ function App() {
                     if (selectedLab) {
                         await addWorkdayClassToCalendar(selectedLab); // Add the selected lab to Google Calendar
                     }
-                }
-            }
-
-            if (linkToCalendar && isOfficeHours) {
-                const officeHoursData = await checkOfficeHours(data); // Check the office hours data
+        }
+    
+        if (linkToCalendar && isOfficeHours) {
+            const officeHoursData = await checkOfficeHours(data); // Check the office hours data
 
                 for (const officeHour of officeHoursData) {
                     await addScheduleEventToCalendar(data, officeHour); // Add the office hours to Google Calendar
@@ -479,6 +498,9 @@ function App() {
             console.error("Course data not found.");
         }
     }
+    
+    };
+    
 
     const checkCourse = async (course: Course): Promise<Array<WorkdayCourseFormat>> => {
         const term = `${course["Quarter/Semester"]} ${course["Year"]}`;
@@ -680,8 +702,65 @@ function App() {
         console.log("Event added to calendar:", data); // Log the added event
         return data; // Return the added event data
     }
+      
 
+    const dotStyle = (delay: number) => ({
+        width: '12px',
+        height: '12px',
+        borderRadius: '50%',
+        backgroundColor: 'white',
+        animation: 'bounce 1s infinite',
+        animationDelay: `${delay}s`
+      });
+      
+
+    
     return (
+        <>
+        {isLoading && (
+            <div style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                backdropFilter: 'blur(3px)',
+                WebkitBackdropFilter: 'blur(3px)', 
+                zIndex: 99999,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#fff',
+                fontSize: '1.2rem',
+                fontWeight: 'bolder',
+                textAlign: 'center',
+                padding: '1rem'
+            }}>
+                <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '10px',
+                marginBottom: '20px',
+                height: '30px'
+                }}>
+                <div className={styles["spinner-dots"]}>
+                    <div className={styles.dot}></div>
+                    <div className={styles.dot}></div>
+                    <div className={styles.dot}></div>
+                </div>
+                </div>
+                <span style={{ animation: 'fadeIn 1.5s ease-in-out infinite alternate' }}>
+                Processing your syllabus, please wait...
+                </span>
+            </div>
+        )}
+
+
+        
+          
         <div className={`${styles["App"]} ${darkMode ? styles["dark"] : ""}`}>
             {/* Title Bar */}
             <div className={styles["title"]}>
@@ -896,13 +975,29 @@ function App() {
                 </div>
             </div>
 
+            {selectionOptions && onSelectCourse && (
+                <CourseSelectionModal
+                    options={selectionOptions}
+                    onSelect={(selected) => {
+                    setSelectionOptions(null);
+                    onSelectCourse(selected);
+                    }}
+                    onCancel={() => {
+                    setSelectionOptions(null);
+                    onSelectCourse(null);
+                    }}
+                />
+            )}
+
             {/* Footer */}
             <div className={styles["footer"]}>
                 <p>&copy; {year} ClassTrack. All rights reserved.</p>
             </div>
         </div>
+
+        </>
     );
-}
+};
 
 
 const AppWrapper = () => {
