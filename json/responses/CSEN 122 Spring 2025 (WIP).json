@@ -35,9 +35,9 @@
             "Date": "04/25",
             "EndTime": null,
             "EventName": "Exam 1",
-            "Reading": "Ch.1, Ch.2, and Ch.4-Part1",
+            "Reading": null,
             "StartTime": null,
-            "Topics": null,
+            "Topics": "Ch.1, Ch.2, and Ch.4-Part1",
             "WeekNumber": "4",
             "Weekday": "F"
         },
@@ -65,9 +65,9 @@
             "Date": "05/16",
             "EndTime": null,
             "EventName": "Exam 2",
-            "Reading": "Ch.4-Part2 and Ch.4-Part3",
+            "Reading": null,
             "StartTime": null,
-            "Topics": null,
+            "Topics": "Ch.4-Part2 and Ch.4-Part3",
             "WeekNumber": "7",
             "Weekday": "F"
         },
@@ -95,16 +95,16 @@
             "Date": "06/06",
             "EndTime": null,
             "EventName": "Exam 3",
-            "Reading": "Ch.5 and Ch.6",
+            "Reading": null,
             "StartTime": null,
-            "Topics": null,
+            "Topics": "Ch.5 and Ch.6",
             "WeekNumber": "10",
             "Weekday": "F"
         },
         {
             "Date": null,
             "EndTime": null,
-            "EventName": "Class",
+            "EventName": null,
             "Reading": null,
             "StartTime": null,
             "Topics": "Verilog/Vivado intro, assignment 1: MUX",
@@ -114,7 +114,7 @@
         {
             "Date": null,
             "EndTime": null,
-            "EventName": "Class",
+            "EventName": null,
             "Reading": null,
             "StartTime": null,
             "Topics": "Assignment 2: ALU",
@@ -124,7 +124,7 @@
         {
             "Date": null,
             "EndTime": null,
-            "EventName": "Class",
+            "EventName": null,
             "Reading": null,
             "StartTime": null,
             "Topics": "Optional attendance",
@@ -134,7 +134,7 @@
         {
             "Date": null,
             "EndTime": null,
-            "EventName": "Class",
+            "EventName": null,
             "Reading": null,
             "StartTime": null,
             "Topics": "Assignment 3: Register File",
@@ -144,7 +144,7 @@
         {
             "Date": null,
             "EndTime": null,
-            "EventName": "Class",
+            "EventName": null,
             "Reading": null,
             "StartTime": null,
             "Topics": "Assignment 4: Pipeline Buffer",
@@ -154,7 +154,7 @@
         {
             "Date": null,
             "EndTime": null,
-            "EventName": "Class",
+            "EventName": null,
             "Reading": null,
             "StartTime": null,
             "Topics": "Project",
@@ -164,7 +164,7 @@
         {
             "Date": null,
             "EndTime": null,
-            "EventName": "Class",
+            "EventName": null,
             "Reading": null,
             "StartTime": null,
             "Topics": "Project",
@@ -174,7 +174,7 @@
         {
             "Date": null,
             "EndTime": null,
-            "EventName": "Class",
+            "EventName": null,
             "Reading": null,
             "StartTime": null,
             "Topics": "Project",
@@ -184,7 +184,7 @@
         {
             "Date": null,
             "EndTime": null,
-            "EventName": "Class",
+            "EventName": null,
             "Reading": null,
             "StartTime": null,
             "Topics": "Project",
@@ -194,7 +194,7 @@
         {
             "Date": null,
             "EndTime": null,
-            "EventName": "Class",
+            "EventName": null,
             "Reading": null,
             "StartTime": null,
             "Topics": "Project demo to TA",
@@ -224,13 +224,18 @@
             "Weekday": "Friday"
         },
         {
-            "Date": "04/18/2025",
-            "EventName": "Good Friday",
+            "Date": "05/16/2025",
+            "EventName": "Exam 2",
             "Weekday": "Friday"
         },
         {
-            "Date": "05/16/2025",
-            "EventName": "Exam 2",
+            "Date": "06/06/2025",
+            "EventName": "Exam 3",
+            "Weekday": "Friday"
+        },
+        {
+            "Date": "04/18/2025",
+            "EventName": "Good Friday",
             "Weekday": "Friday"
         },
         {
@@ -239,18 +244,8 @@
             "Weekday": "Monday"
         },
         {
-            "Date": "06/06/2025",
-            "EventName": "Exam 3",
-            "Weekday": "Friday"
-        },
-        {
-            "Date": "Week 11 Tuesday",
+            "Date": null,
             "EventName": "All project deliverables must be submitted",
-            "Weekday": null
-        },
-        {
-            "Date": "Week 11 Monday",
-            "EventName": "make-up test",
             "Weekday": null
         }
     ],
