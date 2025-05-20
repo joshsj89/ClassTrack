@@ -29,7 +29,6 @@ function App() {
     const [onSelectCourse, setOnSelectCourse] = useState<((selected: WorkdayCourseFormat | null) => void) | null>(null);
 
 
-
     const [startTime, setStartTime] = useState<string>('20:00');
     const [endTime, setEndTime] = useState<string>('08:00');
 
@@ -47,7 +46,6 @@ function App() {
     const [createFiles, setCreateFiles] = useState<boolean>(false);
     const [includeLectureName, setIncludeLectureName] = useState<boolean>(false);
     const [includeAssignment, setIncludeAssignment] = useState<boolean>(false);
-    const [linkToCalendar, setLinkToCalendar] = useState<boolean>(false);
 
     const [isInitialized, setIsInitialized] = useState(false);
 
@@ -82,7 +80,6 @@ function App() {
             createFiles,
             includeLectureName,
             includeAssignment,
-            linkToCalendar,
         }, () => {
             console.log("All settings saved to chrome.storage.sync");
         }); 
@@ -102,7 +99,6 @@ function App() {
         createFiles, 
         includeLectureName, 
         includeAssignment, 
-        linkToCalendar,
     ]);
     
     // Use useEffect to asynchronously load stored values
@@ -124,7 +120,6 @@ function App() {
             const storedCreateFiles = await getStoredState('createFiles', false);
             const storedIncludeLectureName = await getStoredState('includeLectureName', false);
             const storedIncludeAssignment = await getStoredState('includeAssignment', false);
-            const storedLinkToCalendar = await getStoredState('linkToCalendar', false);
             
 
             // Set state with the stored values
@@ -144,7 +139,6 @@ function App() {
             setCreateFiles(storedCreateFiles);
             setIncludeLectureName(storedIncludeLectureName);
             setIncludeAssignment(storedIncludeAssignment);
-            setLinkToCalendar(storedLinkToCalendar);
 
             setIsInitialized(true);
         };
@@ -445,7 +439,7 @@ function App() {
         if (courseData) {
             console.log("Course data found:", courseData); // Log the course data
 
-            if (linkToCalendar && isLectures) {
+            if (isLectures) {
                 // If there's only one lecture, add it to the calendar
                 if (courseData.length === 1) {
                     await addWorkdayClassToCalendar(courseData[0]); // Add the course lecture to Google Calendar
@@ -480,7 +474,7 @@ function App() {
        }
             }
 
-            if (linkToCalendar && isLabs) {
+            if (isLabs) {
                 const labData = await checkLabs(data); // Check the lab data
 
                 // If there's only one lab, add it to the calendar
@@ -514,7 +508,7 @@ function App() {
                     }
         }
     
-        if (linkToCalendar && isOfficeHours) {
+        if (isOfficeHours) {
             const officeHoursData = await checkOfficeHours(data); // Check the office hours data
 
                 for (const officeHour of officeHoursData) {
@@ -948,14 +942,6 @@ function App() {
                                 checked={includeAssignment}
                                 onChange={(checked) => setIncludeAssignment(checked)}
                             />
-                            {/* For debugging purposes}
-                            <Toggle
-                                key="Link to Calendar"
-                                label="Link to Calendar"
-                                checked={linkToCalendar}
-                                onChange={(checked) => setLinkToCalendar(checked)}
-                            />
-                            */}
                         </div>
                     </div>
                 </div>
