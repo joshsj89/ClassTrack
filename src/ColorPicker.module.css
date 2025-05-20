@@ -1,7 +1,7 @@
 .color-picker-container {
   position: relative;
   display: inline-block;
-  z-index: 9999; 
+  z-index: 8888; 
 }
 
 .color-swatch {
