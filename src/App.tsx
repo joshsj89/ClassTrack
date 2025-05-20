@@ -17,10 +17,11 @@ import CourseSelectionModal from './CourseSelectionModal';
 type Event = calendar_v3.Schema$Event;
 
 function App() {
-    console.log(chrome);
     // Initialize state with a default value
 
     const [isLoading, setIsLoading] = useState(false);
+
+    const [email, setEmail] = useState("");
 
 
     const [selectionOptions, setSelectionOptions] = useState<{ label: string, value: WorkdayCourseFormat }[] | null>(null);
@@ -73,6 +74,7 @@ function App() {
             isAssignments,
             isOfficeHours,
             isExams,
+            isGoogleLinked,
             isDarkModeScheduled,
             darkMode,
             organizeDrive,
@@ -91,7 +93,8 @@ function App() {
         isLabs, 
         isAssignments, 
         isOfficeHours, 
-        isExams, 
+        isExams,
+        isGoogleLinked,
         darkMode, 
         isDarkModeScheduled,
         organizeDrive, 
@@ -113,6 +116,7 @@ function App() {
             const storedIsAssignments = await getStoredState('isAssignments', false);
             const storedisOfficeHours = await getStoredState('isOfficeHours', false);
             const storedIsExams = await getStoredState('IsExams', false);
+            const storedisGoogleLinked = await getStoredState('isGoogleLinked', false);
             const storedIsDarkModeScheduled = await getStoredState('isDarkModeScheduled', false);
             const storedDarkMode = await getStoredState('darkMode', false);
             const storedOrganizeDrive = await getStoredState('organizeDrive', false);
@@ -132,6 +136,7 @@ function App() {
             setIsAssignments(storedIsAssignments);
             setIsOfficeHours(storedisOfficeHours);
             setIsExams(storedIsExams);
+            setIsGoogleLinked(storedisGoogleLinked);
             setIsDarkModeScheduled(storedIsDarkModeScheduled);
             toggleDarkMode(storedDarkMode);
             setOrganizeDrive(storedOrganizeDrive);
@@ -149,11 +154,12 @@ function App() {
     useEffect(() => {
         const getToken = async () => {
             try {
+                if (!isGoogleLinked) return; // If the Google account is not linked, do nothing
+
                 const token = await getGoogleToken(false); // Get the Google token without prompting the user
 
                 if (token) {
-                    setIsGoogleLinked(true);
-                    console.log("Google token retrieved successfully.");
+                    await handleGoogleLink(); // Link the Google account if the token is available
                 }
             } catch (error) {
                 console.error("Error retrieving Google token:", error);
@@ -208,13 +214,25 @@ function App() {
     const getGoogleToken = async (prompt: boolean = true) : Promise<string> => {
         return new Promise<string>((resolve, reject) => {
             chrome.identity.getAuthToken({ interactive: prompt }, (token) => {
-                if (chrome.runtime.lastError || !token) { // Check for errors
-                    reject(new Error("Failed to retrieve Google token: " + chrome.runtime.lastError));
+                if (chrome.runtime.lastError) { // Check for errors
+                    console.log("Failed to retrieve Google token: " + chrome.runtime.lastError.message);
+                    resolve("");
+                } else if (!token) {
+                    console.log("Prompt exited without a token.");
+                    resolve("");
                 } else {
                     resolve(token as string);
                 }
             });
         })
+    }
+
+    const revokeGoogleToken = async () => {
+        await chrome.identity.clearAllCachedAuthTokens();
+        setIsGoogleLinked(false); // Reset the state
+        setEmail(''); // Clear the email
+
+        console.log("Google token revoked successfully.");
     }
 
     // Link Google Account
@@ -223,8 +241,10 @@ function App() {
             const token = await getGoogleToken();
 
             if (!token) {
-                throw new Error("Google token not found");
+                return false;
             }
+
+            setEmail((await chrome.identity.getProfileUserInfo({ accountStatus: 'ANY'})).email); // Get the user's email
 
             if ((await chrome.storage.sync.get('courseCalendarId')).courseCalendarId === undefined) {
                 await createCourseCalendar(); // Create a course calendar
@@ -257,7 +277,10 @@ function App() {
     }
 
     const handleUploadClick = () => {
-        if (!isGoogleLinked) alert("Please link your Google account first.");
+        if (!isGoogleLinked) {
+            alert("Please link your Google account first.");
+            return;
+        }
         
         const input = document.createElement('input');
         input.type = 'file';
@@ -272,7 +295,10 @@ function App() {
     }
 
     const handlePasteTextClick = () => {
-        if (!isGoogleLinked) alert("Please link your Google account first.");
+        if (!isGoogleLinked) {
+            alert("Please link your Google account first.");
+            return;
+        }
 
         const input = document.createElement('input');
         input.type = 'text';
@@ -780,11 +806,11 @@ function App() {
                         textColor={darkMode ? "white" : "black"}
                     />*/}
                     <LogoButton
-                        text={isGoogleLinked ? "Google Linked" : "Link to Google Account"}
-                        onClick={handleGoogleLink}
+                        text={isGoogleLinked ? `Google Linked (${email})` : "Link to Google Account"}
+                        onClick={isGoogleLinked ? revokeGoogleToken : handleGoogleLink}
                         logoSrc="images/google-logo.png"
                         alt="Google"
-                        disabled={isGoogleLinked}
+                        // disabled={isGoogleLinked}
                         backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
                         textColor={darkMode ? "white" : "black"}
                     />
