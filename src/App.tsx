@@ -4,7 +4,7 @@ import LogoButton from './LogoButton';
 import Toggle from './Toggle';
 import { useDarkMode } from './darkModeContext'; 
 import { DarkModeProvider } from './darkModeContext';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ColorPicker from './ColorPicker';
 import { ScheduleEvent, Course, WorkdayCourseFormat } from '../types/course';
 import { Term, TermMappings } from '../types/term';
@@ -24,9 +24,9 @@ function App() {
 
     const [email, setEmail] = useState("");
 
-
     const [selectionOptions, setSelectionOptions] = useState<{ label: string, value: WorkdayCourseFormat }[] | null>(null);
-    const [onSelectCourse, setOnSelectCourse] = useState<((selected: WorkdayCourseFormat | null) => void) | null>(null);
+    // const [onSelectCourse, setOnSelectCourse] = useState<((selected: WorkdayCourseFormat | null) => void) | null>(null);
+    const onSelectCourseRef = useRef<((selected: WorkdayCourseFormat | null) => void)>(null);
 
 
     const [startTime, setStartTime] = useState<string>('20:00');
@@ -429,11 +429,9 @@ function App() {
             setIsLoading(false);
         }
     }
-   
 
-
-     // Extract course data and add it to Google Calendar
-     const processSyllabus = async (data: Course) => {
+    // Extract course data and add it to Google Calendar
+    const processSyllabus = async (data: Course) => {
         const courseData = await checkCourse(data); // Check the course data
 
         if (courseData) {
@@ -450,28 +448,15 @@ function App() {
                     }));
 
                     const selectedCourse = await new Promise<WorkdayCourseFormat | null>((resolve) => {
-                        let selection: WorkdayCourseFormat | null = null;
+                        setSelectionOptions(courseOptions);
 
-                        const promptMessage = "Select a lecture:\n" + courseOptions.map((option, index) => `${index + 1}. ${option.label}`).join("\n");
-
-                        do {
-                            // Show a modal or prompt to select the course
-                            const selectedCourseNum = window.prompt(promptMessage);
-
-                            if (selectedCourseNum === null) break; // User canceled the prompt
-
-                            selection = courseOptions[parseInt(selectedCourseNum) - 1]?.value || null;
-                        } while (!selection);
-
-                        resolve(selection);
+                        onSelectCourseRef.current = resolve; // Use the ref to set the callback
                     });
 
                     if (selectedCourse) {
                         await addWorkdayClassToCalendar(selectedCourse); // Add the selected lecture to Google Calendar
                     }
-
-
-       }
+                }
             }
 
             if (isLabs) {
@@ -487,40 +472,29 @@ function App() {
                     }));
 
                     const selectedLab = await new Promise<WorkdayCourseFormat | null>((resolve) => {
-                        let selection: WorkdayCourseFormat | null = null;
+                        setSelectionOptions(labOptions);
 
-                        const promptMessage = "Select a lab:\n" + labOptions.map((option, index) => `${index + 1}. ${option.label}`).join("\n");
-
-                        do {
-                            // Show a modal or prompt to select the lab
-                            const selectedLabNum = window.prompt(promptMessage);
-
-                            if (selectedLabNum === null) break; // User canceled the prompt
-
-                            selection = labOptions[parseInt(selectedLabNum) - 1]?.value || null;
-                        } while (!selection);
-
-                        resolve(selection);
+                        onSelectCourseRef.current = resolve; // Use the ref to set the callback
                     });
 
                     if (selectedLab) {
                         await addWorkdayClassToCalendar(selectedLab); // Add the selected lab to Google Calendar
                     }
-        }
-    
-        if (isOfficeHours) {
-            const officeHoursData = await checkOfficeHours(data); // Check the office hours data
-
-                for (const officeHour of officeHoursData) {
-                    await addScheduleEventToCalendar(data, officeHour); // Add the office hours to Google Calendar
                 }
-            }
-        } else {
-            console.error("Course data not found.");
-        }
-    }
     
-    };
+                if (isOfficeHours) {
+                    const officeHoursData = await checkOfficeHours(data); // Check the office hours data
+
+                    for (const officeHour of officeHoursData) {
+                        await addScheduleEventToCalendar(data, officeHour); // Add the office hours to Google Calendar
+                    }
+                }
+            } else {
+                console.error("Course data not found.");
+            }
+        }
+    
+    }
     
 
     const checkCourse = async (course: Course): Promise<Array<WorkdayCourseFormat>> => {
@@ -946,16 +920,16 @@ function App() {
                     </div>
                 </div>
 
-                {selectionOptions && onSelectCourse && (
+                {selectionOptions && (
                     <CourseSelectionModal
                         options={selectionOptions}
                         onSelect={(selected) => {
-                        setSelectionOptions(null);
-                        onSelectCourse(selected);
+                            setSelectionOptions(null);
+                            onSelectCourseRef.current?.(selected); // Call the callback with the selected course
                         }}
                         onCancel={() => {
-                        setSelectionOptions(null);
-                        onSelectCourse(null);
+                            setSelectionOptions(null);
+                            onSelectCourseRef.current?.(null); // Call the callback with null
                         }}
                     />
                 )}
