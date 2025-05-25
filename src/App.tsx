@@ -14,6 +14,9 @@ import { calendar_v3 } from 'googleapis';
 import { EventColor } from './helper/color';
 import CourseSelectionModal from './CourseSelectionModal';
 import Loading from './Loading';
+import Complete from './Complete';
+import PasteText from './PasteText';
+import ErrorDisp from './ErrorDisp';
 
 type Event = calendar_v3.Schema$Event;
 
@@ -21,6 +24,12 @@ function App() {
     // Initialize state with a default value
 
     const [isLoading, setIsLoading] = useState(false);
+    const [isComplete, setIsComplete] = useState(false);
+    const [isError, setIsError] = useState(false);
+
+
+    const [showPasteText, setShowPasteText] = useState(false);
+
 
     const [email, setEmail] = useState("");
 
@@ -295,14 +304,17 @@ function App() {
             return;
         }
 
-        const input = document.createElement('input');
-        input.type = 'text';
+        setShowPasteText(true);
 
-        const plainText = window.prompt("Paste the text here:");
+        /*const input = document.createElement('input');
+        input.type = 'text';*/
 
-        if (plainText) {
+        
+        /*const plainText = window.prompt("Paste the text here:");*/
+
+        /*if (plainText) {
             uploadText(plainText); // Call the upload function with the pasted text
-        }
+        }*/
     }
 
     // Fetch calendar events from Google Calendar API
@@ -405,7 +417,9 @@ function App() {
 
     // Upload plain text to the back end
     const uploadText = async (text: string) => {
+        setShowPasteText(false);
         setIsLoading(true);
+
         try {
             const response = await fetch('https://starfish-calm-burro.ngrok-free.app/parsetext', {
                 method: 'POST',
@@ -427,6 +441,7 @@ function App() {
             console.error("Error uploading syllabus:", error);
         } finally{
             setIsLoading(false);
+            
         }
     }
 
@@ -453,9 +468,20 @@ function App() {
                         onSelectCourseRef.current = resolve; // Use the ref to set the callback
                     });
 
+
+                    if (selectedCourse === null) {
+                        console.log("User canceled course selection.");
+                        setIsComplete(false);
+                        setIsError(true);
+                        return;
+                    }
+                    
+                    await addWorkdayClassToCalendar(selectedCourse);
+                    
+                    /*
                     if (selectedCourse) {
                         await addWorkdayClassToCalendar(selectedCourse); // Add the selected lecture to Google Calendar
-                    }
+                    }*/
                 }
             }
 
@@ -477,9 +503,19 @@ function App() {
                         onSelectCourseRef.current = resolve; // Use the ref to set the callback
                     });
 
+                    if (selectedLab === null) {
+                        console.log("User canceled course selection.");
+                        setIsComplete(false);
+                        setIsError(true);
+                        return;
+                    }
+                    
+                    await addWorkdayClassToCalendar(selectedLab);
+
+                    /*
                     if (selectedLab) {
                         await addWorkdayClassToCalendar(selectedLab); // Add the selected lab to Google Calendar
-                    }
+                    }*/
                 }
     
                 if (isOfficeHours) {
@@ -493,7 +529,7 @@ function App() {
                 console.error("Course data not found.");
             }
         }
-    
+        setIsComplete(true);     
     }
     
 
@@ -714,6 +750,13 @@ function App() {
         <>
             {isLoading && <Loading />}
 
+            {isComplete && <Complete />}
+
+            {showPasteText &&<PasteText uploadText={uploadText} />}
+
+            {isError && <ErrorDisp />}
+
+
             <div className={`${styles["App"]} ${darkMode ? styles["dark"] : ""}`}>
                 {/* Title Bar */}
                 <div className={styles["title"]}>
@@ -786,7 +829,7 @@ function App() {
                                     }}
                                 />
                                 <ColorPicker
-                                    label='Events'
+                                    label='Office Hours'
                                     selectedColor={selectedColor[1]}
                                     onColorChange={(newColor: EventColor) => {
                                         const updatedColors = [...selectedColor];
@@ -794,6 +837,7 @@ function App() {
                                         setSelectedColor(updatedColors);
                                     }}
                                 />
+                                {/*
                                 <ColorPicker
                                     label='Tasks'
                                     selectedColor={selectedColor[2]}
@@ -802,7 +846,7 @@ function App() {
                                         updatedColors[2] = newColor;
                                         setSelectedColor(updatedColors);
                                     }}
-                                />
+                                />*/}
                                 <ColorPicker
                                     label='Exams'
                                     selectedColor={selectedColor[3]}
@@ -828,12 +872,13 @@ function App() {
                                 checked={isLabs}
                                 onChange={(checked) => setIsLabs(checked)}
                             />
+                            {/*
                             <Toggle
                                 key="Assignments"
                                 label="Assignments"
                                 checked={isAssignments}
                                 onChange={(checked) => setIsAssignments(checked)}
-                            />
+                                />*/}
                             <Toggle
                                 key="Office Hours"
                                 label="Office Hours"
@@ -892,7 +937,12 @@ function App() {
                             </div>
                         </div>
                         <div className={styles["toggle-container"]}>
-                            <Toggle
+                            <ol className={styles.ol}>
+                                <li className={styles.li}>Link your Google account.</li>
+                                <li className={styles.li}>Upload or paste your syllabus file.</li>
+                                <li className={styles.li}>ClassTrack generates your calendar!</li>
+                            </ol>
+                            {/*<Toggle
                                 key="Organize Drive"
                                 label="Organize Drive"
                                 checked={organizeDrive}
@@ -915,7 +965,7 @@ function App() {
                                 label="Include Assignment"
                                 checked={includeAssignment}
                                 onChange={(checked) => setIncludeAssignment(checked)}
-                            />
+                            />*/}
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { WorkdayCourseFormat } from '../types/course';
 
 interface CourseSelectionModalProps {
@@ -8,6 +8,9 @@ interface CourseSelectionModalProps {
 }
 
 const CourseSelectionModal: React.FC<CourseSelectionModalProps> = ({ options, onSelect, onCancel }) => {
+
+  const [selected, setSelected] = useState<WorkdayCourseFormat | null>(null);
+
   return (
     <div style={{
       position: 'fixed',
@@ -19,34 +22,64 @@ const CourseSelectionModal: React.FC<CourseSelectionModalProps> = ({ options, on
       <div style={{
         background: 'white',
         padding: '20px',
-        borderRadius: '8px',
-        width: '90%',
+        width: '70%',
         maxWidth: '500px',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
       }}>
-        <h2>Select a course</h2>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
-          {options.map((option, idx) => (
-            <li key={idx} style={{ marginBottom: '8px' }}>
-              <button
-                style={{
-                  width: '100%',
-                  padding: '10px',
-                  background: '#f0f0f0',
-                  borderRadius: '4px',
-                  border: 'none',
-                  textAlign: 'left',
-                  cursor: 'pointer'
-                }}
-                onClick={() => onSelect(option.value)}
-              >
-                {option.label}
-              </button>
-            </li>
-          ))}
+       <h2 style={{ marginBottom: '16px', fontSize: '1.25rem', color: 'black'}}>Select a Section</h2>
+        <ul style={{ listStyle: 'none', padding: 0, marginBottom: '16px' }}>
+          {options.map((option, idx) => {
+            const isSelected = selected === option.value;
+            return (
+              <li key={idx} style={{ marginBottom: '10px' }}>
+                <button
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    background: isSelected ? '#ff5652' : '#f5f5f5',
+                    color: isSelected ? '#fff' : '#333',
+                    borderRadius: '6px',
+                    border: '1px solid #ccc',
+                    textAlign: 'left',
+                    cursor: 'pointer',
+                    transition: 'background 0.2s ease',
+                  }}
+                  onClick={() => setSelected(option.value)}
+                >
+                  {option.label}
+                </button>
+              </li>
+            );
+          })}
         </ul>
-        <button onClick={onCancel} style={{ marginTop: '10px' }}>
-          Cancel
-        </button>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+          <button
+            onClick={onCancel}
+            style={{
+              padding: '10px 16px',
+              background: '#e0e0e0',
+              borderRadius: '6px',
+              border: 'none',
+              cursor: 'pointer',
+            }}
+          >
+            Cancel
+          </button>
+          <button
+            onClick={() => selected && onSelect(selected)}
+            disabled={!selected}
+            style={{
+              padding: '10px 16px',
+              background: selected ? '#ff5652' : '#e0e0e0',
+              color: 'white',
+              borderRadius: '6px',
+              border: 'none',
+              cursor: selected ? 'pointer' : 'not-allowed',
+            }}
+          >
+            Confirm
+          </button>
+        </div>
       </div>
     </div>
   );
