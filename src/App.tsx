@@ -10,7 +10,7 @@ import { ScheduleEvent, Course, WorkdayCourseFormat } from '../types/course';
 import { Term, TermMappings } from '../types/term';
 import termMappingsJson from './json/term_mappings.json'; // Import the JSON file directly
 import { convertMDYToDate, convertMDYToYYYYMMDD, convertDayToDayAbbrev, convertscheduleEventToDate } from './helper/date';
-import { calendar_v3 } from 'googleapis';
+import { calendar_v3, oauth2_v2 } from 'googleapis';
 import { EventColor } from './helper/color';
 import CourseSelectionModal from './CourseSelectionModal';
 import Loading from './Loading';
@@ -19,6 +19,11 @@ import PasteText from './PasteText';
 import ErrorDisp from './ErrorDisp';
 
 type Event = calendar_v3.Schema$Event;
+type UserInfo = oauth2_v2.Schema$Userinfo;
+type OAuthError = {
+    error: string;
+    error_description?: string;
+}
 
 function App() {
     // Initialize state with a default value
@@ -158,11 +163,13 @@ function App() {
     useEffect(() => {
         const getToken = async () => {
             try {
-                if (!isGoogleLinked) return; // If the Google account is not linked, do nothing
+                if (!(await getStoredState('isGoogleLinked', false))) return; // If the Google account is not linked, do nothing
 
                 const token = await getGoogleToken(false); // Get the Google token without prompting the user
 
                 if (token) {
+                    setEmail(await getEmail(token)); // Set the email state with the user's email
+
                     await handleGoogleLink(); // Link the Google account if the token is available
                 }
             } catch (error) {
@@ -173,6 +180,38 @@ function App() {
 
         getToken();
     }, []);
+
+    const getUserInfo = async (token: string) : Promise<UserInfo> => {
+        const response = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json() as OAuthError;
+            console.error("Error fetching user info:", errorData);
+
+            throw new Error(`Error fetching user info: ${errorData.error} - ${errorData.error_description || "No description provided"}`);
+        }
+
+        const data = await response.json() as UserInfo;
+
+        if (!data.email) {
+            throw new Error("User email not found in user info.");
+        }
+
+        console.log("User info:", data); // Log the user info
+
+        return data; // Return the user info
+    }
+
+    const getEmail = async (token: string) : Promise<string> => {
+        const userInfo = await getUserInfo(token); // Fetch user info using the token
+        const chromeUserInfo = await chrome.identity.getProfileUserInfo({ accountStatus: 'ANY'});
+
+        return userInfo.email || chromeUserInfo.email;
+    }
 
     const year = new Date().getFullYear();
 
@@ -232,7 +271,7 @@ function App() {
     }
 
     const revokeGoogleToken = async () => {
-        await chrome.identity.clearAllCachedAuthTokens();
+        await chrome.identity.removeCachedAuthToken({ token: await getGoogleToken() }); // Remove the cached token
         setIsGoogleLinked(false); // Reset the state
         setEmail(''); // Clear the email
 
@@ -248,7 +287,7 @@ function App() {
                 return false;
             }
 
-            setEmail((await chrome.identity.getProfileUserInfo({ accountStatus: 'ANY'})).email); // Get the user's email
+            setEmail(await getEmail(token)); // Get the user's email
 
             if ((await chrome.storage.sync.get('courseCalendarId')).courseCalendarId === undefined) {
                 await createCourseCalendar(); // Create a course calendar
