@@ -36,6 +36,7 @@ function App() {
     const [showPasteText, setShowPasteText] = useState(false);
 
     const [email, setEmail] = useState("");
+    const [isHovering, setIsHovering] = useState(false);
 
     const [selectionOptions, setSelectionOptions] = useState<{ label: string, value: WorkdayCourseFormat }[] | null>(null);
     // const [onSelectCourse, setOnSelectCourse] = useState<((selected: WorkdayCourseFormat | null) => void) | null>(null);
@@ -816,8 +817,16 @@ function App() {
                             textColor={darkMode ? "white" : "black"}
                         />*/}
                         <LogoButton
-                            text={isGoogleLinked ? `Google Linked (${email})` : "Link to Google Account"}
+                            text={
+                                isGoogleLinked
+                                    ? isHovering
+                                        ? "Sign Out"
+                                        : `Google Linked (${email})`
+                                    : "Link to Google Account"
+                            }
                             onClick={isGoogleLinked ? revokeGoogleToken : handleGoogleLink}
+                            onMouseEnter={() => setIsHovering(true)}
+                            onMouseLeave={() => setIsHovering(false)}
                             logoSrc="images/google-logo.png"
                             alt="Google"
                             // disabled={isGoogleLinked}

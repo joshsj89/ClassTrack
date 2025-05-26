@@ -1,11 +1,25 @@
 import styles from "./LogoButton.module.css";
 
-function LogoButton({ text, onClick, logoSrc, alt, disabled, backgroundColor, textColor }: { text: string; onClick: () => void; logoSrc: string; alt: string, disabled?: boolean, backgroundColor?: string, textColor?: string }) {
+type LogoButtonProps = {
+    text: string; 
+    onClick: () => void; 
+    onMouseEnter?: () => void; 
+    onMouseLeave?: () => void; 
+    logoSrc: string; 
+    alt: string; 
+    disabled?: boolean; 
+    backgroundColor?: string; 
+    textColor?: string;
+};
+
+function LogoButton({ text, onClick, onMouseEnter, onMouseLeave, logoSrc, alt, disabled, backgroundColor, textColor }: LogoButtonProps) {
     return (
         <button
             className={styles["icon-button"]}
             onClick={onClick}
             disabled={disabled}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             style={{
                 backgroundColor: !disabled ? backgroundColor || "white" : "lightgray",
                 color: textColor || "black",
