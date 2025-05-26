@@ -820,7 +820,7 @@ function App() {
                             text={
                                 isGoogleLinked
                                     ? isHovering
-                                        ? "Sign Out"
+                                        ? `Unlink ${email}`
                                         : `Google Linked (${email})`
                                     : "Link to Google Account"
                             }
@@ -829,7 +829,6 @@ function App() {
                             onMouseLeave={() => setIsHovering(false)}
                             logoSrc="images/google-logo.png"
                             alt="Google"
-                            // disabled={isGoogleLinked}
                             backgroundColor={darkMode ? "#FFFFFF0D" : "white"}
                             textColor={darkMode ? "white" : "black"}
                         />
