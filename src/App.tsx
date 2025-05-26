@@ -201,8 +201,6 @@ function App() {
             throw new Error("User email not found in user info.");
         }
 
-        console.log("User info:", data); // Log the user info
-
         return data; // Return the user info
     }
 
@@ -494,10 +492,8 @@ function App() {
             console.log("Course data found:", courseData); // Log the course data
 
             if (isLectures) {
-                // If there's only one lecture, add it to the calendar
-                if (courseData.length === 1) {
-                    await addWorkdayClassToCalendar(courseData[0]); // Add the course lecture to Google Calendar
-                } else if (courseData.length > 1) { // If there are multiple lectures, have the user select which one to add
+                // If there are any lectures, have the user select which one to add
+                if (courseData.length > 0) {
                     const courseOptions = courseData.map((course) => ({
                         label: `${course["Course Section"]} - ${course["Meeting Patterns"]}`,
                         value: course,
@@ -529,10 +525,8 @@ function App() {
             if (isLabs) {
                 const labData = await checkLabs(data); // Check the lab data
 
-                // If there's only one lab, add it to the calendar
-                if (labData.length === 1) {
-                    await addWorkdayClassToCalendar(labData[0]); // Add the lab to Google Calendar
-                } else if (labData.length > 1) {// If there are multiple labs, have the user select which one to add
+                // If there are any labs, have the user select which one to add
+                if (labData.length > 0) {
                     const labOptions = labData.map((lab) => ({
                         label: `${lab["Course Section"]} - ${lab["Meeting Patterns"]}`,
                         value: lab,
