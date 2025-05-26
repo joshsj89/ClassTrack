@@ -35,7 +35,6 @@ function App() {
 
     const [showPasteText, setShowPasteText] = useState(false);
 
-
     const [email, setEmail] = useState("");
 
     const [selectionOptions, setSelectionOptions] = useState<{ label: string, value: WorkdayCourseFormat }[] | null>(null);
@@ -405,6 +404,7 @@ function App() {
         return data.id;
     };
 
+    /*
     const createDriveFolder = async (token: string, folderName: string) => {
         const response = await fetch('https://www.googleapis.com/drive/v3/files', {
             method: 'POST',
@@ -425,6 +425,7 @@ function App() {
         const data = await response.json();
         console.log("Folder created:", data);
     }
+    */
 
     // Upload syllabus file to the back end
     const uploadFile = async (file: File) => {
