@@ -744,6 +744,7 @@ function App() {
                 dateTime: eventTimes["endTime"].toISOString(),
                 timeZone: 'America/Los_Angeles',
             },
+            description: scheduleEvent["Instructor"],
             location: scheduleEvent["Location"],
             recurrence: [
                 `RRULE:FREQ=WEEKLY;BYDAY=${scheduleEvent["Weekday"].split(" ").map((dayString) => convertDayToDayAbbrev(dayString)).toString()};UNTIL=${endDate.replaceAll("-", "")}T235959Z`,

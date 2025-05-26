@@ -4,6 +4,7 @@ export interface ScheduleEvent {
     "Start Time": string;
     "End Time": string;
     "Location": string;
+    "Instructor": string;
 }
 
 export interface Course {
@@ -14,14 +15,17 @@ export interface Course {
     "InstructorName": string;
     "InstructorEmail": string;
     "InstructorOffice": string;
-    "Schedule": Array<{
-        "Type": string;
-        "Weekday": string;
-        "Start Time": string;
-        "End Time": string;
-        "Location": string;
+    "Schedule": Array<ScheduleEvent>;
+    "CourseSchedule": Array<{
+        "EventName": string,
+        "Date": string,
+        "StartTime": string,
+        "EndTime": string,
+        "Weekday": string,
+        "WeekNumber": string,
+        "Reading": string,
+        "Topics": string,
     }>;
-    "CourseSchedule": Array<ScheduleEvent>;
     "ImportantDates": Array<{
         "Date": string;
         "EventName": string;
