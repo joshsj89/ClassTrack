@@ -1,4 +1,4 @@
-import { ScheduleEvent } from "../../types/course";
+import { CourseDayEvent, ScheduleEvent } from "../../types/course";
 import { Term } from "../../types/term";
 
 export function convertMDYToDate(dateString: string, meetingPatterns: string): { startTime: Date; endTime: Date } {
@@ -29,18 +29,19 @@ export function convertMDYToDate(dateString: string, meetingPatterns: string): {
     };
 }
 
+function convertMMDDYYYYToDate(dateString: string): Date {
+    const [month, day, year] = dateString.split('/').map(Number);
+    return new Date(year, month - 1, day);
+}
+
 export function convertMDYToYYYYMMDD(dateString: string): string {
     const [month, day, year] = dateString.split('/').map(Number);
     return `${year}${String(month).padStart(2, '0')}${String(day).padStart(2, '0')}`;
 }
 
-export function convertscheduleEventToDate(term: Term, scheduleEvent: ScheduleEvent): { startTime: Date; endTime: Date } {
-    const { "Start Time": startTime, "End Time": endTime } = scheduleEvent;
-
+function parseTimeRange(startDate: Date, startTime: string, endTime: string): { startTime: Date; endTime: Date } {
     const startAMPM = startTime.slice(-2); // PM
     const endAMPM = endTime.slice(-2); // PM
-
-    const startDate = new Date(term.startDate);
 
     const startTimeParts = startTime.split(':'); // ['3', '50 PM']
     const endTimeParts = endTime.split(':'); // ['5', '30 PM']
@@ -56,7 +57,21 @@ export function convertscheduleEventToDate(term: Term, scheduleEvent: ScheduleEv
     return {
         "startTime": new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), startHour24, startMinute, 0, 0),
         "endTime": new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), endHour24, endMinute, 0, 0)
-    }
+    };
+}
+
+export function convertscheduleEventToDate(term: Term, scheduleEvent: ScheduleEvent): { startTime: Date; endTime: Date } {
+    const { "Start Time": startTime, "End Time": endTime } = scheduleEvent;
+
+    const startDate = new Date(term.startDate);
+    
+    return parseTimeRange(startDate, startTime, endTime);
+}
+
+export function convertCourseDayEventToDate(courseDayEvent: CourseDayEvent) {
+    const { "StartTime": startTime, "EndTime": endTime } = courseDayEvent;
+
+    return parseTimeRange(convertMMDDYYYYToDate(courseDayEvent["Date"]), startTime, endTime);
 }
 
 export function convertDayToDayAbbrev(day: string): string {

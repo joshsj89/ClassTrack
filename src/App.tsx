@@ -6,10 +6,10 @@ import { useDarkMode } from './darkModeContext';
 import { DarkModeProvider } from './darkModeContext';
 import { useState, useEffect, useRef } from 'react';
 import ColorPicker from './ColorPicker';
-import { ScheduleEvent, Course, WorkdayCourseFormat } from '../types/course';
+import { ScheduleEvent, Course, WorkdayCourseFormat, CourseDayEvent } from '../types/course';
 import { Term, TermMappings } from '../types/term';
 import termMappingsJson from './json/term_mappings.json'; // Import the JSON file directly
-import { convertMDYToDate, convertMDYToYYYYMMDD, convertDayToDayAbbrev, convertscheduleEventToDate } from './helper/date';
+import { convertMDYToDate, convertMDYToYYYYMMDD, convertDayToDayAbbrev, convertscheduleEventToDate, convertCourseDayEventToDate } from './helper/date';
 import { calendar_v3, oauth2_v2 } from 'googleapis';
 import { EventColor } from './helper/color';
 import CourseSelectionModal from './CourseSelectionModal';
@@ -560,6 +560,14 @@ function App() {
                         await addScheduleEventToCalendar(data, officeHour); // Add the office hours to Google Calendar
                     }
                 }
+
+                if (isExams) {
+                    const examData = await checkExams(data); // Check the exam data
+
+                    for (const exam of examData) {
+                        await addCourseDayEventToCalendar(data, exam); // Add the exam to Google Calendar
+                    }
+                }
             } else {
                 console.error("Course data not found.");
             }
@@ -671,6 +679,48 @@ function App() {
         return courseData;
     }
 
+    const checkExams = async (course: Course) : Promise<Array<CourseDayEvent>> => {
+        const term = `${course["Quarter/Semester"]} ${course["Year"]}`;
+
+        const termMappings: TermMappings = termMappingsJson as TermMappings; // Use the imported JSON directly
+        const termMapping: Term = termMappings[term];
+
+        if (!termMapping) {
+            console.error(`No term mapping found for ${term}`);
+            return [];
+        }
+
+        let courseData: Array<CourseDayEvent> = [];
+
+        for (const courseDayEvent of course["CourseSchedule"]) {
+            if (!courseDayEvent["EventName"].toLowerCase().includes("exam") 
+                && !courseDayEvent["EventName"].toLowerCase().includes("final")) continue; // Skip if the event name does not include "Exam" or "Final"
+
+            courseData.push(courseDayEvent);
+        }
+
+        return courseData;
+    }
+
+    const addEventToCalendar = async (event: Event, token: string) => {
+        const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/primary/events`, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(event),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error adding event to calendar: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Event added to calendar:", data); // Log the added event
+        return data; // Return the added event data
+    }
+
     const addWorkdayClassToCalendar = async (course: WorkdayCourseFormat) => {
         const token = await getGoogleToken();
 
@@ -696,22 +746,7 @@ function App() {
             colorId: selectedColor[0],
         };
 
-        const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/primary/events`, {
-            method: 'POST',
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(event),
-        });
-
-        if (!response.ok) {
-            throw new Error(`Error adding event to calendar: ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        console.log("Event added to calendar:", data); // Log the added event
-        return data; // Return the added event data
+        return addEventToCalendar(event, token); // Add the event to Google Calendar
     }
 
     const addScheduleEventToCalendar = async (course: Course, scheduleEvent: ScheduleEvent) => {
@@ -752,35 +787,35 @@ function App() {
             colorId: selectedColor[1],
         };
 
-        const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/primary/events`, {
-            method: 'POST',
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(event),
-        });
+        return addEventToCalendar(event, token); // Add the event to Google Calendar
+    }
 
-        if (!response.ok) {
-            throw new Error(`Error adding event to calendar: ${response.statusText}`);
+    const addCourseDayEventToCalendar = async (course: Course, courseDayEvent: CourseDayEvent) => {
+        const token = await getGoogleToken();
+
+        if (!token) {
+            throw new Error("Google token not found");
         }
 
-        const data = await response.json();
-        console.log("Event added to calendar:", data); // Log the added event
-        return data; // Return the added event data
+        const eventTimes = convertCourseDayEventToDate(courseDayEvent);
+
+        const event: Event = {
+            summary: `${course["CourseCode"]} - ${courseDayEvent["EventName"]}`,
+            start: {
+                dateTime: eventTimes["startTime"].toISOString(),
+                timeZone: 'America/Los_Angeles',
+            },
+            end: {
+                dateTime: eventTimes["endTime"].toISOString(),
+                timeZone: 'America/Los_Angeles',
+            },
+            description: courseDayEvent["EventName"],
+            location: course["Schedule"].find((event) => event["Type"] === "Class")?.Location || "",
+            colorId: selectedColor[2],
+        };
+
+        return addEventToCalendar(event, token); // Add the event to Google Calendar
     }
-      
-
-    const dotStyle = (delay: number) => ({
-        width: '12px',
-        height: '12px',
-        borderRadius: '50%',
-        backgroundColor: 'white',
-        animation: 'bounce 1s infinite',
-        animationDelay: `${delay}s`
-      });
-      
-
     
     return (
         <>
@@ -788,7 +823,7 @@ function App() {
 
             {isComplete && <Complete />}
 
-            {showPasteText &&<PasteText uploadText={uploadText} />}
+            {showPasteText && <PasteText uploadText={uploadText} />}
 
             {isError && <ErrorDisp />}
 

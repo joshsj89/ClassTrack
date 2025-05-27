@@ -7,6 +7,17 @@ export interface ScheduleEvent {
     "Instructor": string;
 }
 
+export interface CourseDayEvent {
+    "EventName": string;
+    "Date": string;
+    "StartTime": string;
+    "EndTime": string;
+    "Weekday": string;
+    "WeekNumber": string;
+    "Reading": string;
+    "Topics": string;
+}
+
 export interface Course {
     "CourseCode": string;
     "CourseTitle": string;
@@ -16,16 +27,7 @@ export interface Course {
     "InstructorEmail": string;
     "InstructorOffice": string;
     "Schedule": Array<ScheduleEvent>;
-    "CourseSchedule": Array<{
-        "EventName": string,
-        "Date": string,
-        "StartTime": string,
-        "EndTime": string,
-        "Weekday": string,
-        "WeekNumber": string,
-        "Reading": string,
-        "Topics": string,
-    }>;
+    "CourseSchedule": Array<CourseDayEvent>;
     "ImportantDates": Array<{
         "Date": string;
         "EventName": string;
@@ -54,7 +56,7 @@ export interface WorkdayCourseFormat {
     "Start Date": string;
     "End Date": string;
     "Academic Period": string;
-    "Overlapping Course(s)\r": "\r";
+    "Overlapping Course(s)\r": string;
 }
 
 export interface CourseAvailCourseFormat {
