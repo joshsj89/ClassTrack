@@ -1,12 +1,14 @@
 # ClassTrack
 
-ClassTrack is an extension...
+ClassTrack is an extension to populate your Google Calendar based on information from class syllabi.
 
 ## Prerequisites
 - Node.js and npm installed on your machine.
 - A modern web browser (Chrome, Firefox, etc.) for testing the extension.
 
 ## Running the Extension
+
+### Part 1: Loading the Extension to your Web Browser  
 
 1. Clone the repository to your local machine.
 2. Navigate to the project directory.
@@ -19,6 +21,13 @@ ClassTrack is an extension...
 9. Open the extension by clicking on its icon in the Chrome toolbar.
 10. Follow the on-screen instructions to set up the extension.
 11. Use the extension to track your classes and manage your schedule.
+
+### Part 2: Running the Server
+
+12. Download the backend file `ParseCode.ipynb` and run all the cells of the jupyter notebook.
+13. Alternatively, if you have an SCU email, you can instead run the backend code on [this Google Colab file](https://colab.research.google.com/drive/1PcVbO-RHdMwnMFIvtQuyIXu-9aeItSHS?usp=sharing).
+
+# Additional Information
 
 ## Available Scripts
 
